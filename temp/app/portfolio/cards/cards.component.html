@@ -1,0 +1,19 @@
+<section id='cardSection'>
+  <div class='section-content'>
+  <div class="container">
+    <div class='heading'>
+      <h2>My projects</h2>
+      <p class='lead'>Have a look at some of my work in the past.</p>
+    </div>
+      <div class="row">
+      <div class='col-sm-12'>
+      <!-- <div class="card-deck-wrapper"> -->
+        <div class="card-deck">
+          <pp-card *ngFor='let card of cards' [card]='card'></pp-card>
+        </div>
+      <!-- </div> -->
+    </div>
+  </div>
+  </div>
+  </div>
+</section>
