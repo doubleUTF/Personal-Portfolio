@@ -4,7 +4,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { StageComponent } from './stage/stage.component';
-
+import { BootstrapModule } from './bootstrap/bootstrap.module';
 
 @NgModule({
   declarations: [
@@ -13,7 +13,7 @@ import { StageComponent } from './stage/stage.component';
     StageComponent
   ],
   imports: [
-    BrowserModule, BrowserAnimationsModule
+    BrowserModule, BrowserAnimationsModule, BootstrapModule
   ],
   providers: [],
   bootstrap: [AppComponent]
