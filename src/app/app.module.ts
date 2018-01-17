@@ -5,12 +5,14 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { StageComponent } from './stage/stage.component';
 import { BootstrapModule } from './bootstrap/bootstrap.module';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    StageComponent
+    StageComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule, BrowserAnimationsModule, BootstrapModule
