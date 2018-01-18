@@ -1,13 +1,15 @@
 #stage{
+  display:flex;
   color:white;
   background:url("../../assets/img/night-road.jpg") no-repeat center center;
   background-size:cover;
-  height:80vh;
-  display:flex;
+  height:100%;
   align-items: center;
   text-align: center;
+  width:100vw;
+  justify-content: center;
 }
 
 #stage-title{
-  width:100%;
+  background: linear-gradient(rgba(0,0,0,.1), rgba(0,0,0,1),rgba(0,0,0,.1))
 }
