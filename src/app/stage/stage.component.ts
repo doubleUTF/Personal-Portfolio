@@ -8,8 +8,9 @@ import { Component, OnInit } from '@angular/core';
 export class StageComponent implements OnInit {
 
   constructor() { }
-
+  fadeIn:Boolean=false;
   ngOnInit() {
+    this.fadeIn=true;
   }
 
 }

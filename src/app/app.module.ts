@@ -6,13 +6,17 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { StageComponent } from './stage/stage.component';
 import { BootstrapModule } from './bootstrap/bootstrap.module';
 import { FooterComponent } from './footer/footer.component';
+import { PortfolioComponent } from './stage/portfolio/portfolio.component';
+import { AboutComponent } from './stage/about/about.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     StageComponent,
-    FooterComponent
+    FooterComponent,
+    PortfolioComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule, BrowserAnimationsModule, BootstrapModule
