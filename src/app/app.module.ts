@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { routing } from './app.routing';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { StageComponent } from './stage/stage.component';
@@ -19,7 +20,7 @@ import { AboutComponent } from './stage/about/about.component';
     AboutComponent
   ],
   imports: [
-    BrowserModule, BrowserAnimationsModule, BootstrapModule
+    BrowserModule, BrowserAnimationsModule, BootstrapModule, routing
   ],
   providers: [],
   bootstrap: [AppComponent]
