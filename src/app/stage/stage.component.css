@@ -1,6 +1,6 @@
 #stage{
   display:flex;
-  color:white;
+  color:#DDD;
   background:url("../../assets/img/night-road.jpg") no-repeat center center;
   background-size:cover;
   height:100%;

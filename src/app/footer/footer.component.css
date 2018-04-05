@@ -2,3 +2,7 @@ footer{
   color:white;
   padding:1em 1em 1em 0;
 }
+
+:host{
+  background-color: #333 !important;
+}
