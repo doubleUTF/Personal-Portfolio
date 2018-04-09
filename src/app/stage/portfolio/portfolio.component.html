@@ -1,9 +1,16 @@
-<div class="container">
+<div class="container mt-4">
   <div class="row">
-    <div class="col">
-      <h1>
-        portfolio works! yahooooooooooooo
-      </h1>
+    <div class="col-sm-6 col-md-4" *ngFor="let project of projects">
+      <div class="card" style="background-color:inherit"
+      class="img-responsive">
+      <a href="{{project.link}}">
+        <img src="{{project.imagePath}}" alt="" class="card-img-top"
+        style="border:object-fit:cover">
+      </a>
+        <div class="card-body" style="padding-top:.5em">
+          <h5 class="card-title" style="text-align:center">{{project.name}}</h5>
+        </div>
+      </div>
     </div>
   </div>
 </div>
