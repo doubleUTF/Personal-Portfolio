@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -7,11 +6,10 @@ import {ActivatedRoute} from '@angular/router';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  constructor(private route:ActivatedRoute){}
+  constructor(){}
   title = 'app';
 
   ngOnInit(){
-    console.log(this.route)
   }
 
 }

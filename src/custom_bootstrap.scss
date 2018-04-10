@@ -1,4 +1,25 @@
+// Global vars
 $body-bg: #111;
 $body-color:#FFF;
 
+// Dropdowns
+$dropdown-bg:rgb(80, 80, 80);
+$dropdown-link-color:#FFF;
+$dropdown-link-hover-color:         $body-bg !default;
+$dropdown-link-hover-bg:            rgb(161, 161, 161) !default;
+
+$dropdown-link-active-color:        $body-bg !default;
+$dropdown-link-active-bg:           darken($dropdown-link-hover-bg,20%) !default;
+$dropdown-padding-y: .2rem;
+$dropdown-item-padding-x:           1rem !default;
+
+// Input
+$input-bg:                              $dropdown-bg !default;
+$input-color:                           $body-color !default;
+$input-border-color:                    lighten($dropdown-bg,35%) !default;
+$input-focus-border-color:              lighten($input-border-color, 25%) !default;
+$input-focus-box-shadow:                $input-focus-border-color !default;
+// Input addon
+$input-group-addon-color:               $body-color !default;
+$input-group-addon-bg:                  lighten($input-bg,25%) !default;
 @import "../node_modules/bootstrap/scss/bootstrap"

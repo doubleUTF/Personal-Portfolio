@@ -1,7 +1,7 @@
 export class Project{
   constructor(
     public name:string,
-    public year:number,
+    public date:Date,
     public description:string,
     public imagePath:string,
     public link?:string,

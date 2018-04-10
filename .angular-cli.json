@@ -22,7 +22,9 @@
         "styles.css",
         "custom_bootstrap.scss"
       ],
-      "scripts": [],
+      "scripts": [
+        "assets/fonts/fontawesome-all.min.js"
+      ],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",

@@ -1,6 +1,25 @@
 <div class="container mt-4">
   <div class="row">
-    <div class="col-sm-6 col-md-4" *ngFor="let project of projects">
+    <div class="col-sm-3 col-lg-2">
+      <div class="btn-group mb-2" dropdown>
+        <button dropdownToggle type="button" class="btn btn-sm btn-secondary dropdown-toggle">
+          {{sortOption}}
+        </button>
+        <ul *dropdownMenu class="dropdown-menu" role="menu">
+          <li role="menuitem" *ngFor="let option of sortOptions">
+            <a class="dropdown-item" (click)="sortOption=option" style="cursor:pointer">{{option}}</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-sm-6 offset-sm-1 offset-md-0 col-md-5 col-lg-4">
+      <div class="input-group input-group-sm">
+        <input type="text" class="form-control">
+        <div class="input-group-append">
+          <span class="input-group-text"><i class="fas fa-search"></i></span>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="col-sm-6 col-md-4" *ngFor="let project of projects">
       <div class="card" style="background-color:inherit"
       class="img-responsive">
       <a href="{{project.link}}">
@@ -11,6 +30,6 @@
           <h5 class="card-title" style="text-align:center">{{project.name}}</h5>
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
 </div>
