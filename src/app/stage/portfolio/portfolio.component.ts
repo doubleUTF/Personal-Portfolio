@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Project } from './project.model';
 import {PortfolioService} from './portfolio.service';
+import {MOST_RECENT,EARLIEST,A_to_Z,Z_to_A} from './sort-options.model';
+
 @Component({
   selector: 'app-portfolio',
   templateUrl: './portfolio.component.html',
@@ -16,14 +18,16 @@ export class PortfolioComponent implements OnInit {
     this.sortOption=this.sortOptions[0];
   }
 
+  sortOption:string;
   projects:Project[]
 
   sortOptions:string[]=[
-    'Date- Latest',
-    'Date- Earliest',
-    'A-Z',
-    'Z-A'
+    MOST_RECENT,
+    EARLIEST,
+    A_to_Z,
+    Z_to_A
   ]
 
-  sortOption:string;
+  headers:string[];
+
 }

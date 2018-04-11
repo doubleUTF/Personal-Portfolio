@@ -1,6 +1,26 @@
 import {Project} from './project.model';
 
 export class PortfolioService{
+
+  getHeaders(projects:Project[],sortType:string){
+    // Takes a list of projects and generates an array of headers based on type.
+    // Or, generate an object with properties sortType and headers.
+    // Headers will be another object with key value pairs with
+    // header:projectName format.
+    // example
+    return { sortType:'A-Z',
+    headers:{
+      'A':[
+        {name:'Appmaker'}
+      ],
+      'Q':[
+        {name:'Quick Claim'}
+      ],
+    }
+
+  }
+  }
+
   projects:Project[]=[
     new Project('Build a Tribute Page', new Date(2016,8,2),
     'Beginner project on FreeCodeCamp',
