@@ -9,6 +9,7 @@ import { BootstrapModule } from './bootstrap/bootstrap.module';
 import { FooterComponent } from './footer/footer.component';
 import { PortfolioComponent } from './stage/portfolio/portfolio.component';
 import { AboutComponent } from './stage/about/about.component';
+import { ErrorComponent } from './stage/error/error.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { AboutComponent } from './stage/about/about.component';
     StageComponent,
     FooterComponent,
     PortfolioComponent,
-    AboutComponent
+    AboutComponent,
+    ErrorComponent
   ],
   imports: [
     BrowserModule, BrowserAnimationsModule, BootstrapModule, routing
