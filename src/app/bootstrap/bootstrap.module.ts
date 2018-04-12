@@ -4,7 +4,8 @@ import {BsDropdownModule} from 'ngx-bootstrap/dropdown';
 
 @NgModule({
   imports:[
-    BsDropdownModule.forRoot()
+    BsDropdownModule.forRoot(),
+    CollapseModule.forRoot()
   ],
   exports:[
     CollapseModule,
