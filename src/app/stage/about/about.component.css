@@ -3,3 +3,9 @@
     padding-top:40px;
   }
 }
+
+@media screen and (min-width:576px){
+  .sidenav{
+    margin-top: 1.9rem !important;
+  }
+}

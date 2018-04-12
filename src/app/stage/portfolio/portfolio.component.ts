@@ -16,17 +16,23 @@ export class PortfolioComponent implements OnInit {
   ngOnInit() {
     this.projects=this.portfolioService.getProjects();
     this.sortOption=this.sortOptions[0];
+    this.getPortfolioData(this.sortOption);
   }
 
   sortOption:string;
   projects:Project[]
-
+  sortData:object;
   sortOptions:string[]=[
     MOST_RECENT,
     EARLIEST,
-    A_to_Z,
-    Z_to_A
+    // A_to_Z,
+    // Z_to_A
   ]
+
+  getPortfolioData(sortOption:string){
+    this.sortOption=sortOption;
+    this.sortData=this.portfolioService.getSortedData(this.projects,sortOption)
+  }
 
   headers:string[];
 
