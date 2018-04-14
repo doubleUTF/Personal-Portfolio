@@ -23,18 +23,22 @@
     </div> -->
     <div *ngIf="sortData">
     <div class="col-12" *ngFor="let header of sortData.sortedHeaders">
-      <h4 class="ml-5">{{header}}</h4>
+      <h4 style="text-align:center">{{header}}</h4>
       <div class="row">
       <div class="col-sm-6 col-lg-4" *ngFor="let project of sortData.headersObj[header]">
         <div class="card" style="background-color:inherit">
-        <a href="{{project.link}}" target="_blank">
+        <!-- <a href="{{project.link}}" target="_blank"> -->
           <img src="{{project.imagePath}}" alt="{{project.name}}" class="card-img-top img-responsive"
           style="border:object-fit:cover">
           <div class="card-img-overlay" style="overflow:hidden">
             <p class="card-text">{{project.description}}</p>
-            <p class="card-text">Created on {{project.date| date}}</p>
+              <div class="d-flex justify-content-center">
+              <a href="{{project.link}}" class="btn btn-light btn-sm hideButton" role="button" style="color:black;">
+                <i class="fas fa-link"></i>Link
+              </a>
+              </div>
           </div>
-        </a>
+        <!-- </a> -->
         </div>
         <div class="card-body" style="padding-top:.5em">
           <h6 class="card-title" style="text-align:center">{{project.name}}</h6>

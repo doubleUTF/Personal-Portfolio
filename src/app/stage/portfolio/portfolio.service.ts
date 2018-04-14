@@ -75,7 +75,7 @@ export class PortfolioService{
     "https://codepen.io/doubleUTF/pen/KvWYrx"
     ),
     new Project('Alex Lau Acupuncture', new Date(2017,6,17),
-    'Alex Lau Acupuncture is a board-certified acupuncturist with more than 15 years experience.',
+    'Business site for well-respected acupuncturist.',
     "../../../assets/img/alex_lau_acupuncture.jpg",
     "http://aculau.com"
   ),

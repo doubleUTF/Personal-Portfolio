@@ -24,4 +24,11 @@ $input-focus-bg:                        lighten($input-bg,5%);
 // Input addon
 $input-group-addon-color:               $body-color !default;
 $input-group-addon-bg:                  lighten($input-bg,25%) !default;
+
+$container-max-widths: (
+  sm: 650px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px
+) !default;
 @import "../node_modules/bootstrap/scss/bootstrap"

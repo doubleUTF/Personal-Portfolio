@@ -12,8 +12,22 @@ a{
   opacity:.85;
 }
 
-.card:hover{
+.card:hover .card:active{
   transition:.5s ease;
   border:1px solid grey;
   border-radius:.1rem;
+}
+
+@media screen and (min-width:576px) and (max-width:767px){
+  .card-img-overlay{
+    padding:.50rem;
+  }
+}
+
+.hideButton{
+  display:none;
+}
+
+.hideButton:hover .hideButton:active{
+  display:inline !important; 
 }
