@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Project } from './project.model';
+import { Project } from './project/project.model';
 import {PortfolioService} from './portfolio.service';
 import {MOST_RECENT,EARLIEST,A_to_Z,Z_to_A} from './sort-options.model';
 
@@ -35,5 +35,4 @@ export class PortfolioComponent implements OnInit {
   }
 
   headers:string[];
-
 }

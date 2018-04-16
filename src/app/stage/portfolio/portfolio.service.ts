@@ -1,4 +1,4 @@
-import {Project} from './project.model';
+import {Project} from './project/project.model';
 import {MOST_RECENT,EARLIEST,A_to_Z,Z_to_A} from './sort-options.model';
 import {groupBy, sortBy} from 'lodash';
 
