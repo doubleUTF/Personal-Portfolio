@@ -8,7 +8,7 @@ const appRoutes: Routes=[
   {path:'',component:StageComponent},
   {path:'portfolio', component: PortfolioComponent},
   {path:'about', component: AboutComponent},
-  {path:'error',component:ErrorComponent},
+  {path:'error',component:ErrorComponent },
   {path:'**', redirectTo:'/error'}
 ]
 

@@ -11,7 +11,6 @@ export class ProjectComponent implements OnInit {
   constructor(private renderer:Renderer2) { }
 
   ngOnInit() {
-    console.log(this.linkRef);
   }
 
   @ViewChild('link') linkRef:ElementRef;

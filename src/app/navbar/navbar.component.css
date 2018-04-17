@@ -3,3 +3,13 @@
     padding: .5rem 0rem;
   }
 }
+
+:host{
+  transition: .5s ease;
+}
+
+li > a:hover {
+  background-color: grey;
+  border-radius: 6px;
+  transition: .5s ease;
+}

@@ -9,7 +9,7 @@ a{
 }
 
 .card:hover .card-img-overlay{
-  opacity:.85;
+  opacity:.90;
 }
 
 .card:hover{
@@ -22,4 +22,8 @@ a{
   .card-img-overlay{
     padding:.50rem;
   }
+}
+
+.card-text{
+  user-select: none;
 }
