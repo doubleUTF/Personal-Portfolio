@@ -10,4 +10,4 @@ app.get('*',(req,res)=>{
 })
 
 const PORT= process.env.port || 3000;
-app.listen(PORT, () => console.log('David Lau Portfolio listening on port 3000!'))
+app.listen(PORT, () => console.log(`David Lau Portfolio listening on port ${PORT}!`))
