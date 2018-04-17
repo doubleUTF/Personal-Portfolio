@@ -6,6 +6,7 @@
 
 :host{
   transition: .5s ease;
+  user-select: none;
 }
 
 li > a:hover {

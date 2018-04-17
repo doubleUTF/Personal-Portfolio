@@ -47,11 +47,11 @@ export class PortfolioService{
 
   projects:Project[]=[
     new Project('Build a Tribute Page', new Date(2016,8,2),
-    'Beginner project on FreeCodeCamp.',
+    'Beginner project on FreeCodeCamp. A tribute to the late Harambe.',
     "../../../assets/img/harambe.png",
     "https://codepen.io/doubleUTF/pen/yaLbGL"),
     new Project("Simon Game", new Date(2017,11,16),
-    "Classic 80's game of memorization.",
+    "Classic 80's game of memorization. Utilized jQuery for DOM manipulation and SVG.js for graphics.",
     "../../../assets/img/simon.JPG",
     "https://codepen.io/doubleUTF/pen/qPyJaX"
     ),
@@ -65,7 +65,7 @@ export class PortfolioService{
     "../../../assets/img/wiki_viewer.jpg",
     "https://codepen.io/doubleUTF/pen/ZJzaeo"),
     new Project('Calculator', new Date(2017,7,6),
-    "Javascript implementation of a basic calculator",
+    "Javascript implementation of a basic calculator.",
     "../../../assets/img/calc.jpg",
     "https://codepen.io/doubleUTF/pen/XajMGM"
     ),
@@ -117,7 +117,7 @@ export class PortfolioService{
   "../../../assets/img/nike_gc_checker.jpg",
   "https://safe-cliffs-59961.herokuapp.com/"),
   new Project('Quick Claim', new Date(2016,9,20),
-  "Chrome extension to create speedier and smarter online medical claims",
+  "Chrome extension to create speedier and smarter online medical claims.",
   "../../../assets/img/quick_claim.jpg",
   "https://chrome.google.com/webstore/detail/quick-claim/hlmoiemagjdmhpcjeolbcehhildojkki"
   )
