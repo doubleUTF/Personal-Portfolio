@@ -1,4 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+html{
+  /* scrollbar jump fix from https://aykevl.nl/2014/09/fix-jumping-scrollbar */
+  width:100vw;
+  overflow-x: hidden;
+}
+
 body,html{
   height:100%;
 }
