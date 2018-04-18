@@ -1,7 +1,9 @@
   <div class="card" style="background-color:inherit" (mouseenter)="activateLink()"
   (mouseleave)="deactivateLink()">
+  <figure>
     <img src="{{project.imagePath}}" alt="{{project.name}}" class="card-img-top img-responsive"
-    style="border:object-fit:cover">
+    style="border:object-fit:cover; min-width:252px; min-height:147px">
+    </figure>
     <div class="card-img-overlay" style="overflow:hidden">
       <p class="card-text">{{project.description}}</p>
         <div class="d-flex justify-content-center">

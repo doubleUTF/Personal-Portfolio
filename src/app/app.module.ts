@@ -24,7 +24,7 @@ import { ProjectComponent } from './stage/portfolio/project/project.component';
     ProjectComponent
   ],
   imports: [
-    BrowserModule, BrowserAnimationsModule, BootstrapModule, routing
+    BrowserModule, BrowserAnimationsModule, BootstrapModule, routing,
   ],
   providers: [],
   bootstrap: [AppComponent]
