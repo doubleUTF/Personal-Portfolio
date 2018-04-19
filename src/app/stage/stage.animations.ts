@@ -1,12 +1,12 @@
-import { trigger, state, style, animate, transition } from '@angular/animations';
+import { trigger, state, query, style,group, animate, transition } from '@angular/animations';
 
 export const fadeIn=trigger('fadeIn',[
-  transition(':enter',[
+  transition('*=>*',[
     style({
-      opacity:0
-    }),
-    animate('700ms ease-out', style({
-      opacity:1
-    }))
+        opacity:0
+      }),
+      animate('700ms ease-out', style({
+        opacity:1
+      }))
   ])
 ])

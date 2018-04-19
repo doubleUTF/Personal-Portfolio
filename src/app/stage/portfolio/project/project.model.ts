@@ -5,5 +5,6 @@ export class Project{
     public description:string,
     public imagePath:string,
     public link?:string,
+    public internalLink?:boolean
   ){}
 }

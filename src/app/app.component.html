@@ -1,7 +1,7 @@
 <div class="wrap">
   <app-navbar></app-navbar>
-  <div class="body" @fadeIn>
-    <router-outlet></router-outlet>
+  <div class="body" [@fadeIn]="getComponentName(rOutlet)">
+    <router-outlet #rOutlet="outlet"></router-outlet>
   </div>
   <app-footer></app-footer>
 </div>

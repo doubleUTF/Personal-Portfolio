@@ -51,7 +51,7 @@ export class PortfolioService{
     "../../../assets/img/harambe.png",
     "https://codepen.io/doubleUTF/pen/yaLbGL"),
     new Project("Simon Game", new Date(2017,11,16),
-    "Classic 80's game of memorization. Utilized jQuery for DOM manipulation and SVG.js for graphics.",
+    "Classic 80's game of memorization. Built with jQuery and SVG.js.",
     "../../../assets/img/simon.JPG",
     "https://codepen.io/doubleUTF/pen/qPyJaX"
     ),

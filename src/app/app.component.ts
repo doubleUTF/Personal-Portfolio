@@ -11,9 +11,14 @@ import {fadeIn} from './stage/stage.animations';
 
 export class AppComponent implements OnInit {
   constructor(){}
-  title = 'app';
-
   ngOnInit(){
   }
 
+  getComponentName(outlet:RouterOutlet){
+    const routeData=outlet.activatedRouteData['animation'];
+    if (!routeData){
+      return 'Stage'
+    }
+    return routeData
+  }
 }

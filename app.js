@@ -3,6 +3,7 @@ const app = express()
 const path= require('path');
 
 app.use(express.static('public'))
+app.set('trust proxy', true);
 
 // Catch all other routes and return index
 app.get('*',(req,res)=>{

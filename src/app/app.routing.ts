@@ -3,12 +3,16 @@ import { StageComponent } from './stage/stage.component';
 import { PortfolioComponent } from './stage/portfolio/portfolio.component';
 import { AboutComponent} from './stage/about/about.component';
 import {ErrorComponent} from './stage/error/error.component';
+import {MarkdownPreviewerComponent} from './stage/portfolio/markdown-previewer/markdown-previewer.component';
 
 const appRoutes: Routes=[
-  {path:'',component:StageComponent},
-  {path:'portfolio', component: PortfolioComponent},
-  {path:'about', component: AboutComponent},
-  {path:'error',component:ErrorComponent },
+  {path:'',component:StageComponent, data:{animation:'Stage'}},
+  {path:'portfolio', children:[
+    {path:'',component: PortfolioComponent, data:{animation:'Portfolio'}},
+    {path:'markdown-previewer',component:MarkdownPreviewerComponent, data:{animation:'Markdown'}}
+  ]},
+  {path:'about', component: AboutComponent, data:{animation:'About'}},
+  {path:'error',component:ErrorComponent, data:{animation:'Error'} },
   {path:'**', redirectTo:'/error'}
 ]
 
