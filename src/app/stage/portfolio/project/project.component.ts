@@ -30,4 +30,5 @@ export class ProjectComponent implements OnInit {
     this.renderer.removeAttribute(this.linkRef.nativeElement,'href')
     }
   }
+
 }

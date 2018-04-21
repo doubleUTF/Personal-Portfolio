@@ -120,7 +120,12 @@ export class PortfolioService{
   "Chrome extension to create speedier and smarter online medical claims.",
   "../../../assets/img/quick_claim.jpg",
   "https://chrome.google.com/webstore/detail/quick-claim/hlmoiemagjdmhpcjeolbcehhildojkki"
-  )
+),
+  new Project('Markdown Previewer', new Date(2018,3,25),
+  "Markdown Previewer",
+  "",
+  "./markdown-previewer",
+  true)
   ];
 
   getProjects(){

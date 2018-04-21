@@ -2,8 +2,15 @@ const express = require('express')
 const app = express()
 const path= require('path');
 
-app.use(express.static('public'))
+// HTTPS Redirect
 app.set('trust proxy', true);
+app.use(function(req, res, next) {
+  if (req.secure){
+    return next();
+  }
+  res.redirect("https://" + req.headers.host + req.url);
+});
+app.use(express.static('public'))
 
 // Catch all other routes and return index
 app.get('*',(req,res)=>{
