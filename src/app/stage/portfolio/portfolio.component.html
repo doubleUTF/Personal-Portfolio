@@ -26,8 +26,8 @@
       <div class="col-12" *ngFor="let header of sortData.sortedHeaders">
         <h4 style="text-align:center">{{header}}</h4>
         <div class="row">
-          <app-project *ngFor="let project of sortData.headersObj[header]"
-          [project]="project" (focus)="log()" class="col-sm-6 col-lg-4"></app-project>
+          <app-project-thumbnail *ngFor="let project of sortData.headersObj[header]"
+          [project]="project" (focus)="log()" class="col-sm-6 col-lg-4"></app-project-thumbnail>
       </div>
       </div>
   </div>

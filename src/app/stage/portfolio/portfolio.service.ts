@@ -123,9 +123,10 @@ export class PortfolioService{
 ),
   new Project('Markdown Previewer', new Date(2018,3,25),
   "Markdown Previewer",
-  "",
-  "./markdown-previewer",
-  true)
+  null,
+  null,
+  "markdown-previewer"
+  )
   ];
 
   getProjects(){

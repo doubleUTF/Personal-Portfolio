@@ -4,6 +4,7 @@ import { PortfolioComponent } from './stage/portfolio/portfolio.component';
 import { AboutComponent} from './stage/about/about.component';
 import {ErrorComponent} from './stage/error/error.component';
 import {MarkdownPreviewerComponent} from './stage/portfolio/markdown-previewer/markdown-previewer.component';
+import {ProjectComponent} from './stage/portfolio/project/project.component';
 
 const appRoutes: Routes=[
   {path:'',component:StageComponent, data:{animation:'Stage'}},

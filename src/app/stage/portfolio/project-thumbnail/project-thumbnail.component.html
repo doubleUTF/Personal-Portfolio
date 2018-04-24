@@ -1,0 +1,21 @@
+<div class="card" style="background-color:inherit" (mouseenter)="activateLink()"
+(mouseleave)="deactivateLink()">
+  <img src="{{project.imagePath}}" alt="{{project.name}}" class="card-img-top img-responsive"
+  style="border:object-fit:cover; min-width:252px; min-height:147px">
+  <div class="card-img-overlay" style="overflow:hidden">
+    <p class="card-text">{{project.description}}</p>
+      <div class="d-flex justify-content-center">
+      <a class="btn btn-light btn-sm" role="button"
+      style="color:black;" *ngIf="project.link" #link>
+        <i class="fas fa-link"></i> External Link
+      </a>
+      <a class="btn btn-light btn-sm" role="button"
+      style="color:black;" *ngIf="project.internalLink" #internalLink>
+        <i class="fas fa-link"></i> Open
+      </a>
+      </div>
+  </div>
+</div>
+<div class="card-body" style="padding-top:.5em">
+  <h6 class="card-title" style="text-align:center">{{project.name}}</h6>
+</div>
