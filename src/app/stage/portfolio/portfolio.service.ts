@@ -49,30 +49,30 @@ export class PortfolioService{
     new Project('Build a Tribute Page', new Date(2016,8,2),
     'Beginner project on FreeCodeCamp. A tribute to the late Harambe.',
     "../../../assets/img/harambe.png",
-    "https://codepen.io/doubleUTF/pen/yaLbGL"),
+    "https://codepen.io/doubleUTF/full/yaLbGL"),
     new Project("Simon Game", new Date(2017,11,16),
     "Classic 80's game of memorization. Built with jQuery and SVG.js.",
     "../../../assets/img/simon.JPG",
-    "https://codepen.io/doubleUTF/pen/qPyJaX"
+    "https://codepen.io/doubleUTF/full/qPyJaX"
     ),
     new Project('Tic Tac Toe', new Date(2017,9,12),
     'Original Tic Tac Toe game made using minimax algorithm.',
     "../../../assets/img/ttt.jpg",
-    "https://codepen.io/doubleUTF/pen/MvqKGO"
+    "https://codepen.io/doubleUTF/full/MvqKGO"
       ),
     new Project('Wiki Viewer', new Date(2017,6,26),
       'Custom view of random or searched wiki articles.',
     "../../../assets/img/wiki_viewer.jpg",
-    "https://codepen.io/doubleUTF/pen/ZJzaeo"),
+    "https://codepen.io/doubleUTF/full/ZJzaeo"),
     new Project('Calculator', new Date(2017,7,6),
     "Javascript implementation of a basic calculator.",
     "../../../assets/img/calc.jpg",
-    "https://codepen.io/doubleUTF/pen/XajMGM"
+    "https://codepen.io/doubleUTF/full/XajMGM"
     ),
     new Project('Pomodoro Clock', new Date(2017,7,25),
     'Timer app with progression animation.',
     "../../../assets/img/pomodoro_clock.jpg",
-    "https://codepen.io/doubleUTF/pen/KvWYrx"
+    "https://codepen.io/doubleUTF/full/KvWYrx"
     ),
     new Project('Alex Lau Acupuncture', new Date(2017,6,17),
     'Business site for well-respected acupuncturist.',
@@ -126,7 +126,14 @@ export class PortfolioService{
   "../../../assets/img/markdown_previewer.jpg",
   null,
   "markdown-previewer"
-  )
+  ),
+  new Project('Camper Leaderboard', new Date(2018,3,26),
+  "Camper leaderboard project",
+  null,
+  null,
+  "camper-leaderboard"
+)
+
   ];
 
   getProjects(){

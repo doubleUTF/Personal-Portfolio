@@ -15,6 +15,7 @@ import { ProjectComponent } from './stage/portfolio/project/project.component';
 import { MarkdownPreviewerComponent } from './stage/portfolio/markdown-previewer/markdown-previewer.component';
 import { ProjectThumbnailComponent } from './stage/portfolio/project-thumbnail/project-thumbnail.component';
 import { MarkdownPipe } from './stage/portfolio/markdown-previewer/markdown.pipe';
+import { CamperLeaderboardComponent } from './stage/portfolio/camper-leaderboard/camper-leaderboard.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { MarkdownPipe } from './stage/portfolio/markdown-previewer/markdown.pipe
     MarkdownPreviewerComponent,
     ProjectThumbnailComponent,
     MarkdownPipe,
+    CamperLeaderboardComponent,
   ],
   imports: [
     BrowserModule, BrowserAnimationsModule, BootstrapModule, routing, FormsModule
