@@ -14,6 +14,7 @@ import { ErrorComponent } from './stage/error/error.component';
 import { ProjectComponent } from './stage/portfolio/project/project.component';
 import { MarkdownPreviewerComponent } from './stage/portfolio/markdown-previewer/markdown-previewer.component';
 import { ProjectThumbnailComponent } from './stage/portfolio/project-thumbnail/project-thumbnail.component';
+import { MarkdownPipe } from './stage/portfolio/markdown-previewer/markdown.pipe';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { ProjectThumbnailComponent } from './stage/portfolio/project-thumbnail/p
     ErrorComponent,
     ProjectComponent,
     MarkdownPreviewerComponent,
-    ProjectThumbnailComponent
+    ProjectThumbnailComponent,
+    MarkdownPipe,
   ],
   imports: [
     BrowserModule, BrowserAnimationsModule, BootstrapModule, routing, FormsModule

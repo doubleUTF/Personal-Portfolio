@@ -121,9 +121,9 @@ export class PortfolioService{
   "../../../assets/img/quick_claim.jpg",
   "https://chrome.google.com/webstore/detail/quick-claim/hlmoiemagjdmhpcjeolbcehhildojkki"
 ),
-  new Project('Markdown Previewer', new Date(2018,3,25),
-  "Markdown Previewer",
-  null,
+  new Project('Markdown Previewer', new Date(2018,3,24),
+  "Preview live custom generated markdown syntax. Implements Angular two-way databinding and pipes.",
+  "../../../assets/img/markdown_previewer.jpg",
   null,
   "markdown-previewer"
   )
