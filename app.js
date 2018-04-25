@@ -3,13 +3,13 @@ const app = express()
 const path= require('path');
 
 // HTTPS Redirect
-// app.set('trust proxy', true);
-// app.use(function(req, res, next) {
-//   if (req.secure){
-//     return next();
-//   }
-//   res.redirect("https://" + req.headers.host + req.url);
-// });
+app.set('trust proxy', true);
+app.use(function(req, res, next) {
+  if (req.secure){
+    return next();
+  }
+  res.redirect("https://" + req.headers.host + req.url);
+});
 app.use(express.static('public'))
 
 // Catch all other routes and return index
