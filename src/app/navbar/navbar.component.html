@@ -9,7 +9,7 @@
         <ul class="navbar-nav ml-auto" style="text-align:center">
           <li class="nav-item">
             <a routerLinkActive="active" class="nav-link" routerLink="portfolio"
-            (click)="isCollapsed=true">Portfolio</a>
+            (click)="isCollapsed=true" [routerLinkActiveOptions]="{exact:true}">Portfolio</a>
           </li>
           <li class="nav-item">
             <a routerLinkActive="active" class="nav-link" routerLink="about"
