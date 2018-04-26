@@ -128,8 +128,8 @@ export class PortfolioService{
   "markdown-previewer"
   ),
   new Project('Camper Leaderboard', new Date(2018,3,26),
-  "Camper leaderboard project",
-  null,
+  "Retrieve data through Angular HttpClient and output the list with structural directives.",
+  "../../../assets/img/camper_leaderboard.jpg",
   null,
   "camper-leaderboard"
 )

@@ -16,6 +16,7 @@ import { MarkdownPreviewerComponent } from './stage/portfolio/markdown-previewer
 import { ProjectThumbnailComponent } from './stage/portfolio/project-thumbnail/project-thumbnail.component';
 import { MarkdownPipe } from './stage/portfolio/markdown-previewer/markdown.pipe';
 import { CamperLeaderboardComponent } from './stage/portfolio/camper-leaderboard/camper-leaderboard.component';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,7 @@ import { CamperLeaderboardComponent } from './stage/portfolio/camper-leaderboard
     CamperLeaderboardComponent,
   ],
   imports: [
-    BrowserModule, BrowserAnimationsModule, BootstrapModule, routing, FormsModule
+    BrowserModule, BrowserAnimationsModule, BootstrapModule, routing, FormsModule, HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

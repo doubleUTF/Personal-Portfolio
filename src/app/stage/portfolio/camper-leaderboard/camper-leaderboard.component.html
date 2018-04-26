@@ -1,16 +1,27 @@
-<div class="container mt-4">
+<div class="container">
   <div class="row">
     <div class="col">
-      <h3 style="text-align:center">FreeCodeCamp <i class="fab fa-free-code-camp"></i> Leaderboard</h3>
-      <table class="table">
+      <h3 style="text-align:center" class="mt-4">FreeCodeCamp
+        <i class="fab fa-free-code-camp"></i> Leading Campers</h3>
+      <table class="table table-striped">
         <thead>
           <tr>
             <th scope="col">#</th>
             <th scope="col">Camper Name</th>
-            <th scope="col">Points last 30 days</th>
-            <th scope="col">Points all time</th>
+            <th scope="col" (click)="getData('Recent')"
+            [ngClass]="{activeLink:currentType=='Recent', linkUpdate:currentType!='Recent'}">Points last 30 days</th>
+            <th scope="col" (click)="getData('AllTime')"
+            [ngClass]="{activeLink:currentType=='AllTime',linkUpdate:currentType!='AllTime'}">Points all time</th>
           </tr>
         </thead>
+        <tbody>
+        <tr *ngFor="let camper of currentList; let i=index">
+          <th scope="row">{{i+1}}</th>
+          <td><img src="{{camper.img}}" style="max-height:2em; border-radius:1em"> {{camper.username}}</td>
+          <td>{{camper.recent}}</td>
+          <td>{{camper.alltime}}</td>
+        </tr>
+      </tbody>
       </table>
     </div>
   </div>
