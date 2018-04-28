@@ -17,6 +17,8 @@ import { ProjectThumbnailComponent } from './stage/portfolio/project-thumbnail/p
 import { MarkdownPipe } from './stage/portfolio/markdown-previewer/markdown.pipe';
 import { CamperLeaderboardComponent } from './stage/portfolio/camper-leaderboard/camper-leaderboard.component';
 import {HttpClientModule} from '@angular/common/http';
+import { RecipeBoxComponent } from './stage/portfolio/recipe-box/recipe-box.component';
+import { UnlessDirective } from './directives/unless.directive';
 
 @NgModule({
   declarations: [
@@ -32,6 +34,8 @@ import {HttpClientModule} from '@angular/common/http';
     ProjectThumbnailComponent,
     MarkdownPipe,
     CamperLeaderboardComponent,
+    RecipeBoxComponent,
+    UnlessDirective,
   ],
   imports: [
     BrowserModule, BrowserAnimationsModule, BootstrapModule, routing, FormsModule, HttpClientModule

@@ -1,7 +1,7 @@
 <div class="wrap">
-  <app-navbar></app-navbar>
+  <app-navbar *appUnless="shouldHideBars(rOutlet)"></app-navbar>
   <div class="body" [@fadeIn]="getComponentName(rOutlet)">
     <router-outlet #rOutlet="outlet"></router-outlet>
   </div>
-  <app-footer></app-footer>
+  <app-footer *appUnless="shouldHideBars(rOutlet)"></app-footer>
 </div>

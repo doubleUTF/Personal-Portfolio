@@ -21,4 +21,8 @@ export class AppComponent implements OnInit {
     }
     return routeData
   }
+
+  shouldHideBars(outlet:RouterOutlet):boolean{
+    return outlet.activatedRouteData['hideBars'];
+  }
 }

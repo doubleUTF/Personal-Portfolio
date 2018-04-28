@@ -128,10 +128,16 @@ export class PortfolioService{
   "markdown-previewer"
   ),
   new Project('Camper Leaderboard', new Date(2018,3,26),
-  "Retrieve data through Angular HttpClient and output the list with structural directives.",
+  "Leadeboard app to show recent and all-time most active contributors.",
   "../../../assets/img/camper_leaderboard.jpg",
   null,
   "camper-leaderboard"
+),
+new Project('Recipe Box', new Date(2018,3,26),
+"Create and save your own recipes!",
+null,
+null,
+"recipe-box"
 )
 
   ];
