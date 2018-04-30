@@ -108,10 +108,6 @@ export class PortfolioService{
   "../../../assets/img/fifteen_puzzle.JPG",
   "http://www.codeskulptor.org/#user41_xgKw1wSt6T_115.py"
   ),
-  new Project('Personal Portfolio', new Date(2018,3,13),
-  "Personal portfolio to showcase work history. Built with Angular and Bootstrap.",
-  "../../../assets/img/david_lau_portfolio.jpg",
-  ),
   new Project('Nike Gift Card Checker', new Date(2018,3,4),
   "Client-requested custom app to bulk check Nike Gift Cards.",
   "../../../assets/img/nike_gc_checker.jpg",

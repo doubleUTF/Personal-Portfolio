@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {RouterOutlet} from '@angular/router';
-import {fadeIn} from './stage/stage.animations';
+import {fadeIn} from './app.animations';
 
 @Component({
   selector: 'app-root',
