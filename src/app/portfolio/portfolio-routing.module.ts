@@ -8,9 +8,9 @@ import {CamperLeaderboardComponent} from './camper-leaderboard/camper-leaderboar
 const routes:Routes=[
   {path:'',component: PortfolioComponent, data:{animation:'Portfolio'}},
   {path:'markdown-previewer',component:MarkdownPreviewerComponent,
-    data:{animation:'Markdown',hideBars:true}},
+    data:{animation:'Markdown',hideBars:false}},
   {path:'camper-leaderboard',component:CamperLeaderboardComponent,
-    data:{animation:'Camper',hideBars:true}},
+    data:{animation:'Camper',hideBars:false}},
   {path:'recipe-box',loadChildren:'./recipe-box/recipe-box.module#RecipeBoxModule',
     data:{animation:'Recipe',hideBars:true}}
 ]

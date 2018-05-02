@@ -23,6 +23,7 @@ export class AppComponent implements OnInit {
   }
 
   shouldHideBars(outlet:RouterOutlet):boolean{
-    return outlet.activatedRouteData['hideBars'];
+    const bool= outlet.activatedRouteData['hideBars'];
+    if (bool==true) return true
   }
 }
