@@ -1,10 +1,12 @@
 import {Ingredient} from './ingredient.model';
 
-export class Recipe{
-  name:string;
-  description:string;
-  ingredients:Ingredient[];
-  cookingTime:number;
-  directions:string;
-  imageURL?:string;
+export class Recipe {
+  constructor(
+    public name:string,
+    public description:string,
+    public ingredients:Ingredient[],
+    public cookingTime:number,
+    public directions:string,
+    public imageURL?:string
+  ){}
 }
