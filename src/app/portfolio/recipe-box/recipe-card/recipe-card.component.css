@@ -1,5 +1,4 @@
 .card-body{
-  /* padding:1rem; */
   padding-top:.5rem;
 }
 
@@ -19,4 +18,9 @@ p{
 .card-img-overlay{
   margin-right: 1.25rem;
   overflow:hidden;
+}
+
+.card-text{
+  height:4.5rem;
+  overflow: hidden;
 }
