@@ -6,15 +6,24 @@ import {Ingredient} from './ingredient.model';
 export class RecipeBoxService {
   defaultRecipes:Recipe[]=[
     new Recipe('Fresh Salmon',
-    'A simple dish of fresh salmon. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+    'A simple dish of fresh salmon.',
     [new Ingredient('Sliced Salmon','1'), new Ingredient('Lemon', '1')],
     5,
     ['Cut salmon into fine slices.','Season with lemon',
     '*Optional: Dip with soy sauce and wasabe',],
     new Date(),
     '../../../../assets/img/recipe-box/salmon.jpg'
-  )
-  ]
+  ),
+    new Recipe('Grilled Ribeye Steak',
+    'A tasty, juicy, filling main dish for meatlovers. Enjoy moderately!',
+    [new Ingredient('Ribeye steak', '1'), new Ingredient('Rosemary', '1 sprig'),
+    new Ingredient('Salt','3 tablespoons'),new Ingredient('Butter','1 stick'),
+    new Ingredient('Cooking oil', '2 Tablespoons')],
+    40,
+    ['Season the slab of meat with salt, oil, and rosemary.'],
+    new Date(),
+    '../../../../assets/img/recipe-box/ribeye.jpg')
+    ]
 
   getRecipes(){
     return this.defaultRecipes.slice();
