@@ -13,16 +13,16 @@ export class RecipeBoxComponent implements OnInit {
   constructor(
     public recipeService:RecipeBoxService
   ) { }
-  
+
   ngOnInit() {
-    this.recipes=this.recipeService.getRecipes();
     // Check browser for web storage support
     if (typeof(Storage) !=="undefined"){
       if (!localStorage.recipes){
-
+        localStorage.setItem('recipes',JSON.stringify(this.recipeService.getRecipes()))
       }
+        this.recipes=JSON.parse(localStorage.getItem('recipes'))
     } else {
-      console.log("No Web Storage support.")
+        this.recipes=this.recipeService.getRecipes();
     }
   }
 
