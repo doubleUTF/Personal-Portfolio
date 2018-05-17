@@ -11,7 +11,6 @@ export class RecipeBoxService {
     5,
     ['Cut salmon into fine slices.','Season with lemon',
     '*Optional: Dip with soy sauce and wasabe',],
-    new Date(),
     '../../../../assets/img/recipe-box/salmon.jpg'
     ),
     new Recipe('Grilled Ribeye Steak',
@@ -21,7 +20,6 @@ export class RecipeBoxService {
     new Ingredient('Cooking oil', '2 Tablespoons')],
     40,
     ['Season the slab of meat with salt, oil, and rosemary.'],
-    new Date(),
     '../../../../assets/img/recipe-box/ribeye.jpg'),
     new Recipe('BBQ Ribs',
     'Good ol\' mouth-watering barbeque pork ribs.',
@@ -30,13 +28,16 @@ export class RecipeBoxService {
     240,
     ['Marinade Pork Ribs for 3 hours', 'Preheat oven to 350 degrees F.',
     'Place ribs into oven for 45 minutes'],
-    new Date(),
     '../../../../assets/img/recipe-box/bbq_ribs.jpg'
     )
     ]
 
   getRecipes(){
     return this.defaultRecipes.slice();
+  }
+
+  getRecipe(id:number){
+    return this.defaultRecipes.slice()[id];
   }
 
   constructor() { }

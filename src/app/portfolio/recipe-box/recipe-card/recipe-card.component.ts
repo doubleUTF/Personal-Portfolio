@@ -14,4 +14,5 @@ export class RecipeCardComponent implements OnInit {
   }
 
   @Input() recipe:Recipe
+  @Input() id:number;
 }

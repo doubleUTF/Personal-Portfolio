@@ -7,7 +7,6 @@ export class Recipe {
     public ingredients:Ingredient[],
     public cookingTime:number,
     public directions:string[],
-    public createdON:Date,
     public imageURL?:string,
     public imgLgURL?:string
   ){}

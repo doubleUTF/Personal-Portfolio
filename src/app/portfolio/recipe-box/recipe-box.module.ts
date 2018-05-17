@@ -4,12 +4,16 @@ import {RecipeBoxComponent} from './recipe-box.component';
 import {RecipeRoutesModule} from './recipe-box.routing';
 import { RecipeNavComponent } from './recipe-nav/recipe-nav.component';
 import { RecipeCardComponent } from './recipe-card/recipe-card.component';
+import { RecipeDetailComponent } from './recipe-detail/recipe-detail.component';
+import { RecipeThumbnailsComponent } from './recipe-thumbnails/recipe-thumbnails.component';
+import {RecipeBoxService} from './recipe-box.service';
 
 @NgModule({
   imports: [
     SharedModule,
     RecipeRoutesModule
   ],
-  declarations: [RecipeBoxComponent, RecipeNavComponent, RecipeCardComponent],
+  declarations: [RecipeBoxComponent, RecipeNavComponent, RecipeCardComponent, RecipeDetailComponent, RecipeThumbnailsComponent],
+  providers:[RecipeBoxService]
 })
 export class RecipeBoxModule { }
