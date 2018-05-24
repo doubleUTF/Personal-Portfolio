@@ -20,4 +20,8 @@ export class RecipeDetailComponent implements OnInit {
     console.log(this.recipe)
   }
   recipe:Recipe;
+
+  getImage(){
+    return `url(${this.recipe.imgLgURL})`
+  }
 }

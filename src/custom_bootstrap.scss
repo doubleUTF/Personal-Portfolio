@@ -25,6 +25,12 @@ $input-focus-bg:                        lighten($input-bg,5%);
 $input-group-addon-color:               $body-color !default;
 $input-group-addon-bg:                  lighten($input-bg,25%) !default;
 
+// List groups
+$list-group-bg:                     #333 !default;
+$list-group-border-color:           white !default;
+$list-group-border-width:           1px !default;
+$list-group-border-radius:          6px !default;
+
 $container-max-widths: (
   sm: 650px,
   md: 720px,

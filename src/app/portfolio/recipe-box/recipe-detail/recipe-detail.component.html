@@ -1,7 +1,29 @@
 <div class="container">
-  <div class="row">
-    <div class="col">
-      <h3>{{recipe.name}}</h3>
+  <div class="row justify-content-center">
+    <div class="col-12 mt-3 col-sm-10">
+      <div *ngIf="recipe.imgLgURL" class="jumbotron" [ngStyle]="{'background-image':getImage(),
+    'background-position':'center center',
+  'background-repeat':'no-repeat', 'overflow':'hidden', 'user-select'  :'none'}">
+        <h1 class="display-4" style="text-shadow: 3px 3px 3px #444">{{recipe.name}}</h1>
+      </div>
+      <p>{{recipe.description}}</p>
+      <hr>
+      <div class="row">
+        <div class="col-12 col-lg-4 order-lg-last mb-4">
+          <h4>Ingredients</h4>
+          <ul class="list-group">
+            <li class="list-group-item" *ngFor="let ingredient of recipe.ingredients">
+             {{ingredient.quantity}} {{ingredient.name}}</li>
+          </ul>
+        </div>
+        <div class="col-12 col-lg-8 order-lg-first">
+          <h4>Directions</h4>
+          <ul class="list-group">
+            <li class="list-group-item" *ngFor="let direction of recipe.directions; let i=index">
+            {{i+1}}. {{direction}}</li>
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
 </div>

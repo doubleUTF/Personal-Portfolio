@@ -11,7 +11,8 @@ export class RecipeBoxService {
     5,
     ['Cut salmon into fine slices.','Season with lemon',
     '*Optional: Dip with soy sauce and wasabe',],
-    '../../../../assets/img/recipe-box/salmon.jpg'
+    '../../../../assets/img/recipe-box/salmon.jpg',
+    '../../../../assets/img/recipe-box/salmon_high.jpg'
     ),
     new Recipe('Grilled Ribeye Steak',
     'A tasty, juicy, filling entree for meatlovers. Enjoy moderately!',
