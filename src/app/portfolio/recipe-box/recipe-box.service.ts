@@ -21,7 +21,8 @@ export class RecipeBoxService {
     new Ingredient('Cooking oil', '2 Tablespoons')],
     40,
     ['Season the slab of meat with salt, oil, and rosemary.'],
-    '../../../../assets/img/recipe-box/ribeye.jpg'),
+    '../../../../assets/img/recipe-box/ribeye.jpg',
+    '../../../../assets/img/recipe-box/ribeye_high.jpg'),
     new Recipe('BBQ Ribs',
     'Good ol\' mouth-watering barbeque pork ribs.',
     [new Ingredient('Pork Ribs', '2 lbs'), new Ingredient('BBQ Marinade', '4 cups'),
@@ -29,7 +30,8 @@ export class RecipeBoxService {
     240,
     ['Marinade Pork Ribs for 3 hours', 'Preheat oven to 350 degrees F.',
     'Place ribs into oven for 45 minutes'],
-    '../../../../assets/img/recipe-box/bbq_ribs.jpg'
+    '../../../../assets/img/recipe-box/bbq_ribs.jpg',
+    '../../../../assets/img/recipe-box/bbq_ribs_high.jpg'
     )
     ]
 

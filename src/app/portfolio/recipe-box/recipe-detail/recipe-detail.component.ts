@@ -22,6 +22,7 @@ export class RecipeDetailComponent implements OnInit {
   recipe:Recipe;
 
   getImage(){
-    return `url(${this.recipe.imgLgURL})`
+    let img=this.recipe.imgLgURL||this.recipe.imageURL;
+    return `url(${img})`
   }
 }
