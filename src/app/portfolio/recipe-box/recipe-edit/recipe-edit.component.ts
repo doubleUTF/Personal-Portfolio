@@ -12,4 +12,7 @@ export class RecipeEditComponent implements OnInit {
   ngOnInit() {
   }
 
+  newRecipe:boolean;
+
+  
 }

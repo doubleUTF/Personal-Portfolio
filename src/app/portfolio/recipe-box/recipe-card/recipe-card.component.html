@@ -9,7 +9,7 @@
     <p class="card-text">{{recipe.description}}</p>
     <div class="btn-group">
       <button class="btn btn-outline-light btn-sm" [routerLink]="['./',id]">View</button>
-      <button class="btn btn-outline-light btn-sm">Edit</button>
+      <button class="btn btn-outline-light btn-sm" [routerLink]="['./',id,'edit']">Edit</button>
     </div>
     <span style="float:right">
    {{recipe.cookingTime}} min
