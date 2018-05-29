@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-recipe-nav',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RecipeNavComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private route:ActivatedRoute
+  ) { }
 
   ngOnInit() {
   }
 
+  button:string;
+
+  getButtonMode(){
+    // Checks the router to know which type of button should be displayed.
+  }
 }
