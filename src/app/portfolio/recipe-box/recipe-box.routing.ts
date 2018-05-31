@@ -7,9 +7,10 @@ import {RecipeEditComponent} from './recipe-edit/recipe-edit.component';
 
 const recipeRoutes:Routes=[
   {path:'',component:RecipeBoxComponent,children:[
-    {path:'',component:RecipeThumbnailsComponent, data:{navButtons:['add']}},
-    {path:':id', component:RecipeDetailComponent, data:{navButtons:['edit']}},
-    {path:':id/edit', component:RecipeEditComponent, data:{navButtons:['cancel','save']}}
+    {path:'',component:RecipeThumbnailsComponent},
+    {path:':id', component:RecipeDetailComponent},
+    {path:':id/edit', component:RecipeEditComponent, data:{new:false}},
+    {path:'new', component:RecipeEditComponent, data:{new:true}}
   ]},
 ]
 

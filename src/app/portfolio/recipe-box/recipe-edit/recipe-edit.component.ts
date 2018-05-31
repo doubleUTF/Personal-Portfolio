@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Recipe} from '../recipe.model';
 
 @Component({
   selector: 'app-recipe-edit',
@@ -13,6 +14,6 @@ export class RecipeEditComponent implements OnInit {
   }
 
   newRecipe:boolean;
+  currentRecipe:Recipe;
 
-  
 }
