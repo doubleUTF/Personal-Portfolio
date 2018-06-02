@@ -1,20 +1,23 @@
 <div class="container">
-  <div class="row mt-2 justify-content-around">
+  <div class="row mt-2">
+    <div class="col-12" *ngIf="newRecipe">
+      <h2>New Recipe</h2>
+    </div>
     <div class="col-12 col-sm-6 col-md-5 col-lg-5 col-xl-4">
-      <label for="name">Recipe Name</label>
+      <label for="name">Recipe Name*</label>
       <div class="input-group input-group-sm mb-3">
         <input type="text" class="form-control" id="name">
       </div>
-      <label for="name">Description</label>
+      <label for="name">Description*</label>
       <div class="input-group input-group-sm mb-3">
         <textarea class="form-control" id="description" rows="3"></textarea>
       </div>
-      <label for="name">Directions</label>
+      <label for="name">Directions*</label>
       <div class="input-group input-group-sm mb-3">
         <textarea class="form-control" id="directions"></textarea>
       </div>
     </div>
-    <div class="col-12 col-sm-6 col-md-5 col-lg-4 col-xl-4">
+    <div class="col-12 col-sm-6 col-md-5 col-lg-4 col-xl-4 offset-md-1 offset-lg-1">
       <label for="thumbnail-image">Thumbnail image link</label>
       <div class="input-group input-group-sm mb-3">
         <input type="text" class="form-control" id="thumbnail-img">
@@ -25,7 +28,7 @@
       </div>
       <div class="row">
         <div class="col-8">
-          <label for="name">Cooking time</label>
+          <label for="name">Cooking time*</label>
           <div class="input-group input-group-sm mb-3">
             <input type="text" class="form-control" id="time">
             <div class="input-group-append">
@@ -34,7 +37,7 @@
           </div>
         </div>
       </div>
-      <label for="name">Ingredients</label>
+      <label for="name">Ingredients*</label>
       <div class="input-group input-group-sm mb-3">
         <input type="text" class="form-control" id="ingredients">
       </div>

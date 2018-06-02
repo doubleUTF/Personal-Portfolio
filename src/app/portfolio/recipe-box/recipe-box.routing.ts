@@ -8,9 +8,9 @@ import {RecipeEditComponent} from './recipe-edit/recipe-edit.component';
 const recipeRoutes:Routes=[
   {path:'',component:RecipeBoxComponent,children:[
     {path:'',component:RecipeThumbnailsComponent},
+    {path:'new', component:RecipeEditComponent, data:{new:true}},
     {path:':id', component:RecipeDetailComponent},
     {path:':id/edit', component:RecipeEditComponent, data:{new:false}},
-    {path:'new', component:RecipeEditComponent, data:{new:true}}
   ]},
 ]
 

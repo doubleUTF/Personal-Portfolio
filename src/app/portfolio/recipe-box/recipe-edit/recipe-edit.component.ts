@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Recipe} from '../recipe.model';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-recipe-edit',
@@ -8,9 +9,14 @@ import {Recipe} from '../recipe.model';
 })
 export class RecipeEditComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private route:ActivatedRoute
+  ) { }
 
   ngOnInit() {
+    this.route.data.subscribe((newRecipe)=>{
+      this.newRecipe=newRecipe.new;
+    })
   }
 
   newRecipe:boolean;
