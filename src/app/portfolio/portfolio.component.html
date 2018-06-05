@@ -9,7 +9,8 @@
         </button>
         <ul *dropdownMenu class="dropdown-menu" role="menu">
           <li role="menuitem" *ngFor="let option of sortOptions">
-            <a class="dropdown-item" (click)="getPortfolioData(option)" style="cursor:pointer">{{option}}</a></li>
+            <a class="dropdown-item" (click)="getPortfolioData(option)"
+            style="cursor:pointer">{{option}}</a></li>
         </ul>
       </div>
     </div>
