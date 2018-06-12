@@ -9,33 +9,42 @@
       </div>
     </ng-template>
     <div class="col-12 col-sm-6 col-md-5 col-lg-5 col-xl-4">
+      <form [formGroup]="recipeForm">
       <label for="name">Recipe Name*</label>
       <div class="input-group input-group-sm mb-3">
-        <input type="text" class="form-control" id="name">
+        <input type="text" class="form-control" id="name" formControlName="name">
       </div>
       <label for="name">Description*</label>
       <div class="input-group input-group-sm mb-3">
-        <textarea class="form-control" id="description" rows="3"></textarea>
+        <textarea class="form-control" id="description" rows="3"
+        formControlName="description"></textarea>
       </div>
       <label for="name">Directions*</label>
-      <div class="input-group input-group-sm mb-3" *ngFor="let direction of currentRecipe.directions">
-        <textarea class="form-control" id="directions"></textarea>
+      <div formArrayName="directions">
+        <div class="input-group input-group-sm mb-3"
+        *ngFor="let directionCtrl of recipeForm.get('directions')['controls']; let i=index">
+          <textarea class="form-control" id="directions"
+            [formControlName]="i"></textarea>
+        </div>
       </div>
+    </form>
     </div>
+
     <div class="col-12 col-sm-6 col-md-5 col-lg-4 col-xl-4 offset-md-1 offset-lg-1">
+      <form [formGroup]="recipeForm">
       <label for="thumbnail-image">Thumbnail image link</label>
       <div class="input-group input-group-sm mb-3">
-        <input type="text" class="form-control" id="thumbnail-img">
+        <input type="text" class="form-control" id="thumbnail-img" formControlName="imageURL">
       </div>
       <label for="background-image">Background image link</label>
       <div class="input-group input-group-sm mb-3">
-        <input type="text" class="form-control" id="background-img">
+        <input type="text" class="form-control" id="background-img" formControlName="imgLgURL">
       </div>
       <div class="row">
         <div class="col-8">
           <label for="name">Cooking time*</label>
           <div class="input-group input-group-sm mb-3">
-            <input type="text" class="form-control" id="time">
+            <input type="text" class="form-control" id="time" formControlName="cookingTime">
             <div class="input-group-append">
               <span class="input-group-text">Minutes</span>
             </div>
@@ -44,18 +53,22 @@
       </div>
       <label for="name">Ingredients*</label>
       <label for="quantity" style="float:right">Quantity*</label>
-      <div class="row mb-2" *ngFor="let ingredient of currentRecipe.ingredients">
-        <div class="col-9">
+      <div formArrayName="ingredients">
+      <div class="row mb-2" *ngFor="let ingredientCtrl of recipeForm.get('ingredients')['controls'];
+      let i=index" [formGroupName]="i">
+        <div class="col-8" style="padding-right:10px">
           <div class="input-group input-group-sm">
-            <input type="text" class="form-control" id="ingredients">
+            <input type="text" class="form-control" id="ingredients" formControlName="name">
           </div>
         </div>
-        <div class="col-3">
+        <div class="col-4" style="padding-left:10px">
           <div class="input-group input-group-sm">
-            <input type="text" class="form-control" id="quantity">
+            <input type="text" class="form-control" id="quantity" formControlName="quantity">
           </div>
         </div>
       </div>
+      </div>
+      </form>
     </div>
     <div class="col-12">
       <button type="button" class="btn btn-outline-success"

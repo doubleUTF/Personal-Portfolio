@@ -23,17 +23,32 @@ export class RecipeEditComponent implements OnInit {
       if (!this.newRecipe){
         this.route.params.subscribe((data)=>{
           this.currentRecipe=this.recipeService.getRecipe(data.id);
+          let ingredients=new FormArray([], Validators.required);
+          let directions=new FormArray([], Validators.required);
+
+          this.currentRecipe.ingredients.forEach((ingredient)=>{
+            ingredients.push(new FormGroup({
+              name:new FormControl(ingredient.name, Validators.required),
+              quantity:new FormControl(ingredient.quantity, Validators.required)
+            }))
+          })
+
+          this.currentRecipe.directions.forEach((direction)=>{
+            directions.push(new FormControl(direction))
+          })
 
           this.recipeForm=new FormGroup({
             name:new FormControl(this.currentRecipe.name, Validators.required),
             description:new FormControl(this.currentRecipe.description, Validators.required),
-            ingredients:new FormArray([], Validators.required),
-            cookingTime:new FormControl('', [Validators.required]),
-            directions: new FormArray([]),
-            imageURL:new FormControl(''),
-            imgLgURL:new FormControl('')
+            cookingTime:new FormControl(this.currentRecipe.cookingTime, [Validators.required]),
+            ingredients:ingredients,
+            directions: directions,
+            imageURL:new FormControl(this.currentRecipe.imageURL),
+            imgLgURL:new FormControl(this.currentRecipe.imgLgURL)
           })
         })
+        console.log(this.currentRecipe)
+        console.log(this.recipeForm.get('directions'))
       }
     })
   }
