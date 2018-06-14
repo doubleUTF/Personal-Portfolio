@@ -10,24 +10,27 @@
     </ng-template>
     <div class="col-12 col-sm-6 col-md-5 col-lg-5 col-xl-4">
       <form [formGroup]="recipeForm">
-      <label for="name">Recipe Name*</label>
-      <div class="input-group input-group-sm mb-3">
-        <input type="text" class="form-control" id="name" formControlName="name">
-      </div>
-      <label for="name">Description*</label>
-      <div class="input-group input-group-sm mb-3">
-        <textarea class="form-control" id="description" rows="3"
-        formControlName="description"></textarea>
-      </div>
-      <label for="name">Directions*</label>
-      <div formArrayName="directions">
-        <div class="input-group input-group-sm mb-3"
-        *ngFor="let directionCtrl of recipeForm.get('directions')['controls']; let i=index">
-          <textarea class="form-control" id="directions"
-            [formControlName]="i"></textarea>
+        <label for="name">Recipe Name*</label>
+        <div class="input-group input-group-sm mb-3">
+          <input type="text" class="form-control" id="name" formControlName="name">
         </div>
-      </div>
-    </form>
+        <label for="name">Description*</label>
+        <div class="input-group input-group-sm mb-3">
+          <textarea class="form-control" id="description" rows="3"
+          formControlName="description"></textarea>
+        </div>
+        <div formArrayName="directions">
+          <label for="name">Directions*</label>
+          <div class="input-group input-group-sm mb-2"
+          *ngFor="let directionCtrl of recipeForm.get('directions')['controls'];
+          let i=index">
+                <span style="vertical-align:50%">{{i}}.</span>
+                 <textarea class="form-control" id="directions"
+              [formControlName]="i" style="margin-left:5px; border-radius:.25rem !important"></textarea>
+              <i class="fas fa-trash-alt" style="padding-left:5px; font-size:1.2rem;"></i>
+          </div>
+        </div>
+      </form>
     </div>
 
     <div class="col-12 col-sm-6 col-md-5 col-lg-4 col-xl-4 offset-md-1 offset-lg-1">
@@ -54,27 +57,29 @@
       <label for="name">Ingredients*</label>
       <label for="quantity" style="float:right">Quantity*</label>
       <div formArrayName="ingredients">
-      <div class="row mb-2" *ngFor="let ingredientCtrl of recipeForm.get('ingredients')['controls'];
-      let i=index" [formGroupName]="i">
-        <div class="col-8" style="padding-right:10px">
-          <div class="input-group input-group-sm">
-            <input type="text" class="form-control" id="ingredients" formControlName="name">
+        <div class="row mb-2" *ngFor="let ingredientCtrl of recipeForm.get('ingredients')['controls'];
+        let i=index" [formGroupName]="i">
+          <div class="col-8" style="padding-right:10px">
+            <div class="input-group input-group-sm">
+              <input type="text" class="form-control" id="ingredients" formControlName="name">
+            </div>
+          </div>
+          <div class="col-4" style="padding-left:10px">
+            <div class="input-group input-group-sm">
+              <input type="text" class="form-control" id="quantity" formControlName="quantity">
+            </div>
           </div>
         </div>
-        <div class="col-4" style="padding-left:10px">
-          <div class="input-group input-group-sm">
-            <input type="text" class="form-control" id="quantity" formControlName="quantity">
-          </div>
-        </div>
-      </div>
       </div>
       </form>
     </div>
     <div class="col-12">
-      <button type="button" class="btn btn-outline-success"
+      <button type="button" class="btn btn-outline-success" [disabled]="recipeForm.pristine || recipeForm.invalid"
       >Save</button>
       <button type="button" class="btn btn-outline-danger"
       *ngIf="!newRecipe">Delete</button>
+      <button type="button" class="btn btn-outline-secondary"
+      [routerLink]="['..']" >Cancel</button>
     </div>
   </div>
 </div>
