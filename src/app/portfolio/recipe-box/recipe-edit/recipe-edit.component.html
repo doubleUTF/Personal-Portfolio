@@ -21,6 +21,8 @@
         </div>
         <div formArrayName="directions">
           <label for="name">Directions*</label>
+          <!-- <button type="button" class="btn btn-outline-info btn-sm mb-1"
+          style="margin-left:7%">Add</button> -->
           <div class="input-group input-group-sm mb-2"
           *ngFor="let directionCtrl of recipeForm.get('directions')['controls'];
           let i=index">
@@ -29,6 +31,7 @@
               [formControlName]="i" style="margin-left:5px; border-radius:.25rem !important"></textarea>
               <i class="fas fa-trash-alt trash-icon"></i>
           </div>
+          <i class="fas fa-plus" style="margin:auto"></i>
         </div>
       </form>
     </div>
@@ -55,18 +58,24 @@
         </div>
       </div>
       <label for="name">Ingredients*</label>
+      <button type="button" class="btn btn-outline-info btn-sm mb-1"
+      style="margin-left:7%">Add</button>
       <label for="quantity" style="float:right">Quantity*</label>
       <div formArrayName="ingredients">
         <div class="row mb-2" *ngFor="let ingredientCtrl of recipeForm.get('ingredients')['controls'];
         let i=index" [formGroupName]="i">
           <div class="col-8" style="padding-right:10px">
             <div class="input-group input-group-sm">
-              <input type="text" class="form-control" id="ingredients" formControlName="name">
+              <span class="vertical-center">{{i+1}}.</span>
+              <input type="text" class="form-control" id="ingredients" formControlName="name"
+              style="border-radius:.25rem !important; margin-left:5px;">
             </div>
           </div>
           <div class="col-4" style="padding-left:10px">
             <div class="input-group input-group-sm">
-              <input type="text" class="form-control" id="quantity" formControlName="quantity">
+              <input type="text" class="form-control" id="quantity" formControlName="quantity"
+              style="border-radius:.25rem !important">
+              <i class="fas fa-trash-alt trash-icon"></i>
             </div>
           </div>
         </div>
