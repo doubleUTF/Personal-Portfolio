@@ -1,3 +1,14 @@
 label{
   margin-bottom:0.1rem;
 }
+
+.vertical-center{
+  align-self: center;
+}
+
+.trash-icon{
+  padding-left:5px;
+  font-size:1.3rem;
+  cursor:pointer;
+  align-self: center;
+}

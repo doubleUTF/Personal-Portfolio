@@ -24,10 +24,10 @@
           <div class="input-group input-group-sm mb-2"
           *ngFor="let directionCtrl of recipeForm.get('directions')['controls'];
           let i=index">
-                <span style="vertical-align:50%">{{i}}.</span>
+                <span class="vertical-center">{{i+1}}.</span>
                  <textarea class="form-control" id="directions"
               [formControlName]="i" style="margin-left:5px; border-radius:.25rem !important"></textarea>
-              <i class="fas fa-trash-alt" style="padding-left:5px; font-size:1.2rem;"></i>
+              <i class="fas fa-trash-alt trash-icon"></i>
           </div>
         </div>
       </form>
