@@ -56,8 +56,6 @@
         </div>
       </div>
       <label for="name">Ingredients*</label>
-      <button type="button" class="btn btn-outline-info btn-sm mb-1"
-      style="margin-left:7%">Add</button>
       <label for="quantity" style="float:right">Quantity*</label>
       <div formArrayName="ingredients">
         <div class="row mb-2" *ngFor="let ingredientCtrl of recipeForm.get('ingredients')['controls'];
@@ -81,7 +79,7 @@
       </div>
       </form>
     </div>
-    <div class="col-12 mt-3 mb-3 d-flex justify-content-around">
+    <div class="col-12 col-sm-6 col-md-5 col-lg-4 col-xl-4 mt-3 mb-3 d-flex justify-content-around">
       <button type="button" class="btn btn-outline-success" [disabled]="recipeForm.pristine || recipeForm.invalid"
       >Save</button>
       <button type="button" class="btn btn-outline-danger"
