@@ -21,8 +21,6 @@
         </div>
         <div formArrayName="directions">
           <label for="name">Directions*</label>
-          <!-- <button type="button" class="btn btn-outline-info btn-sm mb-1"
-          style="margin-left:7%">Add</button> -->
           <div class="input-group input-group-sm mb-2"
           *ngFor="let directionCtrl of recipeForm.get('directions')['controls'];
           let i=index">
@@ -31,7 +29,7 @@
               [formControlName]="i" style="margin-left:5px; border-radius:.25rem !important"></textarea>
               <i class="fas fa-trash-alt trash-icon"></i>
           </div>
-          <i class="fas fa-plus" style="margin:auto"></i>
+          <i class="fas fa-plus d-flex justify-content-center add-green"></i>
         </div>
       </form>
     </div>
@@ -79,10 +77,11 @@
             </div>
           </div>
         </div>
+        <i class="fas fa-plus d-flex justify-content-center add-green"></i>
       </div>
       </form>
     </div>
-    <div class="col-12">
+    <div class="col-12 mt-3 mb-3 d-flex justify-content-around">
       <button type="button" class="btn btn-outline-success" [disabled]="recipeForm.pristine || recipeForm.invalid"
       >Save</button>
       <button type="button" class="btn btn-outline-danger"

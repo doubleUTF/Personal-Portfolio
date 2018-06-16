@@ -12,3 +12,10 @@ label{
   cursor:pointer;
   align-self: center;
 }
+
+.add-green{
+  color:green;
+  font-size:1.2rem;
+  margin:auto;
+  cursor:pointer;
+}
