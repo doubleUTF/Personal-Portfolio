@@ -47,8 +47,8 @@ export class RecipeEditComponent implements OnInit {
             imgLgURL:new FormControl(this.currentRecipe.imgLgURL)
           })
         })
-        console.log(this.currentRecipe)
-        console.log(this.recipeForm.get('directions'))
+        console.log(this.recipeForm)
+        // console.log(this.recipeForm.get('directions'))
       }
     })
   }
@@ -56,4 +56,14 @@ export class RecipeEditComponent implements OnInit {
   newRecipe:boolean;
   currentRecipe:Recipe;
   recipeForm:FormGroup;
+
+  addDirection(){
+    (<FormArray>this.recipeForm.get('directions')).push(
+      new FormControl(null,Validators.required))
+  }
+
+  removeDirection(id:number){
+    (<FormArray>this.recipeForm.get('directions')).removeAt(id)
+    this.recipeForm.markAsDirty();
+  }
 }

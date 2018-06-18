@@ -27,9 +27,13 @@
                 <span class="vertical-center">{{i+1}}.</span>
                  <textarea class="form-control" id="directions"
               [formControlName]="i" style="margin-left:5px; border-radius:.25rem !important"></textarea>
-              <i class="fas fa-trash-alt trash-icon"></i>
+                 <div (click)="removeDirection(i)" style="align-self:center">
+                    <i class="fas fa-trash-alt trash-icon"></i>
+                 </div>
           </div>
-          <i class="fas fa-plus d-flex justify-content-center add-green"></i>
+          <div (click)="addDirection()">
+            <i class="fas fa-plus d-flex justify-content-center add-green"></i>
+          </div>
         </div>
       </form>
     </div>
@@ -45,7 +49,7 @@
         <input type="text" class="form-control" id="background-img" formControlName="imgLgURL">
       </div>
       <div class="row">
-        <div class="col-8">
+        <div class="col-8">dw
           <label for="name">Cooking time*</label>
           <div class="input-group input-group-sm mb-3">
             <input type="text" class="form-control" id="time" formControlName="cookingTime">
