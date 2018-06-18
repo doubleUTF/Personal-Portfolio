@@ -28,8 +28,10 @@
             <p *ngFor="let direction of recipe.directions; let i=index">
               {{i+1}}. {{direction}}</p>
           </div>
-          <button class="btn btn-outline-warning" type="button"
-          [routerLink]="['./','edit']">Edit Recipe</button>
+          <div class="d-flex justify-content-center mb-3">
+            <button class="btn btn-outline-warning" type="button"
+            [routerLink]="['./','edit']">Edit Recipe</button>
+          </div>
         </div>
       </div>
     </div>

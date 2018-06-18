@@ -24,12 +24,12 @@
           <div class="input-group input-group-sm mb-2"
           *ngFor="let directionCtrl of recipeForm.get('directions')['controls'];
           let i=index">
-                <span class="vertical-center">{{i+1}}.</span>
-                 <textarea class="form-control" id="directions"
-              [formControlName]="i" style="margin-left:5px; border-radius:.25rem !important"></textarea>
-                 <div (click)="removeDirection(i)" style="align-self:center">
-                    <i class="fas fa-trash-alt trash-icon"></i>
-                 </div>
+            <span class="vertical-center">{{i+1}}.</span>
+             <textarea class="form-control" id="directions"
+          [formControlName]="i" style="margin-left:5px; border-radius:.25rem !important"></textarea>
+             <div (click)="removeDirection(i)" style="align-self:center">
+                <i class="fas fa-trash-alt trash-icon"></i>
+             </div>
           </div>
           <div (click)="addDirection()">
             <i class="fas fa-plus d-flex justify-content-center add-green"></i>
@@ -49,7 +49,7 @@
         <input type="text" class="form-control" id="background-img" formControlName="imgLgURL">
       </div>
       <div class="row">
-        <div class="col-8">dw
+        <div class="col-8">
           <label for="name">Cooking time*</label>
           <div class="input-group input-group-sm mb-3">
             <input type="text" class="form-control" id="time" formControlName="cookingTime">
@@ -75,11 +75,15 @@
             <div class="input-group input-group-sm">
               <input type="text" class="form-control" id="quantity" formControlName="quantity"
               style="border-radius:.25rem !important">
-              <i class="fas fa-trash-alt trash-icon"></i>
+              <div (click)="removeIngredient(i)"  style="align-self:center">
+                <i class="fas fa-trash-alt trash-icon"></i>
+              </div>
             </div>
           </div>
         </div>
-        <i class="fas fa-plus d-flex justify-content-center add-green"></i>
+        <div class="d-flex justify-content-center" (click)="addIngredient()">
+          <i class="fas fa-plus add-green"></i>
+        </div>
       </div>
       </form>
     </div>

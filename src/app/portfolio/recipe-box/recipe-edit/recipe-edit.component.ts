@@ -66,4 +66,18 @@ export class RecipeEditComponent implements OnInit {
     (<FormArray>this.recipeForm.get('directions')).removeAt(id)
     this.recipeForm.markAsDirty();
   }
+
+  addIngredient(){
+    (<FormArray>this.recipeForm.get('ingredients')).push(
+      new FormGroup({
+        name:new FormControl(null, Validators.required),
+        quantity: new FormControl(null, Validators.required)
+      })
+    )
+  }
+
+  removeIngredient(id:number){
+    (<FormArray>this.recipeForm.get('ingredients')).removeAt(id);
+    this.recipeForm.markAsDirty();
+  }
 }
