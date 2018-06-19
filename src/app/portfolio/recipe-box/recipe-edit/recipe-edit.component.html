@@ -12,12 +12,15 @@
       <form [formGroup]="recipeForm">
         <label for="name">Recipe Name*</label>
         <div class="input-group input-group-sm mb-3">
-          <input type="text" class="form-control" id="name" formControlName="name">
+          <input type="text" class="form-control" id="name" formControlName="name"
+          [ngClass]="{invalid:recipeForm.get('name').invalid && recipeForm.get('name').touched}">
         </div>
         <label for="name">Description*</label>
         <div class="input-group input-group-sm mb-3">
           <textarea class="form-control" id="description" rows="3"
-          formControlName="description"></textarea>
+          formControlName="description"
+          [ngClass]="{invalid:recipeForm.get('description').invalid && recipeForm.get('description').touched}"
+          ></textarea>
         </div>
         <div formArrayName="directions">
           <label for="name">Directions*</label>

@@ -18,3 +18,12 @@ label{
   margin:auto;
   cursor:pointer;
 }
+
+.invalid{
+  border:1px solid red;
+  background-color: rgb(126, 74, 74);
+}
+
+.form-control{
+  transition:background-color .4s ease-out, border-color .4s ease-out;
+}
