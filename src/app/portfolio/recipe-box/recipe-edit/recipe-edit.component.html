@@ -29,7 +29,9 @@
           let i=index">
             <span class="vertical-center">{{i+1}}.</span>
              <textarea class="form-control" id="directions"
-          [formControlName]="i" style="margin-left:5px; border-radius:.25rem !important"></textarea>
+          [formControlName]="i" style="margin-left:5px; border-radius:.25rem !important"
+          [ngClass]="{invalid:recipeForm.get('directions')['controls'][i].invalid
+        && recipeForm.get('directions')['controls'][i].touched}"></textarea>
              <div (click)="removeDirection(i)" style="align-self:center">
                 <i class="fas fa-trash-alt trash-icon"></i>
              </div>
@@ -55,7 +57,9 @@
         <div class="col-8">
           <label for="name">Cooking time*</label>
           <div class="input-group input-group-sm mb-3">
-            <input type="text" class="form-control" id="time" formControlName="cookingTime">
+            <input type="text" class="form-control" id="time" formControlName="cookingTime"
+            [ngClass]="{invalid:recipeForm.get('cookingTime').invalid &&
+             recipeForm.get('cookingTime').touched}">
             <div class="input-group-append">
               <span class="input-group-text">Minutes</span>
             </div>
@@ -71,13 +75,17 @@
             <div class="input-group input-group-sm">
               <span class="vertical-center">{{i+1}}.</span>
               <input type="text" class="form-control" id="ingredients" formControlName="name"
+              [ngClass]="{invalid:recipeForm.get('ingredients')['controls'][i]['controls']['name'].invalid
+            && recipeForm.get('ingredients')['controls'][i]['controls']['name'].touched}"
               style="border-radius:.25rem !important; margin-left:5px;">
             </div>
           </div>
           <div class="col-4" style="padding-left:5px">
             <div class="input-group input-group-sm">
               <input type="text" class="form-control" id="quantity" formControlName="quantity"
-              style="border-radius:.25rem !important">
+              style="border-radius:.25rem !important"
+              [ngClass]="{invalid:recipeForm.get('ingredients')['controls'][i]['controls']['quantity'].invalid
+            && recipeForm.get('ingredients')['controls'][i]['controls']['quantity'].touched}">
               <div (click)="removeIngredient(i)"  style="align-self:center">
                 <i class="fas fa-trash-alt trash-icon"></i>
               </div>

@@ -34,7 +34,7 @@ export class RecipeEditComponent implements OnInit {
           })
 
           this.currentRecipe.directions.forEach((direction)=>{
-            directions.push(new FormControl(direction))
+            directions.push(new FormControl(direction,Validators.required))
           })
 
           this.recipeForm=new FormGroup({
@@ -47,8 +47,9 @@ export class RecipeEditComponent implements OnInit {
             imgLgURL:new FormControl(this.currentRecipe.imgLgURL)
           })
         })
-        console.log(this.recipeForm)
+        // console.log(this.recipeForm)
         // console.log(this.recipeForm.get('directions'))
+        console.log(this.recipeForm.get('ingredients'))
       }
     })
   }
@@ -58,8 +59,10 @@ export class RecipeEditComponent implements OnInit {
   recipeForm:FormGroup;
 
   addDirection(){
-    (<FormArray>this.recipeForm.get('directions')).push(
-      new FormControl(null,Validators.required))
+    if (this.recipeForm.get('directions').valid){
+      (<FormArray>this.recipeForm.get('directions')).push(
+        new FormControl(null,Validators.required))
+    }
   }
 
   removeDirection(id:number){
@@ -68,12 +71,14 @@ export class RecipeEditComponent implements OnInit {
   }
 
   addIngredient(){
-    (<FormArray>this.recipeForm.get('ingredients')).push(
-      new FormGroup({
-        name:new FormControl(null, Validators.required),
-        quantity: new FormControl(null, Validators.required)
-      })
-    )
+    if (this.recipeForm.get('ingredients').valid){
+      (<FormArray>this.recipeForm.get('ingredients')).push(
+        new FormGroup({
+          name:new FormControl(null, Validators.required),
+          quantity: new FormControl(null, Validators.required)
+        })
+      )
+    }
   }
 
   removeIngredient(id:number){
