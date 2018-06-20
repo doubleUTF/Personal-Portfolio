@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {RecipeBoxService} from '../recipe-box.service';
 
 @Component({
   selector: 'app-recipe-nav',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RecipeNavComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private recipeService:RecipeBoxService
+  ) { }
 
   ngOnInit() {
   }

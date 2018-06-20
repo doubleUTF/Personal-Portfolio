@@ -15,6 +15,5 @@ import { RecipeEditComponent } from './recipe-edit/recipe-edit.component';
     RecipeRoutesModule
   ],
   declarations: [RecipeBoxComponent, RecipeNavComponent, RecipeCardComponent, RecipeDetailComponent, RecipeThumbnailsComponent, RecipeEditComponent],
-  providers:[RecipeBoxService]
 })
 export class RecipeBoxModule { }

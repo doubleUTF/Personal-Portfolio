@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import {Recipe} from './recipe.model';
 import {Ingredient} from './ingredient.model';
+import {Subject} from 'rxjs';
 
 @Injectable()
-export class RecipeBoxService {
+export class RecipeBoxService{
   defaultRecipes:Recipe[]=[
     new Recipe('Fresh Salmon',
     'A simple dish of fresh salmon.',
@@ -34,15 +35,52 @@ export class RecipeBoxService {
     '../../../../assets/img/recipe-box/bbq_ribs_high.jpg'
     )
     ]
+    currentRecipes:Recipe[];
+    recipeSubject= new Subject<Recipe[]>();
 
-  getRecipes(){
+  getDefaultRecipes(){
     return this.defaultRecipes.slice();
   }
 
   getRecipe(id:number){
-    return this.defaultRecipes.slice()[id];
+    return this.currentRecipes.slice()[id];
   }
 
-  constructor() { }
+  getRecipes(){
+    return this.currentRecipes.slice();
+  }
 
+  saveRecipe(recipe:Recipe, id:number){
+    this.currentRecipes[id]=recipe;
+    this.save();
+  }
+
+  resetRecipes(){
+    this.currentRecipes=this.getDefaultRecipes();
+    this.save();
+  }
+
+  deleteRecipe(id:number){
+    this.currentRecipes.splice(id,1);
+    this.save();
+  }
+
+  save(){
+    this.recipeSubject.next(this.currentRecipes);
+    localStorage.setItem('recipes',JSON.stringify(this.getRecipes()))
+  }
+
+  constructor() {
+    if (typeof(Storage) !=="undefined"){
+      // Local storage available
+      if (!localStorage.recipes){
+      // No recipe entry found in localStorage
+        localStorage.setItem('recipes',JSON.stringify(this.getDefaultRecipes()))
+      }
+      // Recipe found in local storage
+        this.currentRecipes=JSON.parse(localStorage.getItem('recipes'))
+    } else {
+      // No local storage
+      this.currentRecipes=this.getDefaultRecipes();
+    }}
 }

@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import {RecipeBoxService} from '../recipe-box.service';
 import {Recipe} from '../recipe.model';
+import {Subject} from 'rxjs';
 
 @Component({
   selector: 'app-recipe-thumbnails',
   templateUrl: './recipe-thumbnails.component.html',
   styleUrls: ['./recipe-thumbnails.component.css'],
-  providers:[RecipeBoxService]
 })
 export class RecipeThumbnailsComponent implements OnInit {
 
@@ -16,14 +16,12 @@ export class RecipeThumbnailsComponent implements OnInit {
 
   ngOnInit() {
     // Check browser for web storage support
-    if (typeof(Storage) !=="undefined"){
-      if (!localStorage.recipes){
-        localStorage.setItem('recipes',JSON.stringify(this.recipeService.getRecipes()))
-      }
-        this.recipes=JSON.parse(localStorage.getItem('recipes'))
-    } else {
-        this.recipes=this.recipeService.getRecipes();
-    }
+    this.recipes=this.recipeService.getRecipes();
+    this.recipeService.recipeSubject.subscribe((recipes:Recipe[])=>{
+      console.log('new recipes', recipes)
+      this.recipes=recipes;
+    })
+    console.log(this.recipeService.recipeSubject)
   }
 
   recipes:Recipe[]
