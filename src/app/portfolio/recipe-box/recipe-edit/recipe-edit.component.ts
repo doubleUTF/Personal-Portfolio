@@ -20,14 +20,26 @@ export class RecipeEditComponent implements OnInit {
   ngOnInit() {
     this.route.data.subscribe((newRecipe)=>{
       this.newRecipe=newRecipe.new;
-      // Edit mode
+      let name='';
+      let description='';
+      let cookingTime;
+      let ingredients=new FormArray([],Validators.required);
+      let directions=new FormArray([], Validators.required);
+      let imageURL='';
+      let imgLgURL='';
+
       if (!this.newRecipe){
+        // Edit mode
         this.route.params.subscribe((data)=>{
           this.currentRecipe=this.recipeService.getRecipe(data.id);
           this.recipeId=data.id;
-          let ingredients=new FormArray([], Validators.required);
-          let directions=new FormArray([], Validators.required);
-
+          name=this.currentRecipe.name;
+          description=this.currentRecipe.description;
+          cookingTime=this.currentRecipe.cookingTime;
+          ingredients=new FormArray([], Validators.required);
+          directions=new FormArray([], Validators.required);
+          imageURL=this.currentRecipe.imageURL;
+          imgLgURL=this.currentRecipe.imgLgURL;
           this.currentRecipe.ingredients.forEach((ingredient)=>{
             ingredients.push(new FormGroup({
               name:new FormControl(ingredient.name, Validators.required),
@@ -39,20 +51,24 @@ export class RecipeEditComponent implements OnInit {
             directions.push(new FormControl(direction,Validators.required))
           })
 
-          this.recipeForm=new FormGroup({
-            name:new FormControl(this.currentRecipe.name, Validators.required),
-            description:new FormControl(this.currentRecipe.description, Validators.required),
-            cookingTime:new FormControl(this.currentRecipe.cookingTime, [Validators.required]),
-            ingredients:ingredients,
-            directions: directions,
-            imageURL:new FormControl(this.currentRecipe.imageURL),
-            imgLgURL:new FormControl(this.currentRecipe.imgLgURL)
-          })
         })
-        // console.log(this.recipeForm)
-        // console.log(this.recipeForm.get('directions'))
-        console.log(this.recipeForm)
+      } else {
+        // New recipe
+        ingredients.push(new FormGroup({
+          name:new FormControl(null,Validators.required),
+          quantity:new FormControl(null, Validators.required)
+      }))
+        directions.push(new FormControl(null,Validators.required))
       }
+        this.recipeForm=new FormGroup({
+          name:new FormControl(name, Validators.required),
+          description:new FormControl(description, Validators.required),
+          cookingTime:new FormControl(cookingTime, [Validators.required]),
+          ingredients:ingredients,
+          directions: directions,
+          imageURL:new FormControl(imageURL),
+          imgLgURL:new FormControl(imgLgURL)
+        })
     })
   }
 
@@ -90,8 +106,10 @@ export class RecipeEditComponent implements OnInit {
   }
 
   saveRecipe(){
+    // Saving existing recipe
     this.recipeService.saveRecipe(this.recipeForm.value, this.recipeId);
     this.router.navigate(['..'], {relativeTo:this.route})
+    // Saving new recipe
   }
 
   deleteRecipe(){

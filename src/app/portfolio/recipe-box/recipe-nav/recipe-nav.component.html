@@ -4,8 +4,26 @@
     <ul class="navbar-nav">
       <li class="nav-item">
         <button class="btn btn-outline-light" [routerLink]="['new']">Add</button>
-        <button class="btn btn-outline-warning" (click)="recipeService.resetRecipes()">Reset</button>
+        <button class="btn btn-outline-light" (click)="openModal(reset)">Reset</button>
       </li>
     </ul>
   </div>
 </nav>
+
+<ng-template #reset>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Confirm reset</h4>
+    <button type="button" class="close pull-right" aria-label="Close"
+      (click)="modalRef.hide()"><span aria-hidden="true" style="color:white">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    Lose all saved changes and reset back to default recipes?
+    <div class="d-flex justify-content-around mt-1">
+      <button class="btn btn-success" type="button" (click)="resetRecipes()"
+      [routerLink]="['/portfolio/recipe-box']" >Yes</button>
+      <button class="btn btn-danger" type="button"
+      (click)="modalRef.hide()">No</button>
+    </div>
+  </div>
+</ng-template>

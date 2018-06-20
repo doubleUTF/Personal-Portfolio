@@ -15,13 +15,10 @@ export class RecipeThumbnailsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    // Check browser for web storage support
     this.recipes=this.recipeService.getRecipes();
     this.recipeService.recipeSubject.subscribe((recipes:Recipe[])=>{
-      console.log('new recipes', recipes)
       this.recipes=recipes;
     })
-    console.log(this.recipeService.recipeSubject)
   }
 
   recipes:Recipe[]
