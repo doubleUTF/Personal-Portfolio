@@ -123,17 +123,17 @@ export class PortfolioService{
   null,
   "markdown-previewer"
   ),
-  new Project('Camper Leaderboard', new Date(2018,3,26),
-  "Leadeboard app to show recent and all-time most active contributors.",
-  "../../../assets/img/camper_leaderboard.jpg",
+  // new Project('Camper Leaderboard', new Date(2018,3,26),
+  // "Leadeboard app to show recent and all-time most active contributors.",
+  // "../../../assets/img/camper_leaderboard.jpg",
+  // null,
+  // "camper-leaderboard"
+  // ),
+  new Project('Recipe Box', new Date(2018,6,20),
+  "Create, save, and edit your own delicious recipes. Don't forget mom's best dishes!",
+  "../../../assets/img/recipe-box.jpg",
   null,
-  "camper-leaderboard"
-),
-new Project('Recipe Box', new Date(2018,3,26),
-"Create and save your own recipes!",
-null,
-null,
-"recipe-box"
+  "recipe-box"
 )
 
   ];

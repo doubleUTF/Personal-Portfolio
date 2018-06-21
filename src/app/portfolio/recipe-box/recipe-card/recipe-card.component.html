@@ -1,6 +1,6 @@
 <div class="card text-white bg-dark mb-4">
   <div style="position:relative; min-height:150px">
-    <img class="card-img-top" src="{{recipe.imageURL}}" alt="{{recipe.description}}">
+    <img class="card-img-top" src="{{recipe.imageURL||defaultImg}}" alt="{{recipe.description}}">
     <div class="card-img-overlay">
       <h5 class="card-title">{{recipe.name}}</h5>
     </div>
@@ -12,7 +12,7 @@
       <button class="btn btn-outline-light btn-sm" [routerLink]="['./',id,'edit']">Edit</button>
     </div>
     <span style="float:right">
-   {{recipe.cookingTime}} min
+   <i class="far fa-clock"></i> {{recipe.cookingTime}} min
   </span>
   </div>
 </div>

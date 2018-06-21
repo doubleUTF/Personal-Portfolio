@@ -21,7 +21,8 @@ export class RecipeDetailComponent implements OnInit {
   recipe:Recipe;
 
   getImage(){
-    let img=this.recipe.imgLgURL||this.recipe.imageURL;
+    let defaultImg='../../../../assets/img/recipe-box/utensils.png'
+    let img=this.recipe.imgLgURL||this.recipe.imageURL||defaultImg;
     return `url(${img})`
   }
 }

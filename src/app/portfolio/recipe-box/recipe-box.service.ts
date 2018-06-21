@@ -55,6 +55,11 @@ export class RecipeBoxService{
     this.save();
   }
 
+  saveNewRecipe(recipe:Recipe){
+    this.currentRecipes.push(recipe);
+    this.save();
+  }
+
   resetRecipes(){
     this.currentRecipes=this.getDefaultRecipes();
     this.save();

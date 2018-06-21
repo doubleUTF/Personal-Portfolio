@@ -107,9 +107,13 @@ export class RecipeEditComponent implements OnInit {
 
   saveRecipe(){
     // Saving existing recipe
+    if (!this.newRecipe){
     this.recipeService.saveRecipe(this.recipeForm.value, this.recipeId);
-    this.router.navigate(['..'], {relativeTo:this.route})
+  } else {
     // Saving new recipe
+    this.recipeService.saveNewRecipe(this.recipeForm.value);
+  }
+    this.router.navigate(['..'], {relativeTo:this.route})
   }
 
   deleteRecipe(){
