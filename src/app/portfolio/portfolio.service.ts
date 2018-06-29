@@ -133,9 +133,11 @@ export class PortfolioService{
   "Create, save, and edit your own delicious recipes. Don't forget mom's best dishes!",
   "../../../assets/img/recipe-box.jpg",
   null,
-  "recipe-box"
-)
-
+  "recipe-box",),
+  new Project('Fortnite Survey Form', new Date(2018,6,28),
+  "Responsive survey form for Fortnite players. Built chiefly with CSS Grid.",
+  "../../../assets/img/fortnite-survey-form.jpg",
+  "https://codepen.io/doubleUTF/pen/LrBVVJ")
   ];
 
   getProjects(){
