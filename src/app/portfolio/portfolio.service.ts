@@ -137,7 +137,16 @@ export class PortfolioService{
   new Project('Fortnite Survey Form', new Date(2018,6,28),
   "Responsive survey form for Fortnite players. Built chiefly with CSS Grid.",
   "../../../assets/img/fortnite-survey-form.jpg",
-  "https://codepen.io/doubleUTF/pen/LrBVVJ")
+  "https://codepen.io/doubleUTF/pen/LrBVVJ"),
+  new Project('Nike Product Landing Page', new Date(2018,7,4),
+  "Custom Nike page showcasing products and services offered. Manufactered with CSS Flex.",
+  "../../../assets/img/house_of_nike.jpg","https://codepen.io/doubleUTF/full/aKXmzj/"
+  ),
+  new Project('Technical Documentation Page- Regex', new Date(2018,7,10),
+  "Regular expressions technical documentation page featuring responsive navbar and sidebar menus.",
+  "../../../assets/img/regex_technical_docs.jpg",
+  "https://codepen.io/doubleUTF/full/JZgjjz/"
+  )
   ];
 
   getProjects(){
