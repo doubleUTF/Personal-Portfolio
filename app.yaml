@@ -1,3 +1,7 @@
-env: flex
 runtime: nodejs
 skip_files: ^node_modules$
+instance_class:
+  automatic_scaling:F1
+  basic_scaling:B1
+basic_scaling:
+  max_instances:10
