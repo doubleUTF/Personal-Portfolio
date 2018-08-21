@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="btn-group dropdown" dropdown>
+        <button class="btn btn-primary dropdown-toggle" aria-controls="dropdown-basic"
+          id="button-basic" dropdownToggle type="button">
+            Button Dropdown <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" id="dropdown-basic" *dropdownMenu
+        role="menu" aria-labelledby="button-basic">
+        <li role="menuitem" *ngFor="let api of apiList">
+          <a href="#" class="dropdown-item">{{api.name}}</a>
+        </li>
+        </ul>
+      </div>
+      <ul class="sidenav">
+        <li class="sidenav-item" *ngFor="let api of apiList; let i=index">
+          <a [routerLink]="['./']" fragment="{{api.name}}" class="side-link">{{api.name}}</a>
+        </li>
+      </ul>
+    </div>
+    <div class="col col-md-9">
+      <div class="row" *ngFor="let api of apiList;let i=index">
+        <div class="col box">
+          <h3 id="{{api.name}}">{{api.name}}</h3>
+          <p>{{api.description}}</p>
+          <span class="badge badge-pill" [ngClass]="getBadgeClass(api.method)">{{api.method}}</span>
+          <code style="margin-left:1rem; color:lightblue">https://davidlau.xyz/api{{api.url}}</code>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

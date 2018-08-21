@@ -1,0 +1,50 @@
+.sidenav{
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.sidenav-item{
+  border-bottom:1px solid grey;
+  padding-bottom: 1rem;
+  padding-top:1rem;
+  text-align: center;
+}
+
+h3{
+  margin-top: 1rem;
+}
+
+.side-link:link,.side-link:visited{
+  color:white;
+}
+
+.side-link:hover{
+  text-decoration: none;
+  color:rgb(235, 255, 111);
+  text-shadow: 0 0 15px yellow;
+}
+
+.dropdown{
+  display:none;
+}
+
+@media screen and (max-width:767px) {
+  .sidenav{
+    display:none;
+  }
+
+  .dropdown{
+    display: flex;
+    margin-top: 1rem;
+    justify-content: center;
+  }
+}
+
+.dropdown-menu{
+  left:auto !important;
+}
+
+.box{
+  border-bottom:1px solid grey;
+  padding-bottom:1rem;
+}

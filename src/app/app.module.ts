@@ -10,6 +10,7 @@ import { AboutComponent } from './stage/about/about.component';
 import { ErrorComponent } from './stage/error/error.component';
 import { UnlessDirective } from './directives/unless.directive';
 import {SharedModule} from './shared/shared.module';
+import { ApiComponent } from './stage/api/api.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import {SharedModule} from './shared/shared.module';
     AboutComponent,
     ErrorComponent,
     UnlessDirective,
+    ApiComponent,
   ],
   imports: [
     BrowserModule, BrowserAnimationsModule, routing, SharedModule
