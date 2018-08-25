@@ -26,7 +26,6 @@ var retrieveUrl=(req,res,next)=>{
   let short=req.params.link;
   ShortURL.findOne({shortUrl:short},(err,shortObj)=>{
     if (err) return res.json(err)
-    console.log(shortObj)
     if (!shortObj) return res.json({"error":"Short URL not found."})
     res.redirect(shortObj.originalUrl)
   })

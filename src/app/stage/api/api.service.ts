@@ -28,9 +28,9 @@ new API('URL Shortener','GET', 'Shortens a lengthy URL and returns a shortened v
 '/shorturl',[
   new paramObj('/new/<URL>', 'URL String', 'Pass in a full URL string and returns an object containing original URL and a randomly generated six alphanumeric character string representing the shortened URL.',
   'new/http://www.google.com', `{
-    "originalUrl": "http://google.com",
+    "originalUrl": "http://www.google.com",
     "shortUrl": "ZT2a5p"
-}`), new paramObj('short URL', 'String', 'Six alphanumeric characters derived from /new/<URL> query.',
+}`), new paramObj('short URL', 'String', '6 digit alphanumeric characters derived from /new/<URL> query.',
 'ZT2a5p', 'Redirects to http://www.google.com')
 ])
   ];
