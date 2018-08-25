@@ -146,7 +146,31 @@ export class PortfolioService{
   "Regular expressions technical documentation page featuring responsive navbar and sidebar menus.",
   "../../../assets/img/regex_technical_docs.jpg",
   "https://codepen.io/doubleUTF/full/JZgjjz/"
-  )
+),
+new Project('Land and Ocean Temperature Index', new Date(2018,8,1),
+"Bar Chart Visualization of annual temperature anomalies. Made with D3.",
+'../../../assets/img/land_and_ocean_temp.jpg',
+'https://codepen.io/doubleUTF/full/EpoxGx/'),
+new Project('US GDP Bar Chart',new Date(2018,8,2),
+"Bar Chart Visualization of annual US GDP. Made with D3.",
+'../../../assets/img/us_gdp_bar_chart.jpg',
+'https://codepen.io/doubleUTF/full/EpEzyK/'),
+new Project('Monthly Global Land and Surface Temperature', new Date(2018,8,9),
+'Data Chart visualizing monthly temperature anomalies. Made with D3 ',
+'../../../assets/img/monthly_global_land_surface_temp.jpg',
+'https://codepen.io/doubleUTF/full/ajaGpE/'),
+new Project('Scatterplot Graph of Cycling Doping', new Date(2018,8,7),
+'Scatterplot graph visualization of doping incidents in professional cycling. Made with D3.',
+'../../../assets/img/doping_scatterplot_graph.jpg',
+'https://codepen.io/doubleUTF/full/ZjRavL/'),
+new Project('Choropleth Map', new Date(2018,8,13),
+'Choropleth map of US education attainment. Made with D3.',
+'../../../assets/img/choropleth_map.jpg',
+'https://codepen.io/doubleUTF/full/xJmXya/'),
+new Project('Treemap', new Date(2018,8,17),
+'Treemap of Video Game Sales. Made with D3.',
+'../../../assets/img/treemap_games.jpg',
+'https://codepen.io/doubleUTF/full/KBYwQx/')
   ];
 
   getProjects(){

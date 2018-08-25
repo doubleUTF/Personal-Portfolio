@@ -2,7 +2,6 @@ export class paramObj{
   constructor(
     public name:string,
     public type:string,
-    public optional:boolean,
     public description:string,
     public exampleRequest:string,
     public exampleResponse:string

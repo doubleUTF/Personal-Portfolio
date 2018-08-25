@@ -11,7 +11,7 @@ import {ReactiveFormsModule} from '@angular/forms';
     FormsModule,
     HttpClientModule,
     BootstrapModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ]
 })
 export class SharedModule { }

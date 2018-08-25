@@ -1,6 +1,8 @@
 .sidenav{
   list-style-type: none;
   padding-left: 0;
+  position:sticky;
+  top:20px;
 }
 
 .sidenav-item{
@@ -22,6 +24,7 @@ h3{
   text-decoration: none;
   color:rgb(235, 255, 111);
   text-shadow: 0 0 15px yellow;
+  cursor: pointer;
 }
 
 .dropdown{
@@ -45,6 +48,42 @@ h3{
 }
 
 .box{
-  border-bottom:1px solid grey;
   padding-bottom:1rem;
+  margin-bottom: 1rem;
+}
+
+.notLast{
+  border-bottom:1px solid grey;
+}
+
+code{
+  color:lightblue;
+}
+
+.response{
+  color:gold;
+}
+
+.code-container{
+  background-color:#555;
+  padding-left: .75rem;
+  padding-top: .25rem;
+  padding-bottom: .5rem;
+  border-radius: .25rem;
+}
+
+.small-header{
+  margin-top:1rem;
+}
+
+.table{
+  margin-bottom: 0;
+}
+
+.dropdown-item{
+  cursor: pointer;
+}
+
+.badge{
+  margin-right:1rem;
 }

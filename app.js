@@ -4,6 +4,10 @@ const app = express()
 const path= require('path');
 const router= express.Router()
 const bodyParser=require('body-parser');
+const {urlShortener,retrieveUrl}=require('./server/url-shortener.js')
+const mongoose=require('mongoose');
+
+mongoose.connect(process.env.MONGODB_URI);
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}))
@@ -51,6 +55,9 @@ router.get('/whoami',(req,res,next)=>{
   }
   res.json({"ipaddress":req.ip,"software":headers['user-agent'],"language":headers['accept-language']})
 })
+
+router.get(/shorturl\/new\/.+/,urlShortener)
+router.get('/shorturl/:link',retrieveUrl)
 
 app.use('/api',router);
 

@@ -11,6 +11,7 @@ import { ErrorComponent } from './stage/error/error.component';
 import { UnlessDirective } from './directives/unless.directive';
 import {SharedModule} from './shared/shared.module';
 import { ApiComponent } from './stage/api/api.component';
+import {WhitespaceToUnderscorePipe} from './pipes/whitespace-to-underscore.pipe';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { ApiComponent } from './stage/api/api.component';
     ErrorComponent,
     UnlessDirective,
     ApiComponent,
+    WhitespaceToUnderscorePipe
   ],
   imports: [
     BrowserModule, BrowserAnimationsModule, routing, SharedModule

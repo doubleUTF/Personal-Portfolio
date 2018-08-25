@@ -2,16 +2,21 @@ import { Component, OnInit } from '@angular/core';
 import {ApiService} from './api.service';
 import {API} from './api.model';
 import {sortBy} from 'lodash';
+import {ViewportScroller} from '@angular/common';
+import {WhitespaceToUnderscorePipe} from '../../pipes/whitespace-to-underscore.pipe';
 
 @Component({
   selector: 'app-api',
   templateUrl: './api.component.html',
   styleUrls: ['./api.component.css'],
-  providers:[ApiService]
+  providers:[ApiService,WhitespaceToUnderscorePipe]
 })
 
 export class ApiComponent implements OnInit {
-  constructor(private apiService:ApiService) { }
+  constructor(
+    private apiService:ApiService,
+    private vpScroller:ViewportScroller,
+    private wsPipe:WhitespaceToUnderscorePipe) { }
   apiList:API[];
   ngOnInit() {
     let list=this.apiService.getApis();
@@ -23,4 +28,9 @@ export class ApiComponent implements OnInit {
       'PUT':'badge-info','DELETE':'badge-danger'}
     return classMap[method];
   }
+
+  goToAnchor(id){
+    this.vpScroller.scrollToAnchor(this.wsPipe.transform(id))
+  }
+  apiURL='https://davidlau.xyz/api'
 }

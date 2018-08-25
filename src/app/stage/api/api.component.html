@@ -9,23 +9,59 @@
         <ul class="dropdown-menu" id="dropdown-basic" *dropdownMenu
         role="menu" aria-labelledby="button-basic">
         <li role="menuitem" *ngFor="let api of apiList">
-          <a href="#" class="dropdown-item">{{api.name}}</a>
+          <a (click)="goToAnchor(api.name)" class="dropdown-item">{{api.name}}</a>
         </li>
         </ul>
       </div>
       <ul class="sidenav">
         <li class="sidenav-item" *ngFor="let api of apiList; let i=index">
-          <a [routerLink]="['./']" fragment="{{api.name}}" class="side-link">{{api.name}}</a>
+          <a (click)="goToAnchor(api.name)" class="side-link">{{api.name}}</a>
         </li>
       </ul>
     </div>
     <div class="col col-md-9">
       <div class="row" *ngFor="let api of apiList;let i=index">
-        <div class="col box">
-          <h3 id="{{api.name}}">{{api.name}}</h3>
+        <div class="col box" [ngClass]="{notLast:i+1<apiList.length}">
+          <h3 id="{{api.name|WhitespaceToUnderscore}}">{{api.name}}</h3>
           <p>{{api.description}}</p>
           <span class="badge badge-pill" [ngClass]="getBadgeClass(api.method)">{{api.method}}</span>
-          <code style="margin-left:1rem; color:lightblue">https://davidlau.xyz/api{{api.url}}</code>
+          <code>https://davidlau.xyz/api{{api.url}}</code>
+          <div *ngIf="api.params; else exampleResponse">
+            <h6 class="small-header">Parameters</h6>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">Name</th>
+                  <th scope="col">Type</th>
+                  <th scope="col">Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let param of api.params">
+                  <td>{{param.name}}</td>
+                  <td>{{param.type}}</td>
+                  <td>{{param.description}}</td>
+                </tr>
+              </tbody>
+            </table>
+            <h6 class="small-header">Example Responses</h6>
+            <div *ngFor="let param of api.params">
+              <div>
+                <code>{{apiURL}}{{api.url}}/{{param.exampleRequest}}</code>
+              </div>
+              <div class="code-container mb-3">
+                <code class="response">{{param.exampleResponse}}</code>
+              </div>
+            </div>
+          </div>
+          <ng-template #exampleResponse>
+            <div>
+              <h6 class="small-header">Example Response</h6>
+              <div class="code-container">
+              <code class="response">{{api.exampleResponse}}</code>
+              </div>
+            </div>
+          </ng-template>
         </div>
       </div>
     </div>
