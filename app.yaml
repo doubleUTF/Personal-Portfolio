@@ -1,4 +1,0 @@
-runtime: nodejs8
-instance_class: F1
-env_variables:
-  MONGODB_URI: "mongodb://theBoss:bosskey1@ds018508.mlab.com:18508/fcc_learning"
