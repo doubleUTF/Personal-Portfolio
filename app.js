@@ -20,7 +20,7 @@ if (process.env.NODE_ENV=='production'){
     if (req.secure){
       return next();
     }
-    res.redirect("https://" + req.headers.host + req.url);
+    res.redirect("https://www." + req.headers.host + req.url);
   });
 }
 
