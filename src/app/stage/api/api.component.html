@@ -25,7 +25,7 @@
           <h3 id="{{api.name|WhitespaceToUnderscore}}">{{api.name}}</h3>
           <p>{{api.description}}</p>
           <span class="badge badge-pill" [ngClass]="getBadgeClass(api.method)">{{api.method}}</span>
-          <code>https://davidlau.xyz/api{{api.url}}</code>
+          <code>https://www.davidlau.xyz/api{{api.url}}</code>
           <div *ngIf="api.params; else exampleResponse">
             <h6 class="small-header">Parameters</h6>
             <table class="table">
