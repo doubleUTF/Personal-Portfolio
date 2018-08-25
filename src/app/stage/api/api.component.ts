@@ -32,5 +32,5 @@ export class ApiComponent implements OnInit {
   goToAnchor(id){
     this.vpScroller.scrollToAnchor(this.wsPipe.transform(id))
   }
-  apiURL='https://davidlau.xyz/api'
+  apiURL='https://www.davidlau.xyz/api'
 }
