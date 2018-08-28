@@ -20,7 +20,7 @@ new paramObj('/','string','No parameter; returns the current time.','',`
 }`)
   ]),
     new API('Whoami', 'GET', 'Retrieve header information from requesting client.',
-  '/whoami',null,`
+  '/whoami',null,null,`
   {"ipaddress":"192.68.1.1","language":"en-US,en;q=0.9,zh-HK;q=0.8,zh;q=0.7",
   "software":"Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36"}`
 ),
