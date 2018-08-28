@@ -1,10 +1,12 @@
-require('./config/config.js')
+require('./config/config')
 const express = require('express')
 const app = express()
 const path= require('path');
 const router= express.Router()
 const bodyParser=require('body-parser');
-const {urlShortener,retrieveUrl}=require('./server/url-shortener.js')
+const {urlShortener,retrieveUrl}=require('./server/short-url/url-shortener')
+const {timestamp,timestamp_dateString} = require('./server/timestamp')
+const {exercise_newUser, exercise_newExercise}= require('./server/exercise-tracker/exercise-tracker');
 const mongoose=require('mongoose');
 
 mongoose.connect(process.env.MONGODB_URI);
@@ -27,26 +29,11 @@ if (process.env.NODE_ENV=='production'){
 app.use(express.static('public'))
 
 // APIs
-router.get('/timestamp',(req,res,next)=>{
-  let date=new Date();
-  res.json({"unix":date.getTime(),"utc":date.toUTCString()})
-})
-.get('/timestamp/:date_string',(req,res,next)=>{
-  let dateString=req.params.date_string;
-  let date;
 
-  if (/^\d+$/.test(dateString)){
-    // Integer in ms
-    date=new Date(Number(dateString))
-  } else {
-    // Date string
-    date=new Date(dateString);
-  }
-  if (date=='Invalid Date'){
-    return res.json({"error":"Invalid Date"})
-  }
-  res.json({"unix":date.getTime(),"utc":date.toUTCString()})
-});
+// Timestamp
+router.get('/timestamp', timestamp)
+.get('/timestamp/:date_string', timestamp_dateString)
+;
 
 router.get('/whoami',(req,res,next)=>{
   let headers=req.headers;
@@ -56,9 +43,13 @@ router.get('/whoami',(req,res,next)=>{
   res.json({"ipaddress":req.ip,"software":headers['user-agent'],"language":headers['accept-language']})
 })
 
+// Url Shortener
 router.get(/shorturl\/new\/.+/,urlShortener)
 router.get('/shorturl/:link',retrieveUrl)
 
+// Exercise Tracker
+router.get('/exercise/new-user/:username',exercise_newUser)
+router.post('/exercise/add',exercise_newExercise)
 app.use('/api',router);
 
 // Catch all other routes and return index

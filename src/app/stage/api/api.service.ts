@@ -24,13 +24,13 @@ new paramObj('/','string','No parameter; returns the current time.','',`
   {"ipaddress":"192.68.1.1","language":"en-US,en;q=0.9,zh-HK;q=0.8,zh;q=0.7",
   "software":"Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36"}`
 ),
-new API('URL Shortener','GET', 'Shortens a lengthy URL and returns a shortened version. Expires in 24 hours.',
+new API('URL Shortener','GET', 'Enter a lengthy URL and returns a shortened version. Expires in 24 hours.',
 '/shorturl',[
-  new paramObj('/new/<URL>', 'URL String', 'Pass in a full URL string and returns an object containing original URL and a randomly generated six alphanumeric character string representing the shortened URL.',
+  new paramObj('/new/:URL', 'URL String', 'Pass in a full URL string and returns an object containing original URL and a randomly generated six digit alphanumeric character string representing the shortened URL. Expires in 24 hours.',
   'new/http://www.google.com', `{
     "originalUrl": "http://www.google.com",
     "shortUrl": "ZT2a5p"
-}`), new paramObj('short URL', 'String', '6 digit alphanumeric characters derived from /new/<URL> query.',
+}`), new paramObj(':shortURL', 'String', 'Six digit alphanumeric characters derived from /new/:URL query. Will fail if short URL is does not exist in database.',
 'ZT2a5p', 'Redirects to http://www.google.com')
 ])
   ];
