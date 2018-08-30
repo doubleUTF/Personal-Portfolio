@@ -12,9 +12,18 @@ export class API{
   constructor(
     public name: string,
     public method:string,
-    public description: string,
     public url:string,
-    public params?:Array<paramObj>,
+    public queryParams?:Array<paramObj>,
+    public bodyParams?:Array<paramObj>,
     public exampleResponse?:string
   ) {}
+}
+
+// Backend app, can contain multiple APIs
+export class apiApp{
+  constructor(
+    public name:string,
+    public description:string,
+    public apiList: Array<API>,
+  ){}
 }

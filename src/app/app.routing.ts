@@ -7,7 +7,7 @@ import {ApiComponent} from './stage/api/api.component';
 const appRoutes: Routes=[
   {path:'',component:StageComponent, data:{animation:'Stage'}},
   {path:'portfolio', loadChildren:'./portfolio/portfolio.module#PortfolioModule'},
-  {path:'api',component:ApiComponent,data:{animation:'Api'}},
+  {path:'api',loadChildren:'./stage/api/api.module#ApiModule'},
   {path:'about', component: AboutComponent, data:{animation:'About'}},
   {path:'error',component:ErrorComponent, data:{animation:'Error'} },
   {path:'**', redirectTo:'/error'}

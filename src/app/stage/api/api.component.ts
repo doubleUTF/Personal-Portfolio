@@ -4,7 +4,7 @@ import {API} from './api.model';
 import {sortBy} from 'lodash';
 import {ViewportScroller} from '@angular/common';
 import {WhitespaceToUnderscorePipe} from '../../pipes/whitespace-to-underscore.pipe';
-
+import {ActivatedRouteSnapshot} from '@angular/router'
 @Component({
   selector: 'app-api',
   templateUrl: './api.component.html',
@@ -16,11 +16,12 @@ export class ApiComponent implements OnInit {
   constructor(
     private apiService:ApiService,
     private vpScroller:ViewportScroller,
-    private wsPipe:WhitespaceToUnderscorePipe) { }
-  apiList:API[];
+    private wsPipe:WhitespaceToUnderscorePipe
+  ) { }
+  // apiList:API[];
   ngOnInit() {
-    let list=this.apiService.getApis();
-    this.apiList=sortBy(list,(api)=>api.name);
+    // let list=this.apiService.getApis();
+    // this.apiList=sortBy(list,(api)=>api.name);
   }
 
   getBadgeClass(method){
