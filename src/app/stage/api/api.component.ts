@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import {ApiService} from './api.service';
-import {API} from './api.model';
 import {sortBy} from 'lodash';
 import {ViewportScroller} from '@angular/common';
 import {WhitespaceToUnderscorePipe} from '../../pipes/whitespace-to-underscore.pipe';
-import {ActivatedRouteSnapshot} from '@angular/router'
+import {ActivatedRoute,ParamMap} from '@angular/router'
+import {map} from 'rxjs/operators';
+
 @Component({
   selector: 'app-api',
   templateUrl: './api.component.html',
@@ -16,10 +17,20 @@ export class ApiComponent implements OnInit {
   constructor(
     private apiService:ApiService,
     private vpScroller:ViewportScroller,
-    private wsPipe:WhitespaceToUnderscorePipe
+    private wsPipe:WhitespaceToUnderscorePipe,
+    private route:ActivatedRoute
   ) { }
   // apiList:API[];
+  apiParam;
   ngOnInit() {
+    this.route.params.subscribe((params:ParamMap)=>{
+      console.log(params)
+    })
+    this.route.paramMap.pipe(
+      map((params:ParamMap)=>{
+        console.log(params.get('appName'))
+      })
+    )
     // let list=this.apiService.getApis();
     // this.apiList=sortBy(list,(api)=>api.name);
   }

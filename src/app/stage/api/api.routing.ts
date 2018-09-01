@@ -1,13 +1,11 @@
 import {NgModule} from '@angular/core';
-import { RouterModule, Routes, PreloadAllModules } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import {ApiComponent} from './api.component';
-import {TimestampComponent} from './timestamp/timestamp.component';
-import {ApiLandingComponent} from './api-landing/api-landing.component';
+import {ApiContentComponent} from './api-content/api-content.component';
 
 const apiRoutes:Routes=[
   {path:'',component:ApiComponent,children:[
-    {path:'', component:ApiLandingComponent},
-    {path:'ts',component:TimestampComponent}
+    {path:':appName', component:ApiContentComponent},
   ]},
 ]
 

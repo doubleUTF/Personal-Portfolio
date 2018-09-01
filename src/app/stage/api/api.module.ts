@@ -1,9 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TimestampComponent } from './timestamp/timestamp.component';
 import {ApiComponent} from './api.component';
 import {ApiRoutes} from './api.routing';
-import { ApiLandingComponent } from './api-landing/api-landing.component';
+import { ApiContentComponent } from './api-content/api-content.component';
 
 @NgModule({
   imports: [
@@ -12,8 +11,7 @@ import { ApiLandingComponent } from './api-landing/api-landing.component';
   ],
   declarations: [
     ApiComponent,
-    TimestampComponent,
-    ApiLandingComponent
+    ApiContentComponent
   ]
 })
 

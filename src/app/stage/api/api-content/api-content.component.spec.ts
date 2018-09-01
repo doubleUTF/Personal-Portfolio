@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TimestampComponent } from './timestamp.component';
+import { ApiContentComponent } from './api-content.component';
 
-describe('TimestampComponent', () => {
-  let component: TimestampComponent;
-  let fixture: ComponentFixture<TimestampComponent>;
+describe('ApiContentComponent', () => {
+  let component: ApiContentComponent;
+  let fixture: ComponentFixture<ApiContentComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TimestampComponent ]
+      declarations: [ ApiContentComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TimestampComponent);
+    fixture = TestBed.createComponent(ApiContentComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

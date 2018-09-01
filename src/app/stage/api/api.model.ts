@@ -1,16 +1,15 @@
-export class paramObj{
-  constructor(
-    public name:string,
-    public type:string,
-    public description:string,
-    public exampleRequest:string,
-    public exampleResponse:string
-  ){}
+// Backend app, can contain multiple API routes
+export class apiApp{
+constructor(
+  public name:string,
+  public description:string,
+  public apiList: Array<apiRoute>,
+){}
 }
 
-export class API{
+// Individual API route, can contain multiple params
+export class apiRoute{
   constructor(
-    public name: string,
     public method:string,
     public url:string,
     public queryParams?:Array<paramObj>,
@@ -19,11 +18,13 @@ export class API{
   ) {}
 }
 
-// Backend app, can contain multiple APIs
-export class apiApp{
+export class paramObj{
   constructor(
     public name:string,
+    public type:string,
+    public required:boolean,
     public description:string,
-    public apiList: Array<API>,
+    public exampleRequest:string,
+    public exampleResponse:string
   ){}
 }

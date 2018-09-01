@@ -1,6 +1,32 @@
-import {API, paramObj, apiApp} from './api.model'
+import {apiRoute, paramObj, apiApp} from './api.model'
 
 export class ApiService {
+ rootPath='https://www.davidlau.xyz/api'
+ apiList:apiApp[]=[
+   new apiApp('Timestamp','Basic timestamp microservice. Returns a data object containing Unix and UTC time representations.',
+   [new apiRoute(
+     'GET','/timestamp',
+    [new paramObj('milliseconds','number', false,'Integer in milliseconds',
+        '1035848596111',`{
+         "unix": 1035848596111,
+         "utc": "Mon, 28 Oct 2002 23:43:16 GMT"}`),
+        new paramObj('dateString','date string', false, 'ISO-8601 Compliant date string',
+      '2018-8-20', `{
+          "unix": 1534748400000,
+          "utc": "Mon, 20 Aug 2018 07:00:00 GMT"
+      }`),
+    new paramObj('/','string', false,'No parameter; returns the current time.','',`
+    {
+        "unix": 1534901307250,
+        "utc": "Wed, 22 Aug 2018 01:28:27 GMT"
+    }`)
+    ])
+  ]),
+  // new apiApp('')
+]
+constructor() { }
+}
+
 //   api_list:API[]=[
 //     new API('Timestamp','GET','Basic timestamp microservice.',
 //     '/timestamp',[
@@ -38,5 +64,3 @@ export class ApiService {
 //   getApis(){
 //     return this.api_list;
 //   }
-  constructor() { }
-}
