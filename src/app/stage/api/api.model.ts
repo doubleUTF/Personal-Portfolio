@@ -1,24 +1,24 @@
 // Backend app, can contain multiple API routes
-export class apiApp{
+export class ApiApp{
 constructor(
   public name:string,
   public description:string,
-  public apiList: Array<apiRoute>,
+  public apiList: Array<ApiRoute>,
 ){}
 }
 
 // Individual API route, can contain multiple params
-export class apiRoute{
+export class ApiRoute{
   constructor(
     public method:string,
     public url:string,
-    public queryParams?:Array<paramObj>,
-    public bodyParams?:Array<paramObj>,
+    public queryParams?:Array<ParamObj>,
+    public bodyParams?:Array<ParamObj>,
     public exampleResponse?:string
   ) {}
 }
 
-export class paramObj{
+export class ParamObj{
   constructor(
     public name:string,
     public type:string,
