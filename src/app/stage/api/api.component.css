@@ -56,10 +56,6 @@ h3{
   border-bottom:1px solid grey;
 }
 
-code{
-  color:lightblue;
-}
-
 .response{
   color:gold;
 }
@@ -82,8 +78,4 @@ code{
 
 .dropdown-item{
   cursor: pointer;
-}
-
-.badge{
-  margin-right:1rem;
 }

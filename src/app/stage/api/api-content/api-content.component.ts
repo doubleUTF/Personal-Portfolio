@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute,ParamMap} from '@angular/router'
-import {map} from 'rxjs/operators';
+import {ActivatedRoute} from '@angular/router'
 import {ApiApp} from '../api.model';
 import {WhitespaceToUnderscorePipe} from '../../../pipes/whitespace-to-underscore.pipe';
 import {ApiService} from '../api.service';
+
 @Component({
   selector: 'app-api-content',
   templateUrl: './api-content.component.html',
-  styleUrls: ['./api-content.component.css']
+  styleUrls: ['./api-content.component.css'],
 })
 export class ApiContentComponent implements OnInit {
 
@@ -26,4 +26,11 @@ export class ApiContentComponent implements OnInit {
     })
   }
 
+  getBadgeClass(method){
+    let classMap={'GET':'badge-success','POST':'badge-primary',
+      'PUT':'badge-info','DELETE':'badge-danger'}
+    return classMap[method];
+  }
+
+  apiURL='https://www.davidlau.xyz/api'
 }

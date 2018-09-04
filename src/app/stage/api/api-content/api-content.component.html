@@ -1,7 +1,12 @@
 <div class="container">
-  <div class="row">
+  <div class="row mt-2">
     <div class="col">
-      <p>APi content works</p>
+      <h3>{{apiApp.name}}</h3>
+      <p>{{apiApp.description}}</p>
+      <div *ngFor="let route of apiApp.apiList">
+        <span class="badge badge-pill" [ngClass]="getBadgeClass(route.method)">{{route.method}}</span>
+        <code>{{apiURL}}{{route.url}}</code>
+      </div>
     </div>
   </div>
 </div>

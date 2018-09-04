@@ -1,11 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import {ApiService} from './api.service';
 import {WhitespaceToUnderscorePipe} from '../../pipes/whitespace-to-underscore.pipe';
+import {fadeIn} from '../../app.animations';
+
 @Component({
   selector: 'app-api',
   templateUrl: './api.component.html',
   styleUrls: ['./api.component.css'],
-  providers:[ApiService,WhitespaceToUnderscorePipe]
+  providers:[ApiService,WhitespaceToUnderscorePipe],
+  animations:[fadeIn]
 })
 
 export class ApiComponent implements OnInit {
@@ -19,12 +22,4 @@ export class ApiComponent implements OnInit {
     this.apiList=this.apiService.getApiNames()
   }
 
-  getBadgeClass(method){
-    let classMap={'GET':'badge-success','POST':'badge-primary',
-      'PUT':'badge-info','DELETE':'badge-danger'}
-    return classMap[method];
-  }
-
-
-  apiURL='https://www.davidlau.xyz/api'
 }
