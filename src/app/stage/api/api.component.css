@@ -17,12 +17,12 @@ h3{
 }
 
 .side-link:link,.side-link:visited{
-  color:white;
+  color:#DDD;
 }
 
 .side-link:hover{
   text-decoration: none;
-  color:rgb(235, 255, 111);
+  color:#FFF;
   text-shadow: 0 0 15px yellow;
   cursor: pointer;
 }
@@ -54,4 +54,8 @@ h3{
 
 .dropdown-item{
   cursor: pointer;
+}
+
+.active{
+  color:white !important;
 }
