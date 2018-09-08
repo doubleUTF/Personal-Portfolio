@@ -14,6 +14,7 @@ export class ApiRoute{
     public url:string,
     public queryParams?:Array<ParamObj>,
     public bodyParams?:Array<ParamObj>,
+    public exampleRequest?:string,
     public exampleResponse?:string
   ) {}
 }
@@ -24,7 +25,7 @@ export class ParamObj{
     public type:string,
     public required:boolean,
     public description:string,
-    public exampleRequest:string,
-    public exampleResponse:string
+    public exampleRequest?:string,
+    public exampleResponse?:string
   ){}
 }

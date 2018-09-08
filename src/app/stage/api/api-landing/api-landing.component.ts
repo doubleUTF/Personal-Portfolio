@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {ApiService} from '../api.service';
+import {WhitespaceToUnderscorePipe} from '../../../pipes/whitespace-to-underscore.pipe';
 
 @Component({
   selector: 'app-api-landing',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ApiLandingComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private apiService:ApiService,
+    private wsPipe:WhitespaceToUnderscorePipe
+  ) { }
 
+  apiList:string[];
   ngOnInit() {
+    this.apiList=this.apiService.getApiNames()
   }
 
 }

@@ -3,10 +3,12 @@ import { RouterModule, Routes } from '@angular/router';
 import {ApiComponent} from './api.component';
 import {ApiContentComponent} from './api-content/api-content.component';
 import {ApiLandingComponent} from './api-landing/api-landing.component';
+import {ExerciseTrackerComponent} from './exercise-tracker/exercise-tracker.component';
 const apiRoutes:Routes=[
-  {path:'',component:ApiComponent, data:{animation:'root'},children:[
-    {path:'',component:ApiLandingComponent, data:{animation:'landing'}},
-    {path:':appName', component:ApiContentComponent, data:{animation:'content'}},
+  {path:'',component:ApiComponent,children:[
+    {path:'',component:ApiLandingComponent},
+    {path:'Exercise_Tracker',component:ExerciseTrackerComponent},
+    {path:':appName', component:ApiContentComponent},
   ]},
 ]
 

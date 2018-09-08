@@ -1,0 +1,27 @@
+.section{
+  padding:.75rem;
+  background-color: rgb(26, 57, 116);
+  border-radius: .5rem;
+}
+
+code{
+  color:lightblue;
+}
+
+.button-wrap{
+   display:flex;
+   justify-content:center;
+}
+
+::placeholder{
+  color:#BBB;
+  opacity:1;
+}
+
+.form-control{
+  background-color:#373636 !important;
+}
+
+.invalid{
+  border:1px solid red;
+}

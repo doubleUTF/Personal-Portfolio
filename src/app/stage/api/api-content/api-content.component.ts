@@ -3,6 +3,7 @@ import {ActivatedRoute} from '@angular/router'
 import {ApiApp} from '../api.model';
 import {WhitespaceToUnderscorePipe} from '../../../pipes/whitespace-to-underscore.pipe';
 import {ApiService} from '../api.service';
+import {Input} from '@angular/core';
 
 @Component({
   selector: 'app-api-content',
@@ -17,13 +18,14 @@ export class ApiContentComponent implements OnInit {
     private apiService:ApiService
   ) { }
 
-  apiApp:ApiApp;
+  @Input() apiApp:ApiApp;
 
   ngOnInit() {
-    this.route.params.subscribe((params)=>{
-      this.apiApp=this.apiService.getApi(this.wsPipe.transform(params.appName,true))
-      console.log(this.apiApp);
-    })
+    if (!this.apiApp){
+      this.route.params.subscribe((params)=>{
+        this.apiApp=this.apiService.getApi(this.wsPipe.transform(params.appName,true))
+      })
+    }
   }
 
   getBadgeClass(method){

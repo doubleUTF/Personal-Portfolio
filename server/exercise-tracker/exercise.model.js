@@ -1,9 +1,18 @@
 const mongoose=require('mongoose');
 const Schema=mongoose.Schema;
 let exerciseSchema=new Schema({
-  userId:String,
-  description:String,
-  duration:Number,
+  userId:{
+    type:String,
+    required:true
+  },
+  description:{
+    type:String,
+    required:true
+  },
+  duration:{
+    type:Number,
+    required:true
+  },
   date:Date
 })
 

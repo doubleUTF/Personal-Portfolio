@@ -1,0 +1,62 @@
+<app-api-content [apiApp]="exerciseApp"></app-api-content>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h6>Try me</h6>
+      <div class="row">
+        <div class="col-sm-6 col-md-12 col-lg-6 mb-2">
+          <div class='section'>
+            <h6>Create new user</h6>
+            <code>POST /api/exercise/new-user</code>
+            <div class="input-group input-group-sm mb-2 mt-2">
+              <input type="text" class="form-control" placeholder="username"
+              aria-label="username" [formControl]="userName">
+            </div>
+            <div class="button-wrap">
+              <button type="button" class="btn btn-success btn-sm align-self-center"
+              (click)="addUser()" [disabled]="userName.invalid">Submit</button>
+            </div>
+            <div>
+              <h6>Result</h6>
+              <textarea name="result" id="result" class="form-control"  rows="3" readonly>{{userResponse}}</textarea>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-12 col-lg-6 mb-3">
+          <div class="section">
+            <h6>Add exercise</h6>
+            <code>POST /api/exercise/add</code>
+            <form [formGroup]="exerciseForm" (ngSubmit)="exerciseSubmit()">
+              <div class="input-group input-group-sm mb-2 mt-2">
+                  <input type="text" class="form-control" placeholder="userId*"
+                  aria-label="userId" formControlName="userId"
+                  [ngClass]="{invalid:exerciseForm.get('userId').invalid && exerciseForm.get('userId').touched}">
+              </div>
+              <div class="input-group input-group-sm mb-2">
+                <input type="text" class="form-control" placeholder="description*"
+                aria-label="description" formControlName="description"
+                [ngClass]="{invalid:exerciseForm.get('description').invalid && exerciseForm.get('description').touched}">
+              </div>
+              <div class="input-group input-group-sm mb-2">
+                <input type="text" class="form-control" placeholder="duration (minutes)*"
+                aria-label="duration" formControlName="duration"
+                [ngClass]="{invalid:exerciseForm.get('duration').invalid && exerciseForm.get('duration').touched}">
+              </div>
+              <div class="input group input-group-sm mb-2">
+                <input type="text" class="form-control" placeholder="date (MM-DD-YYYY)"
+                aria-label="date" formControlName="date"
+                [ngClass]="{invalid:exerciseForm.get('date').invalid && exerciseForm.get('date').touched}">
+              </div>
+              <div class="button-wrap">
+                <button type="submit" class="btn btn-success btn-sm align-self-center"
+                [disabled]="exerciseForm.invalid">Submit</button>
+              </div>
+          </form>
+            <h6>Result</h6>
+            <textarea name="exResult" id="exResult" class="form-control"  rows="4" readonly>{{exerciseResponse}}</textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

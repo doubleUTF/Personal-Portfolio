@@ -6,13 +6,12 @@ const router= express.Router()
 const bodyParser=require('body-parser');
 const {urlShortener,retrieveUrl}=require('./server/short-url/url-shortener')
 const {timestamp,timestamp_dateString} = require('./server/timestamp')
-const {exercise_newUser, exercise_newExercise}= require('./server/exercise-tracker/exercise-tracker');
+const {exercise_newUser, exercise_newExercise, exercise_query}= require('./server/exercise-tracker/exercise-tracker');
 const mongoose=require('mongoose');
 
 mongoose.connect(process.env.MONGODB_URI);
-
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended:true}))
+app.use(bodyParser.urlencoded({extended:false}))
 // HTTPS Redirect
 app.set('trust proxy', true);
 
@@ -48,8 +47,9 @@ router.get(/shorturl\/new\/.+/,urlShortener)
 router.get('/shorturl/:link',retrieveUrl)
 
 // Exercise Tracker
-router.get('/exercise/new-user/:username',exercise_newUser)
-router.post('/exercise/add',exercise_newExercise)
+router.post('/exercise/new-user',exercise_newUser);
+router.post('/exercise/add',exercise_newExercise);
+router.get('/exercise/log', exercise_query);
 app.use('/api',router);
 
 // Catch all other routes and return index

@@ -52,30 +52,6 @@ h3{
   margin-bottom: 1rem;
 }
 
-.notLast{
-  border-bottom:1px solid grey;
-}
-
-.response{
-  color:gold;
-}
-
-.code-container{
-  background-color:#555;
-  padding-left: .75rem;
-  padding-top: .25rem;
-  padding-bottom: .5rem;
-  border-radius: .25rem;
-}
-
-.small-header{
-  margin-top:1rem;
-}
-
-.table{
-  margin-bottom: 0;
-}
-
 .dropdown-item{
   cursor: pointer;
 }
