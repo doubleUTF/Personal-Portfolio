@@ -10,7 +10,11 @@ const {exercise_newUser, exercise_newExercise, exercise_query}= require('./serve
 const {file_metadata} = require('./server/file_metadata');
 const mongoose=require('mongoose');
 const multer=require('multer');
-const upload=multer()
+const upload=multer();
+const helmet=require('helmet');
+
+// HelmetJS
+app.use(helmet());
 
 mongoose.connect(process.env.MONGODB_URI);
 app.use(bodyParser.json());
