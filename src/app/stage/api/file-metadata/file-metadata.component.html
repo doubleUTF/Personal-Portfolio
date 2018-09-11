@@ -1,7 +1,7 @@
 <app-api-content [apiApp]="apiApp"></app-api-content>
 <div class="container">
   <div class="row mt-2 mb-3">
-    <div class="col col-sm-8 col-md-10 col-lg-8">
+    <div class="col">
       <h3>File Metadata Microservice</h3>
       <div class="section">
         <form action="{{fullPath}}" method="post" enctype="multipart/form-data" (ngSubmit)="uploadFile($event)">
@@ -18,7 +18,7 @@
         </form>
         <progressbar type="success" [value]="progress | async" class="mb-2"><b>{{progress|async}}%</b></progressbar>
         <h6>Result</h6>
-        <textarea name="exResult" id="exResult" class="form-control"  rows="4" readonly>{{fileResponse}}</textarea>
+        <textarea name="exResult" id="exResult" class="form-control"  rows="5" readonly>{{fileResponse}}</textarea>
       </div>
     </div>
   </div>

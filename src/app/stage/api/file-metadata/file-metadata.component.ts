@@ -32,16 +32,12 @@ export class FileMetadataComponent implements OnInit {
   progress:Observable<number>=new Observable().pipe(
     startWith(0)
   );
-  test(event){
-    console.log(event)
-  }
 
   uploadFile(event){
     if (event.srcElement[0].files.length==1){
       this.progress=this.upService.upload(event.srcElement[0].files[0])
       this.upService.data.subscribe(data=>{
-        this.fileResponse=JSON.stringify(data)
-        console.log(this.fileResponse)
+        this.fileResponse=JSON.stringify(data,null,3)
       })
     }
   }

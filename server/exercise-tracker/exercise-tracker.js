@@ -4,7 +4,7 @@ const randomString=require('randomstring')
 const moment= require('moment');
 
 var exercise_newUser= (req,res,next)=>{
-  console.log(req.body)
+  // console.log(req.body)
   if (!req.body.username) return res.json({error:'Enter a valid username'})
   User.findOne({username:req.body.username},(err,user)=>{
     if (err) return res.json(err);

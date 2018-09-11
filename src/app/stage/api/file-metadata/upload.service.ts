@@ -28,7 +28,7 @@ export class UploadService {
           this.data.next(event.body)
           // Close the progress-stream if we get an answer form the API
           // The upload is complete
-          // this.progress.complete();
+          progress.complete();
         }
       })
 
