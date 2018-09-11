@@ -2,12 +2,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpRequest, HttpEventType, HttpResponse } from '@angular/common/http';
 import { Subject } from 'rxjs/Subject';
 import { Observable } from 'rxjs/Observable';
-import {startWith} from 'rxjs/operators';
+import {environment} from '../../../../environments/environment';
 
-const url = 'http://localhost:3000/api/file_metadata';
 
 @Injectable()
 export class UploadService {
+  rootPath=environment.production ? 'https://www.davidlau.xyz/api' : 'http://localhost:3000/api';
+  url=this.rootPath+'/file_metadata';
   constructor(private http: HttpClient) {}
   data=new Subject<object>();
   public upload(file:File): Observable<number> {
@@ -15,7 +16,7 @@ export class UploadService {
       const formData:FormData=new FormData();
       const progress=new Subject<number>();
       formData.append('upfile',file,file.name);
-      const req=new HttpRequest('POST',url,formData,{
+      const req=new HttpRequest('POST',this.url,formData,{
         reportProgress:true
       })
       this.http.request(req).subscribe(event=>{

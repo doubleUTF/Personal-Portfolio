@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {environment} from '../../../../environments/environment';
 import {ApiService} from '../api.service';
 import {ApiApp} from '../api.model';
 import {UploadService} from './upload.service';
@@ -12,13 +11,13 @@ import {startWith} from 'rxjs/operators';
   providers:[UploadService]
 })
 export class FileMetadataComponent implements OnInit {
-  rootPath=environment.production ? 'https://www.davidlau.xyz/api' : 'http://localhost:3000/api';
+
   constructor(
     private apiService:ApiService,
     private upService:UploadService
   ) { }
   file:File;
-  fullPath=this.rootPath+'/file_metadata';
+
   apiApp:ApiApp;
   ngOnInit() {
     this.apiApp=this.apiService.getApi('File Metadata')
