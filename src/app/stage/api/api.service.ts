@@ -98,7 +98,12 @@ new ApiApp('Exercise Tracker','Save and retreive personal exercise events.', [
     }
 ]`
   )
-])
+]),
+new ApiApp('File Metadata','Upload a file and receive its name, size, and type.',[new ApiRoute(
+  'POST','/file_metadata',null,[
+    new ParamObj('upfile','File',true, 'Keyname of file in multipart/form-data post request.')
+  ],'https://www.davidlau.xyz/api/file_metadata (multipart body not shown)','{"type":"application/octet-stream","filename":"BaseEngine.ini","size":103054}'
+)])
 ]
 
 getApiNames(){

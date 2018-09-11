@@ -1,0 +1,13 @@
+.section{
+  border-radius: .5rem;
+  background-color: rgb(26, 57, 116);
+  padding:1rem;
+}
+
+input[type="file"]{
+  display:none
+}
+
+.form-control{
+  background-color:#373636 !important;
+}

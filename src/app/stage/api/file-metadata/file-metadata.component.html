@@ -1,0 +1,25 @@
+<app-api-content [apiApp]="apiApp"></app-api-content>
+<div class="container">
+  <div class="row mt-2 mb-3">
+    <div class="col col-sm-8 col-md-10 col-lg-8">
+      <h3>File Metadata Microservice</h3>
+      <div class="section">
+        <form action="{{fullPath}}" method="post" enctype="multipart/form-data" (ngSubmit)="uploadFile($event)">
+          <div class="form-group" style="margin-bottom:.5rem">
+            <label class="btn btn-outline-light btn-sm" style="margin-right:.5rem">
+              <input type="file" name="upfile" (change)="updateName($event)">
+              Choose file
+            </label>
+            <span>{{fileName}}</span>
+          </div>
+          <div class="form-group justify-content-center d-flex">
+            <button type="submit" class="btn btn-success btn-sm" [disabled]="!fileName">Submit</button>
+          </div>
+        </form>
+        <progressbar type="success" [value]="progress | async" class="mb-2"><b>{{progress|async}}%</b></progressbar>
+        <h6>Result</h6>
+        <textarea name="exResult" id="exResult" class="form-control"  rows="4" readonly>{{fileResponse}}</textarea>
+      </div>
+    </div>
+  </div>
+</div>

@@ -6,6 +6,7 @@ import { ApiContentComponent } from './api-content/api-content.component';
 import { ApiLandingComponent } from './api-landing/api-landing.component';
 import {SharedModule} from '../../shared/shared.module';
 import { ExerciseTrackerComponent } from './exercise-tracker/exercise-tracker.component';
+import { FileMetadataComponent } from './file-metadata/file-metadata.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -16,7 +17,8 @@ import { ExerciseTrackerComponent } from './exercise-tracker/exercise-tracker.co
     ApiComponent,
     ApiContentComponent,
     ApiLandingComponent,
-    ExerciseTrackerComponent
+    ExerciseTrackerComponent,
+    FileMetadataComponent
   ]
 })
 
