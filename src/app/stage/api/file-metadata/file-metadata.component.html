@@ -4,7 +4,7 @@
     <div class="col">
       <h3>File Metadata Microservice</h3>
       <div class="section">
-        <form action="{{fullPath}}" method="post" enctype="multipart/form-data" (ngSubmit)="uploadFile($event)">
+        <form (ngSubmit)="uploadFile($event)">
           <div class="form-group" style="margin-bottom:.5rem">
             <label class="btn btn-outline-light btn-sm" style="margin-right:.5rem">
               <input type="file" name="upfile" (change)="updateName($event)">
