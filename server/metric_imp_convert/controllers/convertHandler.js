@@ -9,7 +9,6 @@
 function ConvertHandler() {
 
   this.getNum = function(input) {
-    // let numreg=/\d+\.?(\d+)?\/?(\d+)?\.?(\d+)?/
     if (!input) return 'invalid number and unit'
     let numreg=/^[\d./]+/g;
     var result=input.match(numreg)
@@ -99,7 +98,7 @@ function ConvertHandler() {
 
   this.getString = function(initNum, initUnit, returnNum, returnUnit) {
     var result;
-    result=`${initNum} ${initUnit} converts to ${returnNum} ${returnUnit}`
+    result=`${initNum} ${this.spellOutUnit(initUnit)} converts to ${returnNum} ${this.spellOutUnit(returnUnit)}`
     return result;
   };
 
