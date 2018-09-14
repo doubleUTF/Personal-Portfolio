@@ -103,8 +103,19 @@ new ApiApp('File Metadata','Upload a file and receive its name, size, and type.'
   'POST','/file_metadata',null,[
     new ParamObj('upfile','File',true, 'Keyname of file in multipart/form-data post request.')
   ],'https://www.davidlau.xyz/api/file_metadata (multipart body not shown)','{"type":"application/octet-stream","filename":"BaseEngine.ini","size":103054}'
-)])
-]
+)]),
+new ApiApp('Metric Converter','Converts units between metric and imperial system. ,', [new ApiRoute(
+  'GET', '/convert', [new ParamObj('input', 'string', true, `Number and unit to convert from, will return an object with corresponding number and unit.
+  Accepts decimal and fractional values. Allowed units are ['gal', 'l', 'lbs', 'kg', 'mi','km']`)],null,
+  'https://www.davidlau.xyz/api/convert?input=24.61gal', `{
+    "initNum": 24.61,
+    "initUnit": "gal",
+    "returnNum": 93.15894,
+    "returnUnit": "l",
+    "string": "24.61 gal converts to 93.15894 l"
+}`)]
+)]
+
 
 getApiNames(){
   return this.apiList.map((api:ApiApp)=>{

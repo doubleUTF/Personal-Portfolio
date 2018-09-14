@@ -7,6 +7,7 @@ import { ApiLandingComponent } from './api-landing/api-landing.component';
 import {SharedModule} from '../../shared/shared.module';
 import { ExerciseTrackerComponent } from './exercise-tracker/exercise-tracker.component';
 import { FileMetadataComponent } from './file-metadata/file-metadata.component';
+import { MetricConverterComponent } from './metric-converter/metric-converter.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -18,7 +19,8 @@ import { FileMetadataComponent } from './file-metadata/file-metadata.component';
     ApiContentComponent,
     ApiLandingComponent,
     ExerciseTrackerComponent,
-    FileMetadataComponent
+    FileMetadataComponent,
+    MetricConverterComponent
   ]
 })
 

@@ -16,7 +16,7 @@ export class ApiLandingComponent implements OnInit {
 
   apiList:string[];
   ngOnInit() {
-    this.apiList=this.apiService.getApiNames()
+    this.apiList=this.apiService.getApiNames().sort()
   }
 
 }

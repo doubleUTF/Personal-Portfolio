@@ -58,4 +58,5 @@ h3{
 
 .active{
   color:white !important;
+  font-weight: bold;
 }
