@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient,HttpHeaders, HttpParams} from '@angular/common/http';
 import {environment} from '../../../../environments/environment';
 
-const url=environment.production ? 'https://www.davidlau.xyz.com/api/convert' : 'http://localhost:3000/api/convert';
+const url=environment.production ? 'https://www.davidlau.xyz/api/convert' : 'http://localhost:3000/api/convert';
 @Injectable()
 export class MetricConverterService {
 
