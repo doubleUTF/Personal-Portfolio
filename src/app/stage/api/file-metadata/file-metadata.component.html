@@ -16,7 +16,7 @@
             <button type="submit" class="btn btn-success btn-sm" [disabled]="!fileName">Submit</button>
           </div>
         </form>
-        <progressbar type="success" [value]="progress | async" class="mb-2"><b>{{progress|async}}%</b></progressbar>
+        <progressbar type="success" [value]="progress | async" class="mb-2" #progressBar><b>{{progress|async}}%</b></progressbar>
         <h6>Result</h6>
         <textarea name="exResult" id="exResult" class="form-control"  rows="5" readonly>{{fileResponse}}</textarea>
       </div>

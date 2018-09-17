@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import {ApiService} from '../api.service';
 import {ApiApp} from '../api.model';
 import {UploadService} from './upload.service';
 import {Observable} from 'rxjs';
-import {startWith} from 'rxjs/operators';
+import {startWith, } from 'rxjs/operators';
+
 @Component({
   selector: 'app-file-metadata',
   templateUrl: './file-metadata.component.html',
@@ -25,12 +26,19 @@ export class FileMetadataComponent implements OnInit {
 
   updateName(event){
     if (event.srcElement.value){
+      this.pgBar.value=0;
+      this.progress= new Observable().pipe(
+        startWith(0)
+      );
       this.fileName=event.srcElement.value.match(/[^\\/:*?"<>|\r\n]+$/)[0];
     }
   }
+
   progress:Observable<number>=new Observable().pipe(
     startWith(0)
   );
+
+  @ViewChild('progressBar') pgBar;
 
   uploadFile(event){
     if (event.srcElement[0].files.length==1){

@@ -1,8 +1,10 @@
 import {ApiRoute, ParamObj, ApiApp} from './api.model'
 import * as _ from 'lodash';
+import {environment} from '../../../environments/environment';
 
 export class ApiService {
  rootPath='https://www.davidlau.xyz/api'
+ // rootPathPortfolio= environment.production? 'https://www.davidlau.xyz/portfolio' : 'http://localhost:3000/portfolio'
  apiList:ApiApp[]=[
    new ApiApp('Timestamp','Basic timestamp microservice. Returns a data object containing Unix and UTC time representations.',
    [new ApiRoute(
@@ -24,7 +26,7 @@ export class ApiService {
     ])
   ]),
   new ApiApp('Whoami','Retrieve header information from requesting client.',
-[new ApiRoute('GET','/whoami',null,null,null,`
+[new ApiRoute('GET','/whoami',null,null,null,null,`
 {"ipaddress":"192.68.1.1","language":"en-US,en;q=0.9,zh-HK;q=0.8,zh;q=0.7",
 "software":"Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36"}`
 )]),
@@ -42,12 +44,12 @@ new ApiApp('Exercise Tracker','Save and retreive personal exercise events.', [
     "username": "george",
     "_id": "CQ1zLRW"
 }`)]),
-  new ApiRoute('POST','/exercise/add',null,[
+  new ApiRoute('POST','/exercise/add',null,null,[
     new ParamObj('userId','string',true,'User ID obtained from creating new user',),
     new ParamObj('description','string',true,'Details of exercise.'),
     new ParamObj('duration', 'number',true, 'Minutes'),
     new ParamObj('date','date string',false, 'MM-DD-YYYY format')
-  ],'userId=CQ1zLRW&description=Running&duration=30&date=08-04-2018',
+  ],'(Full HTTP Body not shown) userId=CQ1zLRW&description=Running&duration=30&date=08-04-2018',
   `{
     "message": "saved",
     "data": {
@@ -58,7 +60,7 @@ new ApiApp('Exercise Tracker','Save and retreive personal exercise events.', [
     }
 }`
 ),
-  new ApiRoute('GET','/log',[
+  new ApiRoute('GET','/log', null,[
     new ParamObj('userId','string',true,'User Id'),
     new ParamObj('from','string',false,'Earliest date query in "MM-DD-YYYY" format'),
     new ParamObj('to','string',false,'Latest date query in "MM-DD-YYYY" format'),
@@ -100,12 +102,12 @@ new ApiApp('Exercise Tracker','Save and retreive personal exercise events.', [
   )
 ]),
 new ApiApp('File Metadata','Upload a file and receive its name, size, and type.',[new ApiRoute(
-  'POST','/file_metadata',null,[
+  'POST','/file_metadata',null, null,[
     new ParamObj('upfile','File',true, 'Keyname of file in multipart/form-data post request.')
   ],'https://www.davidlau.xyz/api/file_metadata (multipart body not shown)','{"type":"application/octet-stream","filename":"BaseEngine.ini","size":103054}'
 )]),
-new ApiApp('Metric Converter','Converts units between metric and imperial system. ,', [new ApiRoute(
-  'GET', '/convert', [new ParamObj('input', 'string', true, `Number and unit to convert from, will return an object with corresponding number and unit.
+new ApiApp('Metric Converter','Converts units between metric and imperial system. ,',  [new ApiRoute(
+  'GET', '/convert', null,[new ParamObj('input', 'string', true, `Number and unit to convert from, will return an object with corresponding number and unit.
   Accepts decimal and fractional values. Allowed units are ['gal', 'l', 'lbs', 'kg', 'mi','km']`)],null,
   'https://www.davidlau.xyz/api/convert?input=24.61gal', `{
     "initNum": 24.61,
@@ -114,7 +116,84 @@ new ApiApp('Metric Converter','Converts units between metric and imperial system
     "returnUnit": "l",
     "string": "24.61 gal converts to 93.15894 l"
 }`)]
-)]
+),
+new ApiApp('Issue Tracker', 'View, create, edit, and delete issue tickets.',[new ApiRoute('GET',
+'/issues/:project', null,[new ParamObj('issue_title','String',false, 'Query filter property.'),
+new ParamObj('issue_text','String',false,'Query filter property.'),
+new ParamObj('created_by','String',false,'Query filter property'),
+new ParamObj('assigned_to','String',false,'Query filter property'),
+new ParamObj('status_text','String',false,'Query filter property'),
+new ParamObj('created_on','Date',false,'Query filter property'),
+new ParamObj('updated_on','Date',false,'Query filter property'),
+new ParamObj('open','Boolean',false,'Query filter property'),],null,
+'https://www.davidlau.xyz/api/issues/test/?created_by=LIL JON&open=true&assigned_to=Chai and Mocha',
+`[
+    {
+        "assigned_to": "Chai and Mocha",
+        "status_text": "In QA",
+        "open": true,
+        "_id": "5b9f5919ad6fcf50bc1f0661",
+        "project": "test",
+        "issue_title": "Title",
+        "issue_text": "text",
+        "created_by": "LIL JON",
+        "created_on": "2018-09-17T07:34:49.089Z",
+        "updated_on": "2018-09-17T07:34:49.147Z",
+        "__v": 0
+    },
+    {
+        "assigned_to": "Chai and Mocha",
+        "status_text": "In QA",
+        "open": true,
+        "_id": "5b9f594d29db175528431e56",
+        "project": "test",
+        "issue_title": "Title",
+        "issue_text": "text",
+        "created_by": "LIL JON",
+        "created_on": "2018-09-17T07:35:41.136Z",
+        "updated_on": "2018-09-17T07:35:41.187Z",
+        "__v": 0
+    }]`
+), new ApiRoute('POST','/issues/:project',null,null,[
+  new ParamObj('issue_title','string',true,'Title of issue'),
+  new ParamObj('issue_text','string',true,'Text content of issue'),
+  new ParamObj('created_by','string',true,'Creator name'),
+  new ParamObj('assigned_to','string',false,'Assignee name'),
+  new ParamObj('status_text','string',false,'Issue status')
+],`(Full HTTP body not shown) https://www.davidlau.xyz/api/issues/networking {issue_title:Connection issues
+issue_text:Experiencing intermittent connections, requesting technical assistance
+created_by:Elliot Alderson
+assignedTo:Tyrell Wellick
+status_text:Unresolved}`,`
+{
+    "assigned_to": "",
+    "status_text": "Unresolved",
+    "open": true,
+    "_id": "5b9ffe82a8097c2bf492c364",
+    "project": "networking",
+    "issue_title": "Connection issues",
+    "issue_text": "Experiencing intermittent connections, requesting technical assistance",
+    "created_by": "Elliot Alderson",
+    "created_on": "2018-09-17T19:20:34.279Z",
+    "updated_on": "2018-09-17T19:20:34.279Z",
+    "__v": 0
+}`), new ApiRoute('PUT','/issues/:project',null,null,[
+  new ParamObj('assigned_to', 'string', false, 'Update assigned_to property'),
+  new ParamObj('issue_title', 'string', false, 'Update issue_title property'),
+  new ParamObj('issue_text', 'string', false, 'Update issue_text property'),
+  new ParamObj('created_by', 'string', false, 'Update creadted_by property'),
+  new ParamObj('status_text', 'string', false, 'Update status_text property'),
+  new ParamObj('open','boolean',false,'Update open property')
+],`(Full HTTP body not shown) https://www.davidlau.xyz/api/issues/test {_id:5b9f53c45608ba3c641a507f
+created_by:Mr. Robot}`,`{
+    "message": "successfully updated"
+}`),
+new ApiRoute('DELETE','/issues/:project',null,[
+  new ParamObj('_id', 'string', true, 'Delete an issue with ObjectId string')
+], null, `https://www.davidlau.xyz/api/issues/networking?_id=5b9ffe82a8097c2bf492c364`,
+`{"message": "success: deleted 5b9ffe82a8097c2bf492c364"}`)
+], 'portfolio/issue-tracker')
+]
 
 getApiNames(){
   return this.apiList.map((api:ApiApp)=>{

@@ -21,3 +21,26 @@ code{
 .response{
   color:gold;
 }
+
+.paramName{
+  white-space: nowrap;
+}
+
+a:link {
+    color: rgb(170, 180, 255);
+}
+
+/* visited link */
+a:visited {
+    color: rgb(162, 121, 162);
+}
+
+/* mouse over link */
+a:hover {
+    color: rgb(150, 155, 193);
+}
+
+/* selected link */
+a:active {
+    color: rgb(208, 217, 255);
+}

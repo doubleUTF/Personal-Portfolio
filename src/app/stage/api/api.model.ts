@@ -4,6 +4,7 @@ constructor(
   public name:string,
   public description:string,
   public apiList: Array<ApiRoute>,
+  public frontEndURL?:string
 ){}
 }
 
@@ -12,10 +13,11 @@ export class ApiRoute{
   constructor(
     public method:string,
     public url:string,
+    public params?:Array<ParamObj>,
     public queryParams?:Array<ParamObj>,
     public bodyParams?:Array<ParamObj>,
     public exampleRequest?:string,
-    public exampleResponse?:string
+    public exampleResponse?:string,
   ) {}
 }
 

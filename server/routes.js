@@ -7,6 +7,7 @@ const {file_metadata} = require('./file_metadata');
 const multer=require('multer');
 const upload=multer();
 const metric_imp_convert=require('./metric_imp_convert/metric_imp_convert');
+const issueTracker=require('./issueTracker/issueTracker');
 
 module.exports=(app)=>{
   // Timestamp
@@ -36,6 +37,9 @@ module.exports=(app)=>{
   // Metric Imperial Converter
   metric_imp_convert(app);
 
+  // Issue Tracker
+  issueTracker(app);
+  
   app.use('/api',router);
 
   // Catch all other routes and return index

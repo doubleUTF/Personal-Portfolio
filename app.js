@@ -6,6 +6,7 @@ const bodyParser=require('body-parser');
 const mongoose=require('mongoose');
 const helmet=require('helmet');
 const routes=require('./server/routes');
+const cors= require('cors');
 
 // HelmetJS
 app.use(helmet());
@@ -27,11 +28,12 @@ if (process.env.NODE_ENV=='production'){
 }
 
 // Allow CORS
-app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  next();
-});
+app.use(cors());
+// app.use(function(req, res, next) {
+//   res.header("Access-Control-Allow-Origin", "*");
+//   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+//   next();
+// });
 
 app.use(express.static('public'))
 
