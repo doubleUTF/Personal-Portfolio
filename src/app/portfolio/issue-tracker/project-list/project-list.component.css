@@ -8,3 +8,16 @@ mat-card{
   background-color: gold;
   text-align:left !important;
 }
+
+button:focus{
+  outline:none;
+}
+
+.button-row button,
+.button-row a {
+  margin-right: 8px;
+}
+
+.yes{
+  background-color: green;
+}

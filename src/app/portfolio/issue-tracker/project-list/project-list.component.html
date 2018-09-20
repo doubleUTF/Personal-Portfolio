@@ -1,10 +1,21 @@
 <section fxLayout fxLayoutAlign="center">
   <div fxLayout.xs="column" fxLayout="row wrap" fxLayoutAlign.xs="center center"
   fxLayoutAlign="space-evenly">
-  <button mat-button *ngFor="let project of projectList" [routerLink]="['./',project.project]">
+  <div style="width:100%" fxLayoutAlign="center" fxLayout *ngIf="projectList?.length>0">
+    <h3>Projects</h3>
+  </div>
+  <div *ngIf="projectList?.length==0">
+    <h3>Project '{{searchInput}}' not found</h3>
+    <p>Would you like to create a new issue for this project?</p>
+    <div class="button-row" fxLayout fxLayoutAlign="center">
+      <button mat-flat-button class="yes" [routerLink]="['./',searchInput,'new']">Yes</button>
+      <button mat-flat-button class="no" color="warn" (click)="clearSearch()">No</button>
+    </div>
+  </div>
+  <button mat-button *ngFor="let project of projectList" [routerLink]="['./',project.name]">
     <mat-card>
       <mat-card-title>
-        {{project.project}}
+        {{project.name}}
       </mat-card-title>
       <mat-card-subtitle>
         <span style="font-weight:bold">

@@ -1,23 +1,27 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef} from '@angular/core';
 import {FormControl} from '@angular/forms';
+import {IssueTrackerService} from '../issue-tracker.service';
 
 @Component({
   selector: 'it-navbar',
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css']
+  styleUrls: ['./navbar.component.css','../issue-tracker.component.css']
 })
 export class NavbarComponent implements OnInit {
 
   @ViewChild('mobileSearch') mobileSearch: ElementRef;
-  constructor() { }
+  constructor(
+    private itService:IssueTrackerService
+  ) { }
 
   searchInput:FormControl;
 
   ngOnInit() {
     this.searchInput=new FormControl('');
     this.searchInput.valueChanges.subscribe((value)=>{
-      console.log(value)
+      this.itService.searchSubject.next(value)
     })
+    this.itService.clearSubject.subscribe(()=>this.searchInput.setValue(''))
   }
 
   showSearchBar=false;

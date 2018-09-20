@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import {ActivatedRoute} from '@angular/router';
 @Component({
   selector: 'app-issue',
   templateUrl: './issue.component.html',
@@ -7,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IssueComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private route:ActivatedRoute
+  ) { }
 
   ngOnInit() {
+    this.route.params.subscribe((params)=>{
+      console.log(params)
+    })
   }
 
 }

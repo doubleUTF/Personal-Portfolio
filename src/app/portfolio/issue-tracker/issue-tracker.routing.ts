@@ -9,6 +9,7 @@ const issueTrackerRoutes:Routes=[
   {path:'',component:IssueTrackerComponent, children:[
     {path:'',component:ProjectListComponent},
     {path:':project',component:IssueListComponent},
+    {path:':project/new',component:IssueComponent},
     {path:':project/:objectId', component:IssueComponent}
   ]}
 ]

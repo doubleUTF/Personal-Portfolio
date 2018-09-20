@@ -1,6 +1,8 @@
 <mat-toolbar color="primary">
   <mat-toolbar-row>
-  <span>Issue Tracker</span>
+    <a routerLink="./" class="appTitle">
+      <span>Issue Tracker</span>      
+    </a>
     <div fxLayout fxFlex fxLayoutAlign="end">
       <div class="input-group input-group-sm" fxHide.xs="true">
         <input type="text" class="form-control textbar" [formControl]="searchInput"
@@ -19,7 +21,7 @@
     </div>
   </mat-toolbar-row>
 
-  <mat-toolbar-row fxHide.gt-xs="true" *ngIf="showSearchBar"
+  <mat-toolbar-row fxHide.gt-xs="true" *ngIf="showSearchBar" fxLayoutAlign="center"
   (clickOutside)="closeSearchBar()" [exclude]="'button'">
     <div class="input-group input-group-sm">
       <input type="text" class="form-control textbar" [formControl]="searchInput"
