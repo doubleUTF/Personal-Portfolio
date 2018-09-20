@@ -6,7 +6,6 @@ import { RecipeNavComponent } from './recipe-nav/recipe-nav.component';
 import { RecipeCardComponent } from './recipe-card/recipe-card.component';
 import { RecipeDetailComponent } from './recipe-detail/recipe-detail.component';
 import { RecipeThumbnailsComponent } from './recipe-thumbnails/recipe-thumbnails.component';
-import {RecipeBoxService} from './recipe-box.service';
 import { RecipeEditComponent } from './recipe-edit/recipe-edit.component';
 
 @NgModule({

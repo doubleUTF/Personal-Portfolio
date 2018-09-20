@@ -4,6 +4,9 @@ import {FormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import { BootstrapModule } from '../bootstrap/bootstrap.module';
 import {ReactiveFormsModule} from '@angular/forms';
+import {MaterialModule} from '../material/material.module';
+import {FlexLayoutModule} from '@angular/flex-layout';
+import {ClickOutsideModule} from 'ng-click-outside';
 
 @NgModule({
   exports:[
@@ -12,6 +15,9 @@ import {ReactiveFormsModule} from '@angular/forms';
     HttpClientModule,
     BootstrapModule,
     ReactiveFormsModule,
+    MaterialModule,
+    FlexLayoutModule,
+    ClickOutsideModule
   ]
 })
 export class SharedModule { }

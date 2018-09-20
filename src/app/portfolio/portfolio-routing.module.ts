@@ -11,7 +11,11 @@ const routes:Routes=[
   {path:'camper-leaderboard',component:CamperLeaderboardComponent,
     data:{animation:'Camper',hideBars:false}},
   {path:'recipe-box',loadChildren:'./recipe-box/recipe-box.module#RecipeBoxModule',
-    data:{animation:'Recipe',hideBars:true}}
+    data:{animation:'Recipe',hideBars:true}},
+    {path:'issue-tracker',loadChildren:'./issue-tracker/issue-tracker.module#IssueTrackerModule',
+  data:{animation:'Issue Tracker', hideBars:true}},
+  {path:'fitness-tracker',loadChildren:'./fitness-tracker/fitness-tracker.module#FitnessTrackerModule',
+data:{animation:'Fitness Tracker',hideBars:true}}
 ]
 
 @NgModule({

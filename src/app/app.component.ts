@@ -10,7 +10,9 @@ import {fadeIn} from './app.animations';
 })
 
 export class AppComponent implements OnInit {
-  constructor(){}
+  constructor(
+  ){}
+
   ngOnInit(){
   }
 
@@ -24,6 +26,6 @@ export class AppComponent implements OnInit {
 
   shouldHideBars(outlet:RouterOutlet):boolean{
     const bool= outlet.activatedRouteData['hideBars'];
-    if (bool==true) return true
+    if (bool) return true
   }
 }

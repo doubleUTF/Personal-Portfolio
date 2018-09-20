@@ -16,7 +16,7 @@ export class NavbarComponent implements OnInit {
   ngOnInit() {
     this.router.events.pipe(
       filter((e)=> e instanceof NavigationEnd)
-    ).subscribe(e=>{
+    ).subscribe(()=>{
       this.isCollapsed=true
     })
   }

@@ -10,14 +10,14 @@ import {SharedModule} from '../shared/shared.module';
 @NgModule({
   imports: [
     PortfolioRoutes,
-    SharedModule
+    SharedModule,
   ],
   declarations: [
     PortfolioComponent,
     MarkdownPreviewerComponent,
     CamperLeaderboardComponent,
     ProjectThumbnailComponent,
-    MarkdownPipe
+    MarkdownPipe,
   ],
 })
 export class PortfolioModule { }

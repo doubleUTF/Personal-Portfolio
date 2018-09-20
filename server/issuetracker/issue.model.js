@@ -4,7 +4,8 @@ const Schema=mongoose.Schema;
 let issueSchema=new Schema({
   project:{
     type:String,
-    required:true
+    required:true,
+    index:true
   },
   issue_title:{
     type:String,

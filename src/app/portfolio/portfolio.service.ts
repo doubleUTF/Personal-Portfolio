@@ -170,7 +170,13 @@ new Project('Choropleth Map', new Date(2018,8,13),
 new Project('Treemap', new Date(2018,8,17),
 'Treemap of Video Game Sales. Made with D3.',
 '../../../assets/img/treemap_games.jpg',
-'https://codepen.io/doubleUTF/full/KBYwQx/')
+'https://codepen.io/doubleUTF/full/KBYwQx/'),
+new Project('Fitness Tracker', new Date(2018,9,18),
+'Log exercises',
+null,null,'fitness-tracker'),
+new Project('Issue Tracker', new Date(2018,9,19),
+'Create and manage issues for personal or work related issues.',
+null,null,'issue-tracker')
   ];
 
   getProjects(){

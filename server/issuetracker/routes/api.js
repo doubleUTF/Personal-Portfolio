@@ -14,6 +14,22 @@ const {Issue}=require('../issue.model');
 
 module.exports = function (app) {
 
+  // Get a list objects containing project names and stats
+  // Expect an array of objects
+  // Ex. [{_id:'test', open:20, closed:50, latest:"2018-09-19T17:27:18.906Z"}, {_id:'networking', open:10, closed:15, latest:""2018-09-19T17:27:18.906Z""}]
+  app.get('/api/issues',(req,res)=>{
+    Issue.aggregate([{$group:{_id:'$project',open:{$sum:{$cond:['$open',1,0]}},
+    closed:{$sum:{$cond:['$open',0,1]}},
+    latest:{$max:'$updated_on'}
+  }}])
+    .then((data)=>{
+      res.json(data)
+    })
+    .catch((err)=>{
+      res.status(400).json(err);      
+    })
+  })
+
   app.route('/api/issues/:project')
 
     .get(function (req, res){

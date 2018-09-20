@@ -181,7 +181,8 @@ suite('Functional Tests', function() {
       test('Multiple filters (test for multiple fields you know will be in the db for a return)', function(done) {
         chai.request(server)
         .get(endpoint)
-        .query({created_by:'LIL JON', issue_title:'Title',open:true})
+        .query({created_by:'Bruce Dickenson', issue_title:'Need more cowbell',
+        issue_text:'We gotta have more cowbell!', open:true})
         .end((err,res)=>{
           assert.equal(res.status,200);
           assert.isArray(res.body);

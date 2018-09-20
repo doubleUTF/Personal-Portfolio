@@ -1,0 +1,10 @@
+section{
+  margin:15px;
+}
+
+mat-card{
+  width:280px;
+  margin:10px;
+  background-color: gold;
+  text-align:left !important;
+}

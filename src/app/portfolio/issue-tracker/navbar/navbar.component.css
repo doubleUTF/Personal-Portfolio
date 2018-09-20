@@ -1,0 +1,26 @@
+@import '~@angular/material/prebuilt-themes/purple-green.css';
+
+.input-group{
+  max-width:300px;
+}
+
+.icon-list{
+  list-style: none;
+  margin-bottom:0;
+  margin-top:.20rem;
+  padding:0;
+}
+
+.textbar{
+  background-color: #DDD;
+  color:black;
+  margin-right: 1rem;
+}
+
+.input-group-text{
+  background-color: transparent;
+}
+
+.form-control{
+  border-radius:.25rem !important;
+}
