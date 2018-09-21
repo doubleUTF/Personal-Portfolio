@@ -1,0 +1,54 @@
+section{
+  margin:10px;
+}
+
+mat-card{
+  width:320px;
+  margin:10px;
+  text-align:left !important;
+}
+
+.mat-card-content{
+  white-space: normal;
+  line-height: 1rem;
+}
+
+button:focus{
+  outline:none;
+}
+
+.mat-button{
+  padding:0
+}
+
+.opaque{
+  color:rgba(255,255,255,1);
+}
+
+mat-card-content{
+  height:4rem;
+}
+
+mat-card-title, mat-card-subtitle{
+  text-overflow:ellipsis;
+  overflow:hidden;
+}
+
+/* For some reason, the following class does not consistently apply.
+*/
+.project-title{
+  text-overflow:ellipsis;
+  overflow:hidden;
+}
+mat-card-subtitle{
+  margin-bottom:2px;
+  line-height:1.2rem;
+}
+
+.open{
+  background-color: rgb(36, 131, 60) !important;
+}
+
+mat-card-title{
+  margin-bottom: 0;
+}

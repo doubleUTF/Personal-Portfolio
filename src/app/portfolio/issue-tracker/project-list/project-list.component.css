@@ -1,5 +1,5 @@
 section{
-  margin:15px;
+  margin:5px;
 }
 
 mat-card{
@@ -20,4 +20,9 @@ button:focus{
 
 .yes{
   background-color: green;
+}
+
+mat-card-title{
+  text-overflow:ellipsis;
+  overflow:hidden;
 }

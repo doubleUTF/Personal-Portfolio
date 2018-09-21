@@ -26,12 +26,12 @@ module.exports = function (app) {
       res.json(data)
     })
     .catch((err)=>{
-      res.status(400).json(err);      
+      res.status(400).json(err);
     })
   })
 
   app.route('/api/issues/:project')
-
+    // Return a list of issues for query project
     .get(function (req, res){
       var project = req.params.project;
       let queryOptions={project}

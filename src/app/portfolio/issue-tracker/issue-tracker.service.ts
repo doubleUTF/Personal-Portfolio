@@ -8,9 +8,15 @@ import {Subject} from 'rxjs';
 })
 export class IssueTrackerService {
   rootPath= environment.production ? 'https://www.davidlau.xyz/api/issues' : 'http://localhost:3000/api/issues'
+
   getProjects(){
     return this.http.get(this.rootPath)
   }
+
+  getIssues(project:string){
+    return this.http.get(`${this.rootPath}/${project}`)
+  }
+  
   constructor(
     private http:HttpClient
   ) { }

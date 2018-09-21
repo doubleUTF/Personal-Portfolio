@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
+import {FormGroup,FormControl,Validators} from '@angular/forms';
+
 @Component({
   selector: 'app-issue',
   templateUrl: './issue.component.html',
@@ -14,6 +16,10 @@ export class IssueComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe((params)=>{
       console.log(params)
+      // New issue
+      if (!params.objectId){
+
+      }
     })
   }
 
