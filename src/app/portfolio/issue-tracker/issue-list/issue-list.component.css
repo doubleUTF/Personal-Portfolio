@@ -22,11 +22,18 @@ button:focus{
 }
 
 .opaque{
-  color:rgba(255,255,255,1);
+  color:rgba(255,255,255,.8);
 }
 
 mat-card-content{
-  height:4rem;
+  height:3rem;
+  text-overflow:ellipsis;
+}
+
+.mat-card-content-xs{
+  height:1rem;
+  overflow:hidden;
+  white-space: nowrap !important;
 }
 
 mat-card-title, mat-card-subtitle{

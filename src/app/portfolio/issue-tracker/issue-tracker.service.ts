@@ -16,11 +16,13 @@ export class IssueTrackerService {
   getIssues(project:string){
     return this.http.get(`${this.rootPath}/${project}`)
   }
-  
+
   constructor(
     private http:HttpClient
   ) { }
 
-  searchSubject: Subject<string>= new Subject();
+  searchMode: Subject<string>= new Subject();
+  projectSearchSubject: Subject<string>= new Subject();
+  issueSearchSubject:Subject<string>=new Subject();
   clearSubject: Subject<boolean>=new Subject();
 }

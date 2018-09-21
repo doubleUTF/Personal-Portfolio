@@ -11,15 +11,34 @@ export class NavbarComponent implements OnInit {
 
   @ViewChild('mobileSearch') mobileSearch: ElementRef;
   constructor(
-    private itService:IssueTrackerService
+    private itService:IssueTrackerService,
   ) { }
 
   searchInput:FormControl;
+  searchMode:string;
+  placeHolder:string;
 
   ngOnInit() {
+    this.itService.searchMode.subscribe((mode)=>{
+      this.closeSearchBar();
+      this.searchMode=mode;
+      switch (mode){
+        case 'project':
+          this.placeHolder='Search or add project'
+          break
+        case 'issue':
+          this.placeHolder='Search or add issue'
+          break;
+      }
+    })
+
     this.searchInput=new FormControl('');
     this.searchInput.valueChanges.subscribe((value)=>{
-      this.itService.searchSubject.next(value)
+      if (this.searchMode=='project'){
+        this.itService.projectSearchSubject.next(value)
+      } else {
+        this.itService.issueSearchSubject.next(value);
+      }
     })
     this.itService.clearSubject.subscribe(()=>this.searchInput.setValue(''))
   }

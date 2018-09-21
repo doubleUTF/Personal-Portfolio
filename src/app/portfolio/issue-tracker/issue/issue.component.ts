@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {FormGroup,FormControl,Validators} from '@angular/forms';
+import {IssueTrackerService} from '../issue-tracker.service';
 
 @Component({
   selector: 'app-issue',
@@ -10,12 +11,13 @@ import {FormGroup,FormControl,Validators} from '@angular/forms';
 export class IssueComponent implements OnInit {
 
   constructor(
-    private route:ActivatedRoute
+    private route:ActivatedRoute,
+    private itService:IssueTrackerService
   ) { }
 
   ngOnInit() {
+    this.itService.searchMode.next('none')
     this.route.params.subscribe((params)=>{
-      console.log(params)
       // New issue
       if (!params.objectId){
 

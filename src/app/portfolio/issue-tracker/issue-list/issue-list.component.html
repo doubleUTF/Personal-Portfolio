@@ -21,8 +21,8 @@
       <mat-card-subtitle class="mb-2">
         <strong class="opaque">{{issue.open ? 'Open' : 'Closed'}}</strong>
       </mat-card-subtitle>
-      <mat-card-content>
-        {{issue.issue_text | truncateText: 170}}
+      <mat-card-content ngClass.xs="mat-card-content-xs">
+        {{issue.issue_text | truncateText: 122}}
       </mat-card-content>
       <mat-card-subtitle>
          {{issue.status_text ? 'Status - '+ issue.status_text: 'No status'}}

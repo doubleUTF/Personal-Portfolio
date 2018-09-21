@@ -4,10 +4,10 @@
       <span>Issue Tracker</span>
     </a>
 
-    <div fxLayout fxFlex fxLayoutAlign="end">
+    <div fxLayout fxFlex fxLayoutAlign="end" *ngIf="searchMode !='none'">
       <div class="input-group input-group-sm" fxHide.xs="true">
         <input type="text" class="form-control textbar" [formControl]="searchInput"
-        placeholder="Search or add project" [value]="searchInput.value">
+        placeholder="{{placeHolder}}" [value]="searchInput.value">
       </div>
       <div fxHide.gt-xs="true">
         <ul fxLayout fxFlexAlign="center" fxLayoutGap="10px"
@@ -22,11 +22,11 @@
     </div>
   </mat-toolbar-row>
 
-  <mat-toolbar-row fxHide.gt-xs="true" *ngIf="showSearchBar" fxLayoutAlign="center"
+  <mat-toolbar-row fxHide.gt-xs="true" *ngIf="showSearchBar && searchMode !='none'" fxLayoutAlign="center"
   (clickOutside)="closeSearchBar()" [exclude]="'button'">
     <div class="input-group input-group-sm">
       <input type="text" class="form-control textbar" [formControl]="searchInput"
-      placeholder="Search or add project" #mobileSearch [value]="searchInput.value">
+      placeholder="{{placeHolder}}" #mobileSearch [value]="searchInput.value">
     </div>
   </mat-toolbar-row>
 
