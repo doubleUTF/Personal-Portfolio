@@ -5,7 +5,7 @@
     <h3>Projects</h3>
   </div>
   <div *ngIf="projectList?.length==0">
-    <h3>Project '{{searchInput}}' not found</h3>
+    <h3>'{{searchInput}}' project not found</h3>
     <p>Would you like to create a new issue for this project?</p>
     <div class="button-row" fxLayout fxLayoutAlign="space-around">
       <button mat-flat-button class="yes" [routerLink]="['./',searchInput,'issue']">Yes</button>

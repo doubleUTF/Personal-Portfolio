@@ -1,28 +1,27 @@
 <section>
-  <h3 style="text-align:center">Edit issue</h3>
+  <h3 style="text-align:center">{{newIssue ? 'New':'Edit'}} {{project}} issue</h3>
   <form [formGroup]="issueForm" fxLayout="column"
   fxLayoutAlign="center center">
     <mat-form-field color="accent">
-      <input type="text" matInput placeholder="Title" formControlName="issue_title">
+      <input type="text" matInput placeholder="Title *" formControlName="issue_title">
+      <mat-error *ngIf="issueForm.hasError('issue_title')">Title required</mat-error>
     </mat-form-field>
     <mat-form-field color="accent" class="textbody">
-      <textarea type="text" matInput placeholder="Description" rows="6"
+      <textarea type="text" matInput placeholder="Description *" rows="6"
         formControlName="issue_text"></textarea>
-    </mat-form-field>
-    <mat-form-field color="accent">
-      <input type="text" matInput placeholder="Project" formControlName="project">
+        <mat-error *ngIf="issueForm.hasError('issue_text')">Description or text required</mat-error>
     </mat-form-field>
     <mat-form-field color="accent">
       <input type="text" matInput placeholder="Assigned to" formControlName="assigned_to">
     </mat-form-field>
     <mat-form-field color="accent">
-      <input type="text" matInput placeholder="Status text" formControlName="status_text">
+      <input type="text" matInput placeholder="Status" formControlName="status_text">
     </mat-form-field>
     <mat-form-field color="accent">
-      <input type="text" matInput placeholder="Created By" formControlName="created_by">
+      <input type="text" matInput placeholder="Created by *" formControlName="created_by">
     </mat-form-field>
     <div class="button-group">
-      <mat-button-toggle-group formControlName="open" (change)="test()">
+      <mat-button-toggle-group formControlName="open">
         <mat-button-toggle [ngClass]="{open:issueForm.get('open').value}"
         [value]="true">Open</mat-button-toggle>
         <mat-button-toggle [ngClass]="{closed:!issueForm.get('open').value}"
@@ -30,10 +29,14 @@
       </mat-button-toggle-group>
     </div>
     <div class="button-row" fxLayout fxLayoutGap="20px">
-      <a mat-flat-button color="primary">Save</a>
-      <a mat-flat-button color="warn" routerLink='../'>Cancel</a>
+      <a mat-flat-button color="accent" (click)="saveIssue()"
+      [disabled]="issueForm.invalid || issueForm.pristine">Save</a>
+      <a mat-flat-button color="primary" routerLink='../'>Cancel</a>
+      <button *ngIf="!newIssue" mat-flat-button color="warn" (click)="deleteIssue()">Delete</button>
     </div>
-    <span>Last updated {{issueForm.get('updated_on').value | date:'short'}}</span>
-    <span>Created on {{issueForm.get('created_on').value | date:'short'}}</span>
+    <div *ngIf="!newIssue" fxLayout="column" fxLayoutAlign="center center">
+      <span>Last updated {{issueForm.get('updated_on').value | date:'short'}}</span>
+      <span>Created on {{issueForm.get('created_on').value | date:'short'}}</span>
+    </div>
   </form>
 </section>

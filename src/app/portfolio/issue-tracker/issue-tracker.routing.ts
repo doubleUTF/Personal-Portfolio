@@ -4,7 +4,8 @@ import {IssueTrackerComponent} from './issue-tracker.component';
 import {ProjectListComponent} from './project-list/project-list.component';
 import {IssueListComponent} from './issue-list/issue-list.component';
 import {IssueComponent} from './issue/issue.component';
-import {IssueResolver} from './issue.resolver';
+import {IssueResolver} from './issue/issue.resolver';
+
 const issueTrackerRoutes:Routes=[
   {path:'',component:IssueTrackerComponent, children:[
     {path:'',component:ProjectListComponent},

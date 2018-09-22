@@ -7,10 +7,10 @@
   </div>
 
   <div *ngIf="issueList?.length==0">
-    <h3>Issue '{{currentSearchInput}}' not found</h3>
-    <p>Would you like to create a new issue?</p>
+    <h3>'{{currentSearchInput}}' issue not found</h3>
+    <p>Create a new issue?</p>
     <div class="button-row" fxLayout fxLayoutAlign="space-around">
-      <button mat-flat-button class="yes" [routerLink]="['./','issue']">Yes</button>
+      <button mat-flat-button class="yes" [routerLink]="['./','issue']" [queryParams]="{title:currentSearchInput}">Yes</button>
       <button mat-flat-button class="no" color="warn" (click)="clearSearch()">No</button>
     </div>
   </div>

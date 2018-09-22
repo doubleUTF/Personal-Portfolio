@@ -93,10 +93,10 @@ module.exports = function (app) {
     })
 
     .delete(function (req, res){
-      var project = req.params.project;
+      // var project = req.params.project;
       if (!req.query._id) return res.status(400).json({error:'_id error'})
-      Issue.deleteOne({_id:ObjectId(req.query._id),project},(err)=>{
-        if (err) return res.status(400).json({error:`could not delete ${req.query._id}`})
+      Issue.findByIdAndDelete({_id:ObjectId(req.query._id)},(err,doc)=>{
+        if (err || !doc) return res.status(400).json({error:`could not delete ${req.query._id}`})
         res.json({message:`success: deleted ${req.query._id}`})
       })
     });

@@ -12,7 +12,7 @@ export class IssueListComponent implements OnInit, OnDestroy {
 
   constructor(
     private route:ActivatedRoute,
-    private itService:IssueTrackerService
+    private itService:IssueTrackerService,
   ) { }
   project;
   issueList;
