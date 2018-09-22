@@ -4,19 +4,19 @@ import {IssueTrackerComponent} from './issue-tracker.component';
 import {ProjectListComponent} from './project-list/project-list.component';
 import {IssueListComponent} from './issue-list/issue-list.component';
 import {IssueComponent} from './issue/issue.component';
-import {IssueGuard} from './issue.guard';
+import {IssueResolver} from './issue.resolver';
 const issueTrackerRoutes:Routes=[
   {path:'',component:IssueTrackerComponent, children:[
     {path:'',component:ProjectListComponent},
     {path:':project',component:IssueListComponent},
-    {path:':project/new',component:IssueComponent},
-    {path:':project/:objectId', component:IssueComponent, canActivate:[IssueGuard]}
+    {path:':project/issue', component:IssueComponent, resolve:{issue:IssueResolver}},
   ]}
 ]
 
 @NgModule({
   imports:[RouterModule.forChild(issueTrackerRoutes)],
-  exports:[RouterModule]
+  exports:[RouterModule],
+  providers:[IssueResolver]
 })
 
 export class IssueTrackerRouting{}

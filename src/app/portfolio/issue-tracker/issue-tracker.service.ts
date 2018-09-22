@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpParams} from '@angular/common/http';
 import {environment} from '../../../environments/environment';
 import {Subject} from 'rxjs';
+
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +16,11 @@ export class IssueTrackerService {
 
   getIssues(project:string){
     return this.http.get(`${this.rootPath}/${project}`)
+  }
+
+  getIssue(id:string,project:string){
+    let options={params:new HttpParams().set('id',id)}
+    return this.http.get(`${this.rootPath}/${project}/issue`,options)
   }
 
   constructor(

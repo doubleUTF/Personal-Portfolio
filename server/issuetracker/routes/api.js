@@ -30,6 +30,21 @@ module.exports = function (app) {
     })
   })
 
+  // Return individual ID and project
+  app.get('/api/issues/:project/issue',(req,res)=>{
+    let id;
+    try {
+      id=ObjectId(req.query.id);
+    } catch(e) {
+      return res.status(400).json({error: 'Invalid ObjectId'})
+    }
+    Issue.findOne({_id:id,project:req.params.project},{__v:0},(err,data)=>{
+      if (err) return res.status(400).json(err)
+      if (!data) return res.status(400).json({error:`Issue with id ${req.query._id} not found`})
+      res.json(data);
+    })
+  })
+
   app.route('/api/issues/:project')
     // Return a list of issues for query project
     .get(function (req, res){

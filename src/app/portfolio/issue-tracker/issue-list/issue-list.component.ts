@@ -16,14 +16,15 @@ export class IssueListComponent implements OnInit, OnDestroy {
   ) { }
   project;
   issueList;
+  currentSearchInput;
   ngOnInit() {
     this.itService.searchMode.next('issue');
-
     this.route.params.subscribe((params)=>{
       this.project=params.project;
       this.itService.getIssues(params.project).subscribe((issues:Array<Object>)=>{
         this.issueList=sortBy(issues,['open','updated_on']).reverse();
         this.itService.issueSearchSubject.subscribe((searchInput)=>{
+          this.currentSearchInput=searchInput;
           let searchReg=new RegExp(searchInput,'i');
           let tempIssues=issues.filter((issue)=>{
             return searchReg.test(issue['issue_title'])
@@ -36,5 +37,8 @@ export class IssueListComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(){
     this.itService.clearSubject.next(true)
+  }
+  clearSearch(){
+    this.itService.clearSubject.next(true);
   }
 }

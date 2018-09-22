@@ -1,5 +1,5 @@
 section{
-  margin:5px;
+  margin:10px;
 }
 
 mat-card{
@@ -7,6 +7,11 @@ mat-card{
   margin:10px;
   background-color: gold;
   text-align:left !important;
+  color:black;
+}
+
+mat-card-subtitle{
+  color:rgba(0,0,0,.8)
 }
 
 button:focus{
@@ -25,4 +30,12 @@ button:focus{
 mat-card-title{
   text-overflow:ellipsis;
   overflow:hidden;
+}
+
+.mat-button{
+  padding:0
+}
+
+.mat-flat-button.mat-warn{
+  background-color: maroon;
 }

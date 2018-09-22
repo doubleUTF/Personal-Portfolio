@@ -1,0 +1,32 @@
+section{
+  margin:10px;
+}
+
+mat-form-field{
+  width:320px;
+}
+
+.open{
+  background-color: green;
+}
+
+.closed{
+  background-color: maroon;
+}
+
+mat-button-toggle-group{
+  border:1px solid grey
+}
+
+:host{
+  font-family: Roboto;
+}
+
+.button-group{
+  margin-bottom: 10px;
+}
+
+.button-row{
+  margin-top: 8px;
+  margin-bottom: 10px;
+}
