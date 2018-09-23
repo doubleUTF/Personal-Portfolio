@@ -1,16 +1,20 @@
 <section fxLayout fxLayoutAlign="center">
   <div fxLayout.xs="column" fxLayout="row wrap" fxLayoutAlign.xs="center center"
   fxLayoutAlign="space-evenly">
-  <div style="width:100%" fxLayoutAlign="center" fxLayout *ngIf="projectList?.length>0">
+  <div style="width:100%; text-align:center" *ngIf="projectList?.length>0">
     <h3>Projects</h3>
   </div>
-  <div *ngIf="projectList?.length==0">
+  <div *ngIf="projectList?.length==0 && !noProjects || searchInput">
     <h3>'{{searchInput}}' project not found</h3>
     <p>Would you like to create a new issue for this project?</p>
     <div class="button-row" fxLayout fxLayoutAlign="space-around">
-      <button mat-flat-button class="yes" [routerLink]="['./',searchInput,'issue']">Yes</button>
-      <button mat-flat-button class="no" color="warn" (click)="clearSearch()">No</button>
+      <button mat-flat-button color="accent" [routerLink]="['./',searchInput,'issue']" autofocus>Yes</button>
+      <button mat-flat-button color="primary" (click)="clearSearch()">No</button>
     </div>
+  </div>
+  <div *ngIf="(projectList?.length==0 && noProjects) && !searchInput">
+    <h3>No projects in database</h3>
+    <p>Create one by typing in a issue title above</p>
   </div>
   <button mat-button *ngFor="let project of projectList" [routerLink]="['./',project.name]">
     <mat-card>

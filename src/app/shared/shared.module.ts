@@ -7,7 +7,6 @@ import {ReactiveFormsModule} from '@angular/forms';
 import {MaterialModule} from '../material/material.module';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {ClickOutsideModule} from 'ng-click-outside';
-import {TruncateTextPipe} from '../pipes/truncate-text.pipe';
 @NgModule({
   exports:[
     CommonModule,
@@ -18,10 +17,8 @@ import {TruncateTextPipe} from '../pipes/truncate-text.pipe';
     MaterialModule,
     FlexLayoutModule,
     ClickOutsideModule,
-    TruncateTextPipe
   ],
   declarations:[
-    TruncateTextPipe
   ]
 })
 export class SharedModule { }

@@ -8,11 +8,6 @@ mat-card{
   text-align:left !important;
 }
 
-.mat-card-content{
-  white-space: normal;
-  line-height: 1rem;
-}
-
 button:focus{
   outline:none;
 }
@@ -26,13 +21,16 @@ button:focus{
 }
 
 mat-card-content{
+  white-space: normal;
+  line-height: 1rem;
   height:3rem;
   text-overflow:ellipsis;
+  word-break: break-all;
+  overflow:hidden;
 }
 
 .mat-card-content-xs{
   height:1rem;
-  overflow:hidden;
   white-space: nowrap !important;
 }
 
@@ -58,4 +56,11 @@ mat-card-subtitle{
 
 mat-card-title{
   margin-bottom: 0;
+}
+
+h3{
+  max-width:100%;
+  text-align:center;
+  word-break: break-all;
+  word-wrap: break-word;
 }

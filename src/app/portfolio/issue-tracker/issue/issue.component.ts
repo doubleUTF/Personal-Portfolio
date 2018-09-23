@@ -66,7 +66,28 @@ export class IssueComponent implements OnInit {
 
   saveIssue(){
     if (this.newIssue){
-    } else {      
+      this.itService.postIssue(this.issueForm.value,this.project)
+      .subscribe((response:any)=>{
+        let message;
+        if (!response.error){
+          message=`'${this.issueForm.get('issue_title').value}' has been saved`
+        } else {
+          message=`Error: ${response.error}`
+        }
+        this.itService.snackBarSubject.next(message);
+        this.router.navigate(['..'],{relativeTo:this.route})
+      })} else {
+      this.itService.putIssue(this.issueForm.value,this.project)
+      .subscribe((response:any)=>{
+        let message;
+        if (!response.error){
+          message=`'${this.issueForm.get('issue_title').value}' has been updated`
+        } else {
+          message=`Error: ${response.error}`
+        }
+        this.itService.snackBarSubject.next(message);
+        this.router.navigate(['..'],{relativeTo:this.route})
+      })
     }
   }
 

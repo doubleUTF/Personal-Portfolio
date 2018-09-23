@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpParams} from '@angular/common/http';
+import {HttpClient, HttpParams, HttpHeaders} from '@angular/common/http';
 import {environment} from '../../../environments/environment';
 import {Subject, of} from 'rxjs';
 import {catchError} from 'rxjs/operators';
@@ -32,12 +32,28 @@ export class IssueTrackerService {
     )
   }
 
-  postIssue(){
-
+  postIssue(body,project){
+    let options={
+      headers:new HttpHeaders({
+        'Content-Type':'application/json'
+      })}
+    return this.http.post(`${this.rootPath}/${project}`,body,options).pipe(
+      catchError((error)=>{
+        return of(`Error: ${error.error.error}`)
+      })
+    )
   }
 
-  putIssue(){
-
+  putIssue(body,project){
+    let options={
+      headers:new HttpHeaders({
+        'Content-Type':'application/json'
+      })}
+    return this.http.put(`${this.rootPath}/${project}`,body,options).pipe(
+      catchError((error)=>{
+        return of(`Error: ${error.error.error}`)
+      })
+    )
   }
   constructor(
     private http:HttpClient

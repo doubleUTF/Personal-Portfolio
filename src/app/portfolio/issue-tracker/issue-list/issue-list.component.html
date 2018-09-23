@@ -2,16 +2,15 @@
   <div fxLayout.xs="column" fxLayout="row wrap" fxLayoutAlign.xs="center center"
   fxLayoutAlign="space-evenly">
 
-  <div style="width:100%" fxLayoutAlign="center" fxLayout>
-    <h3 style="text-overflow:ellipsis; overflow:hidden;">{{project}}</h3>
-  </div>
+    <h3 style="width:100%; text-align:center">{{project}}</h3>
 
   <div *ngIf="issueList?.length==0">
     <h3>'{{currentSearchInput}}' issue not found</h3>
     <p>Create a new issue?</p>
     <div class="button-row" fxLayout fxLayoutAlign="space-around">
-      <button mat-flat-button class="yes" [routerLink]="['./','issue']" [queryParams]="{title:currentSearchInput}">Yes</button>
-      <button mat-flat-button class="no" color="warn" (click)="clearSearch()">No</button>
+      <button mat-flat-button color="accent" [routerLink]="['./','issue']"
+      [queryParams]="{title:currentSearchInput}" autofocus>Yes</button>
+      <button mat-flat-button color="primary" (click)="clearSearch()">No</button>
     </div>
   </div>
 
@@ -25,7 +24,7 @@
         <strong class="opaque">{{issue.open ? 'Open' : 'Closed'}}</strong>
       </mat-card-subtitle>
       <mat-card-content ngClass.xs="mat-card-content-xs">
-        {{issue.issue_text | truncateText: 122}}
+        {{issue.issue_text}}
       </mat-card-content>
       <mat-card-subtitle>
          {{issue.status_text ? 'Status - '+ issue.status_text: 'No status'}}

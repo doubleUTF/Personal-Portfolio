@@ -16,7 +16,10 @@ export class IssueTrackerComponent implements OnInit {
 
   ngOnInit() {
     this.itService.snackBarSubject.subscribe((string)=>{
-      this.snackBar.open(string,null,{duration:2000})
+      this.snackBar.open(string,null,{
+        duration:2500,
+        panelClass:'dark'
+      })
     })
   }
 

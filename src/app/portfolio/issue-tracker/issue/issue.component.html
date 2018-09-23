@@ -3,12 +3,12 @@
   <form [formGroup]="issueForm" fxLayout="column"
   fxLayoutAlign="center center">
     <mat-form-field color="accent">
-      <input type="text" matInput placeholder="Title *" formControlName="issue_title">
+      <input type="text" matInput placeholder="Title" formControlName="issue_title" required>
       <mat-error *ngIf="issueForm.hasError('issue_title')">Title required</mat-error>
     </mat-form-field>
     <mat-form-field color="accent" class="textbody">
-      <textarea type="text" matInput placeholder="Description *" rows="6"
-        formControlName="issue_text"></textarea>
+      <textarea type="text" matInput placeholder="Description" rows="6"
+        formControlName="issue_text" required></textarea>
         <mat-error *ngIf="issueForm.hasError('issue_text')">Description or text required</mat-error>
     </mat-form-field>
     <mat-form-field color="accent">
@@ -18,7 +18,7 @@
       <input type="text" matInput placeholder="Status" formControlName="status_text">
     </mat-form-field>
     <mat-form-field color="accent">
-      <input type="text" matInput placeholder="Created by *" formControlName="created_by">
+      <input type="text" matInput placeholder="Created by" formControlName="created_by" required>
     </mat-form-field>
     <div class="button-group">
       <mat-button-toggle-group formControlName="open">
@@ -29,9 +29,9 @@
       </mat-button-toggle-group>
     </div>
     <div class="button-row" fxLayout fxLayoutGap="20px">
-      <a mat-flat-button color="accent" (click)="saveIssue()"
-      [disabled]="issueForm.invalid || issueForm.pristine">Save</a>
-      <a mat-flat-button color="primary" routerLink='../'>Cancel</a>
+      <button mat-flat-button color="accent" (click)="saveIssue()" type="button"
+      [disabled]="issueForm.invalid || issueForm.pristine" autofocus>Save</button>
+      <button mat-flat-button color="primary" routerLink='../'>Cancel</button>
       <button *ngIf="!newIssue" mat-flat-button color="warn" (click)="deleteIssue()">Delete</button>
     </div>
     <div *ngIf="!newIssue" fxLayout="column" fxLayoutAlign="center center">

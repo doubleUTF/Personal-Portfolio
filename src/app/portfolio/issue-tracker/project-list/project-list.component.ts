@@ -14,10 +14,12 @@ export class ProjectListComponent implements OnInit, OnDestroy {
   ) { }
 
   projectList;
+  noProjects:boolean
   searchInput:string;
   ngOnInit() {
     this.itService.searchMode.next('project')
     this.itService.getProjects().subscribe((data:Array<any>)=>{
+      data.length == 0 ? this.noProjects=true : this.noProjects=false;
       let projects=data.map((obj)=>{
         return this.renameProp('_id','name',obj)
       });

@@ -86,7 +86,7 @@ module.exports = function (app) {
         })
         issue.updated_on=new Date();
         issue.save((err,updatedIssue)=>{
-          if (err) return res.status(400).json({error, message:`Could not update ${req.body._id}`})
+          if (err) return res.status(400).json({error:`Could not update ${req.body._id}`})
           res.json({message:'successfully updated'})
         })
       })
