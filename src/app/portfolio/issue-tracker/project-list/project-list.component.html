@@ -12,7 +12,7 @@
       <button mat-flat-button color="primary" (click)="clearSearch()">No</button>
     </div>
   </div>
-  <div *ngIf="(projectList?.length==0 && noProjects) && !searchInput">
+  <div *ngIf="!projectList">
     <h3>No projects in database</h3>
     <p>Create one by typing in a issue title above</p>
   </div>
