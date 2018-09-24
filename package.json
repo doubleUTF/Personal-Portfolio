@@ -2,9 +2,6 @@
   "name": "personal-portfolio",
   "version": "0.0.0",
   "license": "MIT",
-  "engines":{
-    "node":"9.x"
-  },
   "scripts": {
     "ng": "ng",
     "start": "node app.js",
