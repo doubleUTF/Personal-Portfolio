@@ -9,6 +9,10 @@
         <input type="text" class="form-control textbar" [formControl]="searchInput"
         placeholder="{{placeHolder}}" [value]="searchInput.value">
       </div>
+      <button mat-icon-button [disabled]="!searchInput.value"
+      (click)="addIssue()" fxHide.xs="true">
+      <mat-icon aria-label="Add project and issue">add_circle_outline</mat-icon>
+    </button>
       <div fxHide.gt-xs="true">
         <ul fxLayout fxFlexAlign="center" fxLayoutGap="10px"
            class="icon-list">
@@ -27,6 +31,10 @@
     <div class="input-group input-group-sm">
       <input type="text" class="form-control textbar" [formControl]="searchInput"
       placeholder="{{placeHolder}}" #mobileSearch [value]="searchInput.value">
+      <button mat-icon-button [disabled]="!searchInput.value"
+      (click)="addIssue()">
+      <mat-icon aria-label="Add project and issue">add_circle_outline</mat-icon>
+    </button>
     </div>
   </mat-toolbar-row>
 

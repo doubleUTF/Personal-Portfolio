@@ -18,13 +18,10 @@ export class IssueListComponent implements OnInit, OnDestroy {
   issueList;
   currentSearchInput;
   ngOnInit() {
-    // this.route.data.subscribe((data)=>{
-    //   this.issueList=sortBy(data.issueList)
-    //   console.log(data)
-    // })
     this.itService.searchMode.next('issue');
     this.route.params.subscribe((params)=>{
       this.project=params.project;
+      this.itService.projectSubject.next(this.project);
       this.route.data.subscribe((data)=>{
         this.issueList=sortBy(data.issueList,['open','updated_on']).reverse();
         this.itService.issueSearchSubject.subscribe((searchInput)=>{

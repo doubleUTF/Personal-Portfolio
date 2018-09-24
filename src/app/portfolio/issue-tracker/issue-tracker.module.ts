@@ -7,6 +7,7 @@ import { IssueListComponent } from './issue-list/issue-list.component';
 import { IssueComponent } from './issue/issue.component';
 import {IssueTrackerService} from './issue-tracker.service';
 import { NavbarComponent } from './navbar/navbar.component';
+import { DeleteConfirmComponent } from './issue/delete-confirm/delete-confirm.component';
 @NgModule({
   imports: [
     SharedModule,
@@ -18,7 +19,11 @@ import { NavbarComponent } from './navbar/navbar.component';
     IssueListComponent,
     IssueComponent,
     NavbarComponent,
+    DeleteConfirmComponent,
   ],
-  providers:[IssueTrackerService]
+  providers:[IssueTrackerService],
+  entryComponents:[
+    DeleteConfirmComponent
+  ]
 })
 export class IssueTrackerModule { }

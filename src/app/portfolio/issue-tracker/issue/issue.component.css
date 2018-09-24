@@ -30,3 +30,7 @@ mat-button-toggle-group{
   margin-top: 10px;
   margin-bottom: 12px;
 }
+
+button{
+  outline: none;
+}

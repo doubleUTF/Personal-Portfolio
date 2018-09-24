@@ -9,7 +9,7 @@
     <p>Create a new issue?</p>
     <div class="button-row" fxLayout fxLayoutAlign="space-around">
       <button mat-flat-button color="accent" [routerLink]="['./','issue']"
-      [queryParams]="{title:currentSearchInput}" autofocus>Yes</button>
+      [queryParams]="{title:currentSearchInput}">Yes</button>
       <button mat-flat-button color="primary" (click)="clearSearch()">No</button>
     </div>
   </div>

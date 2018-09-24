@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef} from '@angular/core';
 import {FormControl} from '@angular/forms';
 import {IssueTrackerService} from '../issue-tracker.service';
+import {Router,ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'it-navbar',
@@ -12,13 +13,19 @@ export class NavbarComponent implements OnInit {
   @ViewChild('mobileSearch') mobileSearch: ElementRef;
   constructor(
     private itService:IssueTrackerService,
+    private router:Router,
+    private route:ActivatedRoute
   ) { }
 
   searchInput:FormControl;
   searchMode:string;
   placeHolder:string;
-
+  project:string;
   ngOnInit() {
+    this.itService.projectSubject.subscribe((project:string)=>{
+      this.project=project;
+    })
+
     this.itService.searchMode.subscribe((mode)=>{
       this.closeSearchBar();
       this.searchMode=mode;
@@ -61,4 +68,11 @@ export class NavbarComponent implements OnInit {
     } else this.openSearchBar()
   }
 
+  addIssue(){
+    if (this.searchMode=='project'){
+      this.router.navigate(['./',this.searchInput.value,'issue'],{relativeTo:this.route})
+    } else {
+      this.router.navigate(['./',this.project, 'issue'],{queryParams:{title:this.searchInput.value},relativeTo:this.route})
+    }
+  }
 }

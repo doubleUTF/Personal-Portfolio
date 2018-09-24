@@ -23,7 +23,12 @@ $my-dark-theme: mat-dark-theme($my-dark-primary, $my-dark-accent, $my-dark-warn)
 // that you are using.
 @include angular-material-theme($my-dark-theme);
 
-.dark{
+.snack-save{
   background-color: #69f0ae;
   color:black;
+}
+
+.snack-delete{
+  background-color: #f44336;
+  color:white;
 }

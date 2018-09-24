@@ -118,6 +118,21 @@ new ApiApp('Metric Converter','Converts units between metric and imperial system
 }`)]
 ),
 new ApiApp('Issue Tracker', 'View, create, edit, and delete issue tickets.',[new ApiRoute('GET',
+'/issues/:project/issue',null,[new ParamObj('id', 'ObjectID', true, 'MongoDB Object ID')],null,
+`${this.rootPath}/issues/networking/issueid=5ba08ab6f33f041830c1ebda`,`{
+    "assigned_to": "",
+    "status_text": "",
+    "open": false,
+    "_id": "5ba08bc9046e9a1f58de73f1",
+    "project": "test",
+    "issue_title": "Need more cowbell",
+    "issue_text": "We gotta have more cowbell!",
+    "created_by": "Bruce Dickenson",
+    "created_on": "2018-09-18T05:23:21.820Z",
+    "updated_on": "2018-09-18T05:23:21.820Z"
+}`),
+// new ApiRoute('GET', '/issues', null,null,null,''),
+new ApiRoute('GET',
 '/issues/:project', null,[new ParamObj('issue_title','String',false, 'Query filter property.'),
 new ParamObj('issue_text','String',false,'Query filter property.'),
 new ParamObj('created_by','String',false,'Query filter property'),

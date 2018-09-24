@@ -58,10 +58,10 @@ export class IssueTrackerService {
   constructor(
     private http:HttpClient
   ) { }
-
+  projectSubject=new Subject();
   searchMode: Subject<string>= new Subject();
   projectSearchSubject: Subject<string>= new Subject();
   issueSearchSubject:Subject<string>=new Subject();
   clearSubject: Subject<boolean>=new Subject();
-  snackBarSubject:Subject<string>= new Subject();
+  snackBarSubject:Subject<object>= new Subject();
 }

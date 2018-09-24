@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute,Data, Router} from '@angular/router';
 import {FormGroup,FormControl,Validators} from '@angular/forms';
 import {IssueTrackerService} from '../issue-tracker.service';
+import {DeleteConfirmComponent} from './delete-confirm/delete-confirm.component';
+import {MatDialog,MatDialogRef,MAT_DIALOG_DATA} from '@angular/material';
 
 @Component({
   selector: 'app-issue',
@@ -13,11 +15,13 @@ export class IssueComponent implements OnInit {
   constructor(
     private route:ActivatedRoute,
     private itService:IssueTrackerService,
-    private router:Router
+    private router:Router,
+    public dialog:MatDialog
   ) {}
   project:string;
   newIssue:boolean;
   issueForm:FormGroup;
+
   ngOnInit() {
     this.issueForm=new FormGroup({
       assigned_to:new FormControl(''),
@@ -50,6 +54,14 @@ export class IssueComponent implements OnInit {
     })
   }
 
+  openDeleteDialog(){
+    this.dialog.open(DeleteConfirmComponent,{
+      data:{title:this.issueForm.get('issue_title').value}
+    }).afterClosed().subscribe((result)=>{
+      result ? this.deleteIssue() : ''
+    })
+  }
+
   deleteIssue(){
     this.itService.deleteIssue(this.issueForm.get('_id').value,
       this.issueForm.get('project').value).subscribe((response)=>{
@@ -59,7 +71,7 @@ export class IssueComponent implements OnInit {
         } else {
           message=response
         }
-        this.itService.snackBarSubject.next(message)
+        this.itService.snackBarSubject.next({message,method:'delete'})
         this.router.navigate(['..'],{relativeTo:this.route})
   })
   }
@@ -74,7 +86,7 @@ export class IssueComponent implements OnInit {
         } else {
           message=`Error: ${response.error}`
         }
-        this.itService.snackBarSubject.next(message);
+        this.itService.snackBarSubject.next({message,method:'save'});
         this.router.navigate(['..'],{relativeTo:this.route})
       })} else {
       this.itService.putIssue(this.issueForm.value,this.project)
@@ -85,7 +97,7 @@ export class IssueComponent implements OnInit {
         } else {
           message=`Error: ${response.error}`
         }
-        this.itService.snackBarSubject.next(message);
+        this.itService.snackBarSubject.next({message,method:'save'});
         this.router.navigate(['..'],{relativeTo:this.route})
       })
     }

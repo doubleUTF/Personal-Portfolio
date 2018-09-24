@@ -15,11 +15,18 @@ export class IssueTrackerComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.itService.snackBarSubject.subscribe((string)=>{
-      this.snackBar.open(string,null,{
-        duration:2500,
-        panelClass:'dark'
-      })
+    this.itService.snackBarSubject.subscribe((data:any)=>{
+      if (data.method=='save'){
+        this.snackBar.open(data.message,null,{
+          duration:3000,
+          panelClass:'snack-save'
+        })
+      } else {
+        this.snackBar.open(data.message,null,{
+          duration:3000,
+          panelClass:'snack-delete'
+        })
+      }
     })
   }
 

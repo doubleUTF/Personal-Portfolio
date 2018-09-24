@@ -32,7 +32,7 @@
       <button mat-flat-button color="accent" (click)="saveIssue()" type="button"
       [disabled]="issueForm.invalid || issueForm.pristine" autofocus>Save</button>
       <button mat-flat-button color="primary" routerLink='../'>Cancel</button>
-      <button *ngIf="!newIssue" mat-flat-button color="warn" (click)="deleteIssue()">Delete</button>
+      <button *ngIf="!newIssue" mat-flat-button color="warn" (click)="openDeleteDialog()">Delete</button>
     </div>
     <div *ngIf="!newIssue" fxLayout="column" fxLayoutAlign="center center">
       <span>Last updated {{issueForm.get('updated_on').value | date:'short'}}</span>
