@@ -7,7 +7,7 @@ const {file_metadata} = require('./file_metadata');
 const multer=require('multer');
 const upload=multer();
 const metric_imp_convert=require('./metric_imp_convert/metric_imp_convert');
-const issueTracker=require('./issueTracker/issueTracker.js');
+const issueTracker=require('./issuetracker/issueTracker.js');
 
 module.exports=(app)=>{
   // Timestamp
