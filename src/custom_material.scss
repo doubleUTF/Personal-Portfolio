@@ -32,3 +32,7 @@ $my-dark-theme: mat-dark-theme($my-dark-primary, $my-dark-accent, $my-dark-warn)
   background-color: #f44336;
   color:white;
 }
+
+button{
+  outline:none !important;
+}

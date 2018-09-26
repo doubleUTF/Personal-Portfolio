@@ -9,7 +9,8 @@ const routes=require('./server/routes');
 const cors= require('cors');
 
 // HelmetJS
-app.use(helmet());
+app.use(helmet.hidePoweredBy({setTo:'PHP 4.2.0'}));
+app.use(helmet.noCache());
 
 mongoose.connect(process.env.MONGODB_URI);
 app.use(bodyParser.json());

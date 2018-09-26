@@ -20,7 +20,7 @@
     <mat-form-field color="accent">
       <input type="text" matInput placeholder="Created by" formControlName="created_by" required>
     </mat-form-field>
-    <div class="button-group">
+    <div class="button-group" *ngIf="!newIssue">
       <mat-button-toggle-group formControlName="open">
         <mat-button-toggle [ngClass]="{open:issueForm.get('open').value}"
         [value]="true">Open</mat-button-toggle>
