@@ -1,5 +1,6 @@
 const express = require('express')
-const router= express.Router()
+const router= express.Router();
+const path= require('path');
 const {urlShortener,retrieveUrl}=require('./short-url/url-shortener')
 const {timestamp,timestamp_dateString} = require('./timestamp')
 const {exercise_newUser, exercise_newExercise, exercise_query}= require('./exercise-tracker/exercise-tracker');
@@ -48,6 +49,6 @@ module.exports=(app)=>{
 
   // Catch all other routes and return index
   app.get('*',(req,res)=>{
-    res.sendFile(path.join(__dirname, 'public/index.html'))
+    res.sendFile(path.join(__dirname, '../public/index.html'))
   })
 }
