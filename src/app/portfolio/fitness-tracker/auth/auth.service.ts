@@ -43,7 +43,7 @@ export class AuthService{
     return this.user!=null;
   }
 
-  private authSuccessful(){
+  authSuccessful(){
     this.authChange.next(true)
     this.router.navigate(['portfolio','fitness-tracker','training'])
   }

@@ -106,7 +106,7 @@ new ApiApp('File Metadata','Upload a file and receive its name, size, and type.'
     new ParamObj('upfile','File',true, 'Keyname of file in multipart/form-data post request.')
   ],'https://www.davidlau.xyz/api/file_metadata (multipart body not shown)','{"type":"application/octet-stream","filename":"BaseEngine.ini","size":103054}'
 )]),
-new ApiApp('Metric Converter','Converts units between metric and imperial system. ,',  [new ApiRoute(
+new ApiApp('Metric Converter','Converts units between metric and imperial system.',  [new ApiRoute(
   'GET', '/convert', null,[new ParamObj('input', 'string', true, `Number and unit to convert from, will return an object with corresponding number and unit.
   Accepts decimal and fractional values. Allowed units are ['gal', 'l', 'lbs', 'kg', 'mi','km']`)],null,
   'https://www.davidlau.xyz/api/convert?input=24.61gal', `{
@@ -207,9 +207,50 @@ new ApiRoute('DELETE','/issues/:project',null,[
   new ParamObj('_id', 'string', true, 'Delete an issue with ObjectId string')
 ], null, `https://www.davidlau.xyz/api/issues/networking?_id=5b9ffe82a8097c2bf492c364`,
 `{"message": "success: deleted 5b9ffe82a8097c2bf492c364"}`)
-], 'portfolio/issue-tracker')
+], 'portfolio/issue-tracker'),
+new ApiApp('Personal Library','Create, comment, and delete individual books.',[
+  new ApiRoute('GET','/books',[
+  new ParamObj('id','Object Id', false, 'Retrieve details of individual book',
+  '5bad2c143805922bc41eb1f9',`{
+    "comments": [],
+    "_id": "5bad2c143805922bc41eb1f9",
+    "title": "Harry Potter"
+}`),
+  new ParamObj('', 'null', false, 'Retreive details of all books',
+  null,`[{
+          "_id": "5bad2c143805922bc41eb1f9",
+          "title": "Harry Potter",
+          "commentcount": 0
+      },
+      {
+          "_id": "5bad2c2c3805922bc41eb1fa",
+          "title": "Holy Bible",
+          "commentcount": 0
+      },
+      {
+          "_id": "5bad2c673805922bc41eb1fb",
+          "title": "Night",
+          "commentcount": 0
+      }
+  ]`
+)
+],null,null),
+  new ApiRoute('POST', '/books', null, null, [
+    new ParamObj('title', 'string', true, 'Title of book',null,`{
+    "comments": [],
+    "_id": "5bad2c673805922bc41eb1fb",
+    "title": "Night",
+    "__v": 0
+}`),
+]),
+  new ApiRoute('POST','/books/:id',null,null,
+  [new ParamObj('comment','string',true,
+  'Comment, pushed to comments array of book object.')]),
+  new ApiRoute('DELETE','/books',[
+  new ParamObj('id','string',false,'Delete individual book with id')],
+  null,null,'https://www.davidlau.xyz/api/books/5bad2c143805922bc41eb1f9',`{message:"delete successful"}`),
+])
 ]
-
 getApiNames(){
   return this.apiList.map((api:ApiApp)=>{
     return api.name

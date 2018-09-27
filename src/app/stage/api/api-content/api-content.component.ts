@@ -26,7 +26,6 @@ export class ApiContentComponent implements OnInit {
         this.apiApp=this.apiService.getApi(this.wsPipe.transform(params.appName,true))
       })
     }
-    console.log(this.apiApp.frontEndURL)
   }
 
   getBadgeClass(method){

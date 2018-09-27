@@ -94,6 +94,16 @@
               </div>
             </div>
           </div>
+          <div *ngIf="route.bodyParams">
+            <div *ngFor="let param of route.bodyParams">
+              <div *ngIf="param.exampleResponse">
+                <code *ngIf="param.exmapleRequest">{{apiURL}}{{route.url}}/{{param.exampleRequest? param.exampleRequest : ''}}</code>
+                <div class="code-container mb-3">
+                  <code class="response">{{param.exampleResponse}}</code>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
         <div *ngIf="route.exampleResponse">
           <h6 class="small-header">Example</h6>

@@ -20,7 +20,7 @@ import { MetricConverterComponent } from './metric-converter/metric-converter.co
     ApiLandingComponent,
     ExerciseTrackerComponent,
     FileMetadataComponent,
-    MetricConverterComponent
+    MetricConverterComponent,
   ]
 })
 
