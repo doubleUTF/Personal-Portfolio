@@ -11,8 +11,7 @@ var chai = require('chai');
 var assert = chai.assert;
 const host='http://localhost:3000';
 chai.use(chaiHttp);
-const Thread=require('../models/thread')
-const Board=require('../models/board');
+const {populateBoard,populateThread, populateReply}=require('./seed');
 
 
 suite('Functional Tests', function() {
@@ -23,8 +22,9 @@ suite('Functional Tests', function() {
   let _id;
 
   before(()=>{
-    Thread.remove({}).exec()
-    Board.remove({}).exec()
+    populateBoard();
+    populateThread();
+    populateReply();
   })
 
   suite ('API ROUTING FOR /api/threads',function(){
@@ -70,7 +70,7 @@ suite('Functional Tests', function() {
     const dBoard='test2';
     const dDescription='a test board';
     const dpassword='hahaha';
-
+    let _id
 
     suite('POST', function() {
       test('Correctly add a thread to test2 board',(done)=>{
@@ -82,9 +82,10 @@ suite('Functional Tests', function() {
           chai.request(host)
           .post(endpoint)
           .send({
-            text:'mmm', delete_password:'a'
+            text:'mmm', delete_password:dpassword
           })
           .end((err,res)=>{
+            _id=res.body._id;
             assert.equal(res.status,200);
             assert.equal(res.body.text,'mmm');
             done();
@@ -105,18 +106,64 @@ suite('Functional Tests', function() {
     });
 
     suite('GET', function() {
+      test('Get threads from test2 board',(done)=>{
+        chai.request(host)
+        .get(endpoint)
+        .end((err,res)=>{
+          assert.equal(res.status,200);
+          assert.isArray(res.body);
+          assert.equal(res.body[0].text,'mmm')
+          done();
+        })
+      })
 
+      test('Get thread from non-existent board',(done)=>{
+        chai.request(host)
+        .get('/api/threads/thisboardoesntexist')
+        .end((err,res)=>{
+          assert.equal(res.status,400);
+          done();
+        })
+      })
+    });
+
+
+    suite('PUT', function() {
+      test('Report a thread', (done)=>{
+        chai.request(host)
+        .put(endpoint)
+        .send({_id})
+        .end((err,res)=>{
+          assert.equal(res.status,200)
+          assert.equal(res.body.message,'success')
+          done();
+        })
+      })
     });
 
     suite('DELETE', function() {
+      test('Incorrectly delete a thread',(done)=>{
+        chai.request(host)
+        .delete(endpoint)
+        .send({_id,delete_password:'wrong password'})
+        .end((err,res)=>{
+          assert.equal(res.status,400)
+          assert.exists(res.body.error)
+          done()
+        })
+      })
 
+      test('Correctly delete a thread',(done)=>{
+        chai.request(host)
+        .delete(endpoint)
+        .send({_id,delete_password:dpassword})
+        .end((err,res)=>{
+          assert.equal(res.status,200)
+          assert.equal(res.body.message,'thread deleted')
+          done()
+        })
+      })
     });
-
-    suite('PUT', function() {
-
-    });
-
-
   });
 
   suite('API ROUTING FOR /api/replies/:board', function() {

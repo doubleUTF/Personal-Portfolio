@@ -24,7 +24,9 @@ module.exports = function (app) {
     .post((req,res)=>{
       new Board({title:req.body.title,
         description:req.body.description,
-        delete_password:req.body.delete_password}).save((err,data)=>{
+        delete_password:req.body.delete_password,
+        _id:req.body._id
+      }).save((err,data)=>{
         if (err) return res.status(400).send(err);
         res.json({message:'new board saved',data})
       })
@@ -58,8 +60,9 @@ module.exports = function (app) {
       Board.findOne({title:req.params.board},{delete_password:0},(err,board)=>{
         if (err) return res.status(400).send(err);
         if (!board) return res.status(400).json({error:'board not found'})
-        new Thread({text:req.body.text,
-          delete_password:req.body.delete_password,board:board._id}).save((err,data)=>{
+        new Thread({text:req.body.text, created_on: req.body.created_on,
+          bumped_on:req.body.bumped_on, delete_password:req.body.delete_password,
+          board:board._id}).save((err,data)=>{
             if (err) return res.status(400).send(err);
             res.json(data);
         })
