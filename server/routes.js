@@ -10,6 +10,7 @@ const upload=multer();
 const metric_imp_convert=require('./metric_imp_convert/metric_imp_convert');
 const issueTracker=require('./issueTracker/issueTracker');
 const personalLibrary=require('./personal-library/personal-library');
+const anonForum=require('./anon-forum/anon-forum');
 
 module.exports=(app)=>{
   // Timestamp
@@ -44,6 +45,9 @@ module.exports=(app)=>{
 
   // Personal Library
   personalLibrary(app);
+
+  // Anon Forum
+  anonForum(app);
 
   app.use('/api',router);
 
