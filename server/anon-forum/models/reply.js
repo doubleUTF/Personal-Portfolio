@@ -16,15 +16,10 @@ let replySchema=new Schema({
     default:Date.now,
     type:Date
   },
-  bumped_on:{
-    default:Date.now,
-    type:Date
-  },
   reported:{
     type:Boolean,
     default:false
   },
-  replies:[{type:Schema.Types.ObjectId, ref:'Reply'}],
   thread:{
     type:Schema.Types.ObjectId,
     ref:'Thread'

@@ -12,6 +12,7 @@ var expect = require('chai').expect;
 const Board=require('../models/board');
 const bcrypt=require('bcryptjs');
 const Thread=require('../models/thread');
+const ObjectId=require('mongodb').ObjectId;
 
 module.exports = function (app) {
   app.route('/api/threads')
@@ -47,10 +48,12 @@ module.exports = function (app) {
 
   app.route('/api/threads/:board')
     .get((req,res)=>{
-      Board.findOne({title:req.params.board},{delete_password:0},(err,board)=>{
+      Board.findOne({title:req.params.board},{delete_password:0})
+      .exec((err,board)=>{
         if (err) return res.status(400).send(err);
         if (!board) return res.status(400).json({error:'no board found'})
-        Thread.find({board:board._id}, {delete_password:0,__v:0},(err,threads)=>{
+        Thread.find({board:board._id}, {delete_password:0,__v:0}).populate('replies')
+        .exec((err,threads)=>{
           if (err) return res.status(400).send(err);
           res.json(threads);
         })
@@ -62,9 +65,9 @@ module.exports = function (app) {
         if (!board) return res.status(400).json({error:'board not found'})
         new Thread({text:req.body.text, created_on: req.body.created_on,
           bumped_on:req.body.bumped_on, delete_password:req.body.delete_password,
-          board:board._id}).save((err,data)=>{
+          board:board._id}).save((err,threadData)=>{
             if (err) return res.status(400).send(err);
-            res.json(data);
+            res.json(threadData);
         })
       })
     })
@@ -74,9 +77,9 @@ module.exports = function (app) {
         if (!thread) return res.status(400).json({error:'thread not found'});
         bcrypt.compare(req.body.delete_password,thread.delete_password,(err,result)=>{
           if (!result) return res.status(400).json({error:'incorrect password'})
-          Thread.findByIdAndDelete(req.body._id,(err)=>{
-            if (err) return res.status(400).send(err);
-            res.json({message:'thread deleted'})
+            Thread.findByIdAndDelete(req.body._id,(err)=>{
+              if (err) return res.status(400).send(err);
+              res.json({message:'thread deleted'})
           })
         })
       })
