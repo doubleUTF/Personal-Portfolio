@@ -14,7 +14,7 @@ export class ProjectListComponent implements OnInit, OnDestroy {
   ) { }
 
   projectList;
-  noProjects:boolean
+  noProjects:boolean=false;
   searchInput:string;
   ngOnInit() {
     this.itService.searchMode.next('project')

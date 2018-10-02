@@ -9,9 +9,10 @@
 var chaiHttp = require('chai-http');
 var chai = require('chai');
 var assert = chai.assert;
+const ObjectId=require('mongodb').ObjectId;
 const host='http://localhost:3000';
 chai.use(chaiHttp);
-const {populateBoard,populateThread, populateReply}=require('./seed');
+const {populateBoard,populateThread, populateReply,threadOneId}=require('./seed');
 
 
 suite('Functional Tests', function() {
@@ -28,7 +29,7 @@ suite('Functional Tests', function() {
   })
 
   suite ('API ROUTING FOR /api/threads',function(){
-    test ('GET',(done)=>{
+    test('Get all boards',(done)=>{
       chai.request(host)
       .get(endpoint)
       .end((err,res)=>{
@@ -127,12 +128,11 @@ suite('Functional Tests', function() {
       })
     });
 
-
     suite('PUT', function() {
       test('Report a thread', (done)=>{
         chai.request(host)
         .put(endpoint)
-        .send({_id})
+        .send({thread_id:_id})
         .end((err,res)=>{
           assert.equal(res.status,200)
           assert.equal(res.body.message,'success')
@@ -166,22 +166,71 @@ suite('Functional Tests', function() {
     });
   });
 
-  suite('API ROUTING FOR /api/replies/:board', function() {
-
-    suite('POST', function() {
-
-    });
+  suite('API ROUTING FOR /api/replies', function() {
+    const replyEndpoint='/api/replies';
 
     suite('GET', function() {
+      let reply_id;
+      test('Get replies from threadoneID',(done)=>{
+        chai.request(host)
+        .get(replyEndpoint)
+        .query({thread_id:threadOneId.toString()})
+        .end((err,res)=>{
+          assert.equal(res.status,200);
+          assert.isNotEmpty(res.body.replies)
+          done();
+        })
+      })
 
+      test('Get replies from non-existent thread',(done)=>{
+          chai.request(host)
+          .get(replyEndpoint)
+          .query({thread_id:new ObjectId().toString()})
+          .end((err,res)=>{
+            assert.equal(res.status,400)
+            done();
+          })
+      })
     });
 
-    suite('PUT', function() {
+    suite('POST', function() {
+      test('Add a reply to threadOneId', (done)=>{
+        chai.request(host)
+        .post(replyEndpoint)
+        .send({text:'ahh',delete_password:'a',thread_id:threadOneId.toString()})
+        .end((err,res)=>{
+          reply_id=res.body._id
+          assert.equal(res.status,200)
+          assert.exists(res.body._id)
+          done();
+        })
+      })
 
+    });
+    suite('PUT', function() {
+      test('Make a reply report property to true',(done)=>{
+        chai.request(host)
+        .put(replyEndpoint)
+        .send({reply_id})
+        .end((err,res)=>{
+          assert.equal(res.status,200)
+          assert.equal(res.body.message,'success')
+          done()
+        })
+      })
     });
 
     suite('DELETE', function() {
-
+      test('Delete a reply to threadOneId',(done)=>{
+        chai.request(host)
+        .delete(replyEndpoint)
+        .send({reply_id,delete_password:'a'})
+        .end((err,res)=>{
+          assert.equal(res.status,200);
+          assert.equal(res.body.message,'success');
+          done()
+        })
+      })
     });
 
   });

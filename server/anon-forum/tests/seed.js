@@ -144,7 +144,7 @@ const replies=[
   },{
     text:loremIpsum({count:Math.random()*10,units:'sentences'}),
     delete_password,
-    created_on:new Date().setFullYear(2017),
+    created_on:new Date().setFullYear(2015),
     reported:false,
     thread:threadOneId,
     _id:reply4Id
@@ -228,8 +228,9 @@ const populateBoard=()=>{
 
 const populateThread=()=>{
   Thread.remove({}).then(()=>{
-    Thread.insertMany(threads,(err,result)=>{
+    Thread.insertMany(threads,(err,thread)=>{
       if (err) console.log(err)
+      return thread._id;
     })
   })
 }
@@ -242,5 +243,5 @@ const populateReply=()=>{
   })
 }
 module.exports={
-  populateBoard,populateThread, populateReply
+  populateBoard,populateThread, populateReply,threadOneId
 }

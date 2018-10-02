@@ -11,7 +11,7 @@ let board=new Schema({
   },
   threads:[{type:Schema.Types.ObjectId,ref:'Thread'}],
   description:String,
-  updated:{
+  bumped_on:{
     default:Date.now,
     type:Date
   },
