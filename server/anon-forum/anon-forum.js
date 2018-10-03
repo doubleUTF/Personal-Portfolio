@@ -22,7 +22,7 @@ const anonForum=(app)=>{
         console.log('Tests are not valid:');
         console.log(error);
     }
-  }, 2500);
+  }, 3000);
 
 }
 

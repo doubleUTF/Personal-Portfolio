@@ -2,7 +2,6 @@ import { RouterModule, Routes, PreloadAllModules } from '@angular/router';
 import { StageComponent } from './stage/stage.component';
 import { AboutComponent} from './stage/about/about.component';
 import {ErrorComponent} from './stage/error/error.component';
-
 const appRoutes: Routes=[
   {path:'',component:StageComponent, data:{animation:'Stage'}},
   {path:'portfolio', loadChildren:'./portfolio/portfolio.module#PortfolioModule'},

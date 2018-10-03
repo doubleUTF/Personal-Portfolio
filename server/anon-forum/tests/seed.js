@@ -24,7 +24,26 @@ const reply3Id=new ObjectId();
 const reply4Id=new ObjectId();
 
 const salt=bcrypt.genSaltSync(10);
-const delete_password=bcrypt.hashSync('a',salt)
+const delete_password=bcrypt.hashSync('a',salt);
+const boards=[
+  {title:'Technical Support', delete_password,
+  description:'Post technical-related issues.'},
+  {title:'General Discussion',delete_password,
+  description:'Discuss any topic that comes to mind.'},
+  {title:'Suggestions',delete_password,
+  description:'Give your thoughts about this forum.'},
+  {title:'Seed Board',_id:boardId,delete_password,
+  description:'Test board with seed data.'},
+  {title:'Job Openings', delete_password,
+  description:'Available positions for employment.'},
+  {title:'FAQs',delete_password,
+  description:'Frequently asked questions'},
+  {title:'Deals',delete_password,
+  description:'See our latest deals and offerings'},
+  {title:'Memes',delete_password,
+  description:'Memes and dreams.'}
+];
+
 const threads=[
   {
     text:loremIpsum({count:Math.random()*10,units:'sentences'}),
@@ -220,7 +239,7 @@ const replies=[
 
 const populateBoard=()=>{
   Board.remove({}).then(()=>{
-    Board.create({title:'seedBoard',_id:boardId,delete_password:'a'},(err,board)=>{
+    Board.insertMany(boards,(err,board)=>{
       if (err) return console.log(err)
     })
   })

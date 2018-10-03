@@ -18,7 +18,7 @@ const Reply=require('../models/reply');
 module.exports = function (app) {
   app.route('/api/threads')
     .get((req,res)=>{
-      Board.find({},{delete_password:0},(err,data)=>{
+      Board.find({},{delete_password:0,__v:0},(err,data)=>{
         if (err) return res.status(400).send(err);
         res.json(data);
       })
@@ -116,10 +116,15 @@ module.exports = function (app) {
    .post((req,res)=>{
       Reply.create({text:req.body.text, thread:req.body.thread_id,
       delete_password:req.body.delete_password}).then((reply)=>{
-        Thread.findByIdAndUpdate(reply.thread,{$addToSet:{replies:reply}},(err,thread)=>{
+        let newDate=new Date()
+        Thread.findByIdAndUpdate(reply.thread,{$addToSet:{replies:reply},
+          bumped_on:newDate},(err,thread)=>{
           if (err) handleError(err,res);
           if (!thread) return res.status(400).json({error:'no thread found'})
-          res.json(reply)
+          Board.findByIdAndUpdate(thread.board,{bumped_on:newDate},(err,board)=>{
+            if (err) handleError(err,res)
+            res.json(reply)
+          })
         })
       }).catch(err=>handleError(err,res))
    })

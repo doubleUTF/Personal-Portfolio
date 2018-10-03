@@ -176,7 +176,10 @@ new Project('Treemap', new Date(2018,8,17),
 // null,null,'fitness-tracker'),
 new Project('Issue Tracker', new Date(2018,9,19),
 'Create and manage issues for personal or work related projects.',
-'../../../assets/img/issue_tracker.jpg',null,'issue-tracker')
+'../../../assets/img/issue_tracker.jpg',null,'issue-tracker'),
+new Project('Anon Forum', new Date(2018,10,4),
+'Anonymously post threads to message boards. Can add replies or delete with password',
+null,null,'anon-forum')
   ];
 
   getProjects(){
