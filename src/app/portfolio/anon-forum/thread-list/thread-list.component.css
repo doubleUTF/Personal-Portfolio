@@ -1,0 +1,25 @@
+mat-card-content{
+  height:2.8rem;
+  overflow: hidden;
+  font-size: 1rem;
+}
+
+mat-card-subtitle{
+  max-width: 300px;
+  margin-bottom: 0;
+}
+
+mat-card{
+  margin-top:5px;
+  margin-bottom: 5px;
+  background-color: rgba(255,255,255,.15);
+  border: rgba(255,255,255,.20) solid 1px;
+  cursor: pointer;
+  transition:background-color .2s;
+  user-select: none;
+  outline:none;
+}
+
+mat-card:hover{
+  background-color: rgba(255,255,255,.20);
+}

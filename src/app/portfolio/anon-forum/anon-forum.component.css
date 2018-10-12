@@ -1,0 +1,22 @@
+.holy-grail{
+  height:100%;
+  display:flex;
+  flex-direction: column;
+  background-color: #111;
+}
+
+.body{
+  flex:1;
+}
+
+footer{
+  display:flex;
+  background-color: #333;
+  height:3rem;
+  align-items: center;
+}
+
+.back{
+  cursor:pointer;
+  outline:none;
+}

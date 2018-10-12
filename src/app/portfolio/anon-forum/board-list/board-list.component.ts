@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import {AnonForumService} from '../anon-forum.service';
 import {Board} from './board.model';
 import {sortBy} from 'lodash';
-
 @Component({
   selector: 'app-board-list',
   templateUrl: './board-list.component.html',
@@ -17,6 +16,7 @@ export class BoardListComponent implements OnInit {
     this.afService.getBoards().subscribe((resp:Board[])=>{
       this.boardList=sortBy(resp,['bumped_on']).reverse();
     })
+    this.afService.appState.next('board-list')
   }
 
 }

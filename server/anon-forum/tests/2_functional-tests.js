@@ -12,7 +12,7 @@ var assert = chai.assert;
 const ObjectId=require('mongodb').ObjectId;
 const host='http://localhost:3000';
 chai.use(chaiHttp);
-const {populateBoard,populateThread, populateReply,threadOneId}=require('./seed');
+const {populateBoard,populateThread, populateReply,threadOneId, clearTest}=require('./seed');
 
 
 suite('Functional Tests', function() {
@@ -28,6 +28,9 @@ suite('Functional Tests', function() {
     populateReply();
   })
 
+  after(()=>{
+    clearTest();
+  })
   suite ('API ROUTING FOR /api/threads',function(){
     test('Get all boards',(done)=>{
       chai.request(host)

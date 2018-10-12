@@ -18,7 +18,7 @@ import { ThreadComponent } from './thread-list/thread/thread.component';
     HeaderComponent,
     BoardListComponent,
     ThreadListComponent,
-    ThreadComponent
+    ThreadComponent,
   ],
   providers:[
     AnonForumService

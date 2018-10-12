@@ -1,5 +1,10 @@
 <mat-toolbar color="primary">
-  <div class="container">
-    <span>Anon Forum</span>
+  <div class="container" fxLayout>
+    <span class="logo" [routerLink]="['','portfolio','anon-forum']">Anon Forum</span>
+    <span class="spacer"></span>
+    <button mat-button *ngIf="appState=='thread-list'">
+      <span class="button-text">Add Thread</span>
+      <mat-icon fxFlexAlign="center">add_comment</mat-icon>
+    </button>
   </div>
 </mat-toolbar>

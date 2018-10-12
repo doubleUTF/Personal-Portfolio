@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {AnonForumService} from '../../anon-forum.service';
 
 @Component({
   selector: 'app-thread',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ThreadComponent implements OnInit {
 
-  constructor() { }
+  constructor(private afService: AnonForumService) { }
 
   ngOnInit() {
+    this.afService.appState.next('thread');
   }
 
 }

@@ -32,8 +32,8 @@ const boards=[
   description:'Discuss any topic that comes to mind.'},
   {title:'Suggestions',delete_password,
   description:'Give your thoughts about this forum.'},
-  {title:'Seed Board',_id:boardId,delete_password,
-  description:'Test board with seed data.'},
+  {title:'Lorem Ipsum',_id:boardId,delete_password,
+  description:'Many lorem ipsums.'},
   {title:'Job Openings', delete_password,
   description:'Available positions for employment.'},
   {title:'FAQs',delete_password,
@@ -261,6 +261,11 @@ const populateReply=()=>{
     })
   })
 }
+
+const clearTest=()=>{
+  Board.remove({title:'test2'}).exec()
+}
+
 module.exports={
-  populateBoard,populateThread, populateReply,threadOneId
+  populateBoard,populateThread, populateReply,threadOneId, clearTest
 }

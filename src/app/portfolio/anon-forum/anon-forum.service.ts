@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {environment} from '../../../environments/environment';
+import {Subject} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AnonForumService {
 
+  appState=new Subject();
   constructor(private http:HttpClient) {
     environment.production ? this.rootPath = 'https://www.davidlau.xyz/api' : this.rootPath= 'http://localhost:3000/api'
   }
