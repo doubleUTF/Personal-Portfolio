@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import {Thread} from './thread.model';
+import {Thread} from './thread/thread.model';
 import {formatDate} from '@angular/common';
 import {AnonForumService} from '../anon-forum.service';
 

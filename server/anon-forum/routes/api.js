@@ -55,8 +55,8 @@ module.exports = function (app) {
         if (!board) return res.status(400).json({error:'no board found'})
         Thread.find({board:board._id}, {delete_password:0,__v:0},{limit:10})
         .sort({bumped_on:-1})
-        .populate({path:'replies',select:['text','created_on'],
-      options:{sort:{created_on:-1}, limit:3}})
+      //   .populate({path:'replies',select:['text','created_on'],
+      // options:{sort:{created_on:-1}, limit:3}})
         .exec((err,threads)=>{
           if (err) return res.status(400).send(err);
           res.json(threads);

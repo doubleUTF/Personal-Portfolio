@@ -6,7 +6,7 @@ import {
 }                                 from '@angular/router';
 import { Observable, of, EMPTY }  from 'rxjs';
 import { mergeMap, take }         from 'rxjs/operators';
-import {Thread} from './thread.model';
+import {Thread} from './thread/thread.model';
 import {HttpClient} from '@angular/common/http';
 import {environment} from '../../../../environments/environment';
 

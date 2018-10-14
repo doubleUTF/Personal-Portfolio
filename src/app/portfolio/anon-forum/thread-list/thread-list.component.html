@@ -1,6 +1,6 @@
 <div class="container mt-2" fxLayout="column" fxLayoutGap="10px">
   <h3 style="text-align:center">{{boardName}}</h3>
-  <mat-card *ngFor="let thread of threads">
+  <mat-card *ngFor="let thread of threads" [routerLink]="['.',thread._id]">
     <mat-card-content>
       {{thread.text}}
     </mat-card-content>

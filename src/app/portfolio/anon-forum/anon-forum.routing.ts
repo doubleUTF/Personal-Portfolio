@@ -11,8 +11,7 @@ const anonForumRoutes:Routes=[
     {path:'',component:BoardListComponent},
     {path:':board',component:ThreadListComponent,
      resolve:{threads:ThreadListResolverService}},
-     {path:':board/:id,component:',component:ThreadComponent,
-   resolve:{replies:}}
+     {path:':board/:_id',component:ThreadComponent}
   ]},
 ]
 

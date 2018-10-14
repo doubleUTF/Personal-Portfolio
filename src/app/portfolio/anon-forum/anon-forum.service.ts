@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpParams} from '@angular/common/http';
 import {environment} from '../../../environments/environment';
 import {Subject} from 'rxjs';
 
@@ -18,4 +18,8 @@ export class AnonForumService {
     return this.http.get(`${this.rootPath}/threads`)
   }
 
+  getThread(threadId){
+    let params= new HttpParams().set('thread_id',threadId);
+    return this.http.get(`${this.rootPath}/replies`,{params});
+  }
 }
