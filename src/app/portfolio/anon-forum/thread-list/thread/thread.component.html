@@ -32,9 +32,18 @@
   <div class="addReply">
     <h3>Reply to thread</h3>
     <form [formGroup]="ReplyForm">
-      <mat-form-field>
-        <textarea matInput rows="10" formControlName="text"></textarea>
+      <mat-form-field appearance="outline" color="accent">
+        <mat-label>Your reply</mat-label>
+        <textarea matInput rows="6" formControlName="text"></textarea>
       </mat-form-field>
+      <mat-form-field color="accent" class="delete">
+        <mat-label>Delete password</mat-label>
+        <input matInput placeholder="Delete password" type="password"
+        formControlName="delete_password">
+      </mat-form-field>
+      <div fxLayout="row" fxLayoutAlign="center">
+        <button mat-flat-button color="accent" [disabled]="ReplyForm.invalid">Add Reply</button>
+      </div>
     </form>
   </div>
 </section>
