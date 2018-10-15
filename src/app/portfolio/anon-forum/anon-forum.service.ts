@@ -22,4 +22,8 @@ export class AnonForumService {
     let params= new HttpParams().set('thread_id',threadId);
     return this.http.get(`${this.rootPath}/replies`,{params});
   }
+
+  addReply(threadId,text,delete_password){
+    return this.http.post(`${this.rootPath}/replies`,{text,delete_password,thread_id:threadId})
+  }
 }
