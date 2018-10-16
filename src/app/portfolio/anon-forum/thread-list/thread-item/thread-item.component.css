@@ -1,0 +1,33 @@
+mat-card-content{
+  height:2.8rem;
+  overflow: hidden;
+  font-size: 1rem;
+}
+
+mat-card-subtitle{
+  max-width: 300px;
+  margin-bottom: 0;
+}
+
+mat-card{
+  margin-top:5px;
+  margin-bottom: 5px;
+  background-color: rgba(18, 135, 196, 0.7);
+  cursor: pointer;
+  transition:background-color .2s;
+  user-select: none;
+  outline:none;
+  width:100%;
+}
+
+mat-card:hover{
+  background-color: rgba(18, 135, 196, 0.5);
+}
+
+mat-card-actions{
+  padding-top:0;
+}
+
+.mat-button.mat-warn[disabled]{
+  color:#f44336;
+}

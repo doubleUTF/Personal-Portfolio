@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {Thread} from './thread/thread.model';
-import {formatDate} from '@angular/common';
 import {AnonForumService} from '../anon-forum.service';
 
 @Component({
@@ -27,15 +26,7 @@ export class ThreadListComponent implements OnInit {
     this.afService.appState.next('thread-list');
   }
 
-  getTimeString(thread:Thread){
-    if (thread.bumped_on==thread.created_on){
-      return `Created ${formatDate(thread.created_on,'short','en-US')}`
-    }
-    return `Updated ${formatDate(thread.bumped_on,'short','en-US')}`
-  }
-
-  log(event:Event){
-    event.stopPropagation();
-    console.log('yeah')
+  deleteThread(threadIndex){
+    this.threads.splice(threadIndex,1);
   }
 }

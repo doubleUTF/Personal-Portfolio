@@ -123,12 +123,6 @@ export class PortfolioService{
   null,
   "markdown-previewer"
   ),
-  // new Project('Camper Leaderboard', new Date(2018,3,26),
-  // "Leadeboard app to show recent and all-time most active contributors.",
-  // "../../../assets/img/camper_leaderboard.jpg",
-  // null,
-  // "camper-leaderboard"
-  // ),
   new Project('Recipe Box', new Date(2018,6,20),
   "Create, save, and edit your own delicious recipes. Don't forget mom's best dishes!",
   "../../../assets/img/recipe-box.jpg",
@@ -177,7 +171,7 @@ new Project('Treemap', new Date(2018,8,17),
 new Project('Issue Tracker', new Date(2018,9,19),
 'Create and manage issues for personal or work related projects.',
 '../../../assets/img/issue_tracker.jpg',null,'issue-tracker'),
-new Project('Anon Forum', new Date(2018,10,4),
+new Project('Anon Forum', new Date(2018,10,16),
 'Anonymously post threads to message boards. Can add replies or delete with password',
 '../../../assets/img/anon-forum.jpg',null,'anon-forum')
   ];

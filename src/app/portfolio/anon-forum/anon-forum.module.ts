@@ -9,6 +9,7 @@ import { ThreadListComponent } from './thread-list/thread-list.component';
 import { ThreadComponent } from './thread-list/thread/thread.component';
 import { ReplyComponent } from './thread-list/reply/reply.component';
 import { NewThreadComponent } from './thread-list/new-thread/new-thread.component';
+import { ThreadItemComponent } from './thread-list/thread-item/thread-item.component';
 
 @NgModule({
   imports: [
@@ -23,6 +24,7 @@ import { NewThreadComponent } from './thread-list/new-thread/new-thread.componen
     ThreadComponent,
     ReplyComponent,
     NewThreadComponent,
+    ThreadItemComponent,
   ],
   providers:[
     AnonForumService

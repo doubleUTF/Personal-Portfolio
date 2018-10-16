@@ -5,4 +5,5 @@ export interface Thread{
   reported:boolean,
   board:string,
   replies:Array<any>,
+  _id?:string
 }
