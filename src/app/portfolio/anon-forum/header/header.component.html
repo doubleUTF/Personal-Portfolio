@@ -2,7 +2,8 @@
   <div class="container" fxLayout>
     <span class="logo" [routerLink]="['','portfolio','anon-forum']">Anon Forum</span>
     <span class="spacer"></span>
-    <button mat-button *ngIf="appState=='thread-list'" class="mat-button">
+    <button mat-button *ngIf="appState=='thread-list'" class="mat-button"
+    [routerLink]="['','portfolio','anon-forum',boardName,'new']">
       <span class="button-text">Add Thread</span>
       <mat-icon>add_comment</mat-icon>
     </button>

@@ -9,6 +9,7 @@ import {Subject} from 'rxjs';
 export class AnonForumService {
 
   appState=new Subject();
+  boardState=new Subject();
   constructor(private http:HttpClient) {
     environment.production ? this.rootPath = 'https://www.davidlau.xyz/api' : this.rootPath= 'http://localhost:3000/api'
   }
@@ -34,5 +35,14 @@ export class AnonForumService {
 
   reportReply(replyId){
     return this.http.put(`${this.rootPath}/replies`,{reply_id:replyId})
+  }
+
+  reportThread(threadId){
+    return this.http.put(`${this.rootPath}/threads/dummy`,{thread_id:threadId})
+  }
+
+  deleteThread(threadId, delete_password){
+    return this.http.request('delete',`${this.rootPath}/threads/dummy`,
+    {body:{_id:threadId,delete_password}})
   }
 }

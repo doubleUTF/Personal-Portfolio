@@ -1,0 +1,20 @@
+<div class="container" fxLayout="column" fxLayoutAlign="center center">
+  <div class="addThread mt-3">
+    <h3>New thread</h3>
+    <form [formGroup]="threadForm" fxLayout="column">
+      <mat-form-field appearance="outline" color="accent">
+        <mat-label>Your reply</mat-label>
+        <textarea matInput rows="6" formControlName="text"></textarea>
+      </mat-form-field>
+      <mat-form-field color="accent" class="delete">
+        <mat-label>Delete password</mat-label>
+        <input matInput placeholder="Delete password" type="password"
+        formControlName="delete_password">
+      </mat-form-field>
+      <div fxLayout="row" fxLayoutAlign="center">
+        <button mat-flat-button color="accent" [disabled]="threadForm.invalid"
+        (click)="submitReply(threadId,threadForm.value)" type="button">Add new thread</button>
+      </div>
+    </form>
+  </div>
+</div>

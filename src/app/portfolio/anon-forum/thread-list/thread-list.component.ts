@@ -22,6 +22,7 @@ export class ThreadListComponent implements OnInit {
     })
     this.route.params.subscribe((params)=>{
       this.boardName=params.board;
+      this.afService.boardState.next(this.boardName);
     })
     this.afService.appState.next('thread-list');
   }
