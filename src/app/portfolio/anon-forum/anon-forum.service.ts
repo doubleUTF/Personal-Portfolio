@@ -26,4 +26,13 @@ export class AnonForumService {
   addReply(threadId,text,delete_password){
     return this.http.post(`${this.rootPath}/replies`,{text,delete_password,thread_id:threadId})
   }
+
+  deleteReply(replyId,password){
+    return this.http.request('delete',`${this.rootPath}/replies`,
+    {body:{reply_id:replyId,delete_password:password}})
+  }
+
+  reportReply(replyId){
+    return this.http.put(`${this.rootPath}/replies`,{reply_id:replyId})
+  }
 }

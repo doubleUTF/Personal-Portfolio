@@ -7,6 +7,7 @@ import { BoardListComponent } from './board-list/board-list.component';
 import {AnonForumService} from './anon-forum.service';
 import { ThreadListComponent } from './thread-list/thread-list.component';
 import { ThreadComponent } from './thread-list/thread/thread.component';
+import { ReplyComponent } from './thread-list/reply/reply.component';
 
 @NgModule({
   imports: [
@@ -19,6 +20,7 @@ import { ThreadComponent } from './thread-list/thread/thread.component';
     BoardListComponent,
     ThreadListComponent,
     ThreadComponent,
+    ReplyComponent,
   ],
   providers:[
     AnonForumService

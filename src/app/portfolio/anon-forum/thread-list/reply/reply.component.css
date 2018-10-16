@@ -1,0 +1,29 @@
+mat-card-content{
+  font-size: 1rem;
+  margin-bottom: .5rem;
+}
+
+mat-card{
+  border:1px solid rgb(51, 147, 52);
+  background-color: rgba(51, 147, 52,0.45);
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border-radius: .25rem;
+}
+
+mat-card-subtitle{
+  margin-bottom: 0;
+}
+
+mat-card-actions{
+  padding-top:0;
+  margin-bottom: 0;
+}
+
+.delete-input{
+  max-width: 450px;
+}
+
+.mat-button.mat-warn[disabled]{
+  color:#f44336;
+}

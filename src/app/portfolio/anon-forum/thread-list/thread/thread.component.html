@@ -16,18 +16,8 @@
     </mat-card>
   </div>
   <div class="replies" fxLayout="column" fxLayoutGap="10px">
-    <mat-card *ngFor="let reply of thread.replies">
-      <mat-card-content>
-        {{reply.text}}
-      </mat-card-content>
-      <mat-card-subtitle>
-        Replied {{reply.created_on | date: 'short'}}
-      </mat-card-subtitle>
-      <mat-card-actions>
-        <button mat-button>Report</button>
-        <button mat-button>Delete</button>
-      </mat-card-actions>
-    </mat-card>
+    <anon-forum-reply *ngFor="let reply of thread.replies; index as i" [reply]="reply"
+    [replyIndex]="i" (onDelete)="delete($event)"></anon-forum-reply>
   </div>
   <div class="addReply">
     <h3>Reply to thread</h3>

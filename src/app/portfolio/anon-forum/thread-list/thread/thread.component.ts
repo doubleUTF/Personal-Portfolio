@@ -3,7 +3,7 @@ import {AnonForumService} from '../../anon-forum.service';
 import {ActivatedRoute} from '@angular/router';
 import {Thread} from './thread.model';
 import {FormGroup,FormControl, Validators} from '@angular/forms';
-import {Reply} from './reply.model';
+import {Reply} from '../reply/reply.model';
 import {MatSnackBar} from '@angular/material';
 
 @Component({
@@ -44,5 +44,9 @@ export class ThreadComponent implements OnInit {
       this.ReplyForm.reset();
       this.snackBar.open('Reply added',null, {duration:3000,panelClass:'snack-save'});
     })
+  }
+
+  delete(index){
+    this.thread.replies.splice(index,1);
   }
 }

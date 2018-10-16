@@ -106,7 +106,7 @@ module.exports = function (app) {
       let threadId=req.query.thread_id;
       Thread.findById(threadId,{delete_password:0})
       .populate({path:'replies',sort:{created_on:-1},
-      select:['text','created_on']})
+      select:['text','created_on','reported']})
       .exec((err,thread)=>{
         if (err) handleError(err,res);
         if (!thread) return res.status(400).json({error:'thread not found'})
