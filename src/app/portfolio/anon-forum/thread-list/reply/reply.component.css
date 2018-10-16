@@ -4,8 +4,8 @@ mat-card-content{
 }
 
 mat-card{
-  border:1px solid rgb(51, 147, 52);
-  background-color: rgba(51, 147, 52,0.45);
+  border: 1px solid rgba(255,255,255,.25);
+  background-color: transparent;
   margin-top: 5px;
   margin-bottom: 5px;
   border-radius: .25rem;

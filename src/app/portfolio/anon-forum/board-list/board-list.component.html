@@ -1,6 +1,6 @@
 <div class="container mt-3" fxLayout.xs="column"
-fxLayout.gt-xs="row wrap" fxLayoutGap="10px">
-  <mat-card *ngFor="let board of boardList" fxFlex="0 1 calc(50%-10px)"
+fxLayout.gt-xs="row wrap" fxLayoutGap="12px">
+  <mat-card *ngFor="let board of boardList" fxFlex="0 1 calc(50%-12px)"
   [routerLink]="['./',board.title]">
     <mat-card-title>
       {{board.title}}

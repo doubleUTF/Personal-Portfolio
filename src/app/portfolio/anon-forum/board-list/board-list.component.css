@@ -1,8 +1,7 @@
 mat-card{
   margin-top:5px;
   margin-bottom: 5px;
-  background-color: rgba(255,255,255,.15);
-  border: rgba(255,255,255,.20) solid 1px;
+  background-color: rgba(18, 135, 196, 0.7);
   cursor: pointer;
   transition:background-color .2s;
   user-select: none;
@@ -10,5 +9,5 @@ mat-card{
 }
 
 mat-card:hover{
-  background-color: rgba(255,255,255,.25);
+  background-color: rgba(18, 135, 196, 0.5);
 }

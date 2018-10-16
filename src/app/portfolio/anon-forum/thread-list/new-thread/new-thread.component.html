@@ -1,9 +1,10 @@
 <div class="container" fxLayout="column" fxLayoutAlign="center center">
   <div class="addThread mt-3">
     <h3>New thread</h3>
+    <a [routerLink]="['..']">{{boardName}}</a>
     <form [formGroup]="threadForm" fxLayout="column">
       <mat-form-field appearance="outline" color="accent">
-        <mat-label>Your reply</mat-label>
+        <mat-label>Text</mat-label>
         <textarea matInput rows="6" formControlName="text"></textarea>
       </mat-form-field>
       <mat-form-field color="accent" class="delete">
@@ -13,7 +14,7 @@
       </mat-form-field>
       <div fxLayout="row" fxLayoutAlign="center">
         <button mat-flat-button color="accent" [disabled]="threadForm.invalid"
-        (click)="submitReply(threadId,threadForm.value)" type="button">Add new thread</button>
+        (click)="addThread()" type="button">Add new thread</button>
       </div>
     </form>
   </div>

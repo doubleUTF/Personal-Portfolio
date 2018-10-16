@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import {AnonForumService} from '../anon-forum.service';
+import {Subscription} from 'rxjs';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -13,15 +14,17 @@ export class HeaderComponent implements OnInit, OnDestroy {
   boardName:string;
   constructor(private afService:AnonForumService) { }
 
+  appStateSub:Subscription;
+  boardStateSub:Subscription;
   ngOnInit() {
-    this.afService.appState.subscribe((state:string)=>{
+    this.appStateSub=this.afService.appState.subscribe((state:string)=>{
       this.appState=state
     })
-    this.afService.boardState.subscribe((board:string)=>this.boardName=board)
+    this.boardStateSub=this.afService.boardState.subscribe((board:string)=>this.boardName=board)
   }
 
   ngOnDestroy(){
-    this.afService.appState.unsubscribe();
-    this.afService.boardState.unsubscribe();
+    this.appStateSub.unsubscribe();
+    this.boardStateSub.unsubscribe();
   }
 }

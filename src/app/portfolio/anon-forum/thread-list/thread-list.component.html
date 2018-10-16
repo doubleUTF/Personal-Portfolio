@@ -1,5 +1,9 @@
-<div class="container mt-2" fxLayout="column" fxLayoutGap="10px">
+<div class="container mt-2" fxLayout="column" fxLayoutGap="10px" fxLayoutAlign="center center">
   <h3 style="text-align:center">{{boardName}}</h3>
+  <div *ngIf="threads?.length==0">
+    <h5>There are no threads here, would you like to
+      <a [routerLink]="['.','new']">create one?</a></h5>
+  </div>
   <mat-card *ngFor="let thread of threads" [routerLink]="['.',thread._id]">
     <mat-card-content>
       {{thread.text}}

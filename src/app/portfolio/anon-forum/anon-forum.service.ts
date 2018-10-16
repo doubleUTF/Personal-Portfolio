@@ -45,4 +45,8 @@ export class AnonForumService {
     return this.http.request('delete',`${this.rootPath}/threads/dummy`,
     {body:{_id:threadId,delete_password}})
   }
+
+  addThread(text,delete_password,board){
+    return this.http.post(`${this.rootPath}/threads/${board}`,{text,delete_password})
+  }
 }

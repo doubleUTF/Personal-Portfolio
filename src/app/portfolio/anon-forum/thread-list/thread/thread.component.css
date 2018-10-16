@@ -4,8 +4,7 @@ mat-card-content{
 }
 
 mat-card{
-  border:1px solid rgb(51, 147, 52);
-  background-color: rgba(51, 147, 52,0.45);
+  background-color: rgba(18, 135, 196, 0.7);
   margin-top: 5px;
   margin-bottom: 5px;
   border-radius: .25rem;
@@ -13,6 +12,7 @@ mat-card{
 
 .main-thread{
   margin-bottom: 10px;
+  width:100%
 }
 
 div{
@@ -40,7 +40,7 @@ mat-card-actions{
   width:100%;
 }
 
-mat-form-field{
+mat-form-field, .replies{
   width:100%;
 }
 

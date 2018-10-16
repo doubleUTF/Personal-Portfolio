@@ -2,3 +2,11 @@
   width:100%;
   max-width: 690px;
 }
+
+a{
+  color:rgba(255,255,255,0.75);
+}
+
+a:hover{
+  color:white;
+}
