@@ -33,4 +33,9 @@ export class ThreadListComponent implements OnInit {
     }
     return `Updated ${formatDate(thread.bumped_on,'short','en-US')}`
   }
+
+  log(event:Event){
+    event.stopPropagation();
+    console.log('yeah')
+  }
 }

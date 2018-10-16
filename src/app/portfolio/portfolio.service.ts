@@ -179,7 +179,7 @@ new Project('Issue Tracker', new Date(2018,9,19),
 '../../../assets/img/issue_tracker.jpg',null,'issue-tracker'),
 new Project('Anon Forum', new Date(2018,10,4),
 'Anonymously post threads to message boards. Can add replies or delete with password',
-null,null,'anon-forum')
+'../../../assets/img/anon-forum.jpg',null,'anon-forum')
   ];
 
   getProjects(){
