@@ -20,3 +20,7 @@ footer{
   cursor:pointer;
   outline:none;
 }
+
+.aqua-dark{
+  background-color: rgba(18, 135, 196, 0.5)
+}

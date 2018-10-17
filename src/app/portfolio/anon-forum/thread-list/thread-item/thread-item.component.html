@@ -13,7 +13,9 @@
   <mat-card-actions>
     <button mat-button (click)="reply($event)">Reply</button>
     <button mat-button [color]="thread.reported ? 'warn' : ''" [disabled]="thread.reported"
-    (click)="report($event)">{{thread.reported ? 'Reported' : 'Report'}}</button>
+    (click)="report($event)">
+    <span (click)="stopProp($event)">{{thread.reported ? 'Reported' : 'Report'}}</span>
+    </button>
     <button mat-button (click)="delete($event)">{{!showDelete ? 'Delete' : 'Cancel'}}</button>
   </mat-card-actions>
   <div class="input-group input-group-sm delete-input" *ngIf="showDelete" (click)="stopProp($event)">

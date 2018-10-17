@@ -1,3 +1,7 @@
+.showBreaks{
+  white-space: pre-line;
+}
+
 mat-card-content{
   font-size: 1rem;
   margin-bottom: .5rem;
