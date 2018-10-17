@@ -3,7 +3,6 @@
 var apiRoutes         = require('./routes/api.js');
 var fccTestingRoutes  = require('./routes/fcctesting.js');
 var runner            = require('./test-runner');
-const {populateBoard,populateThread, populateReply,threadOneId, clearTest}=require('./tests/seed');
 
 const anonForum=(app)=>{
 
@@ -24,12 +23,6 @@ const anonForum=(app)=>{
   //       console.log(error);
   //   }
   // }, 3000);
-
-  // Seed some dummy data, delete after first run
-  clearTest()
-  populateBoard()
-  populateThread()
-  populateReply()
 }
 
 module.exports = anonForum; //for testing
