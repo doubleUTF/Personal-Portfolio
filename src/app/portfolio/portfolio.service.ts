@@ -165,14 +165,14 @@ new Project('Treemap', new Date(2018,8,17),
 'Treemap of Video Game Sales. Made with D3.',
 '../../../assets/img/treemap_games.jpg',
 'https://codepen.io/doubleUTF/full/KBYwQx/'),
-// new Project('Fitness Tracker', new Date(2018,9,18),
-// 'Log exercises',
-// null,null,'fitness-tracker'),
+new Project('Fitness Tracker', new Date(2018,10,30),
+'Log exercises',
+null,null,'fitness-tracker'),
 new Project('Issue Tracker', new Date(2018,9,19),
 'Create and manage issues for personal or work related projects.',
 '../../../assets/img/issue_tracker.jpg',null,'issue-tracker'),
 new Project('Anon Forum', new Date(2018,10,16),
-'Anonymously post threads to message boards. Can add replies or delete with password',
+'Anonymously post threads to message boards. Users can add replies or delete them with a password.',
 '../../../assets/img/anon-forum.jpg',null,'anon-forum')
   ];
 

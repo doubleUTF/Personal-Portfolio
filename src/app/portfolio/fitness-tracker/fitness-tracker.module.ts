@@ -14,11 +14,16 @@ import { SidenavListComponent } from './navigation/sidenav-list/sidenav-list.com
 import { StopTrainingComponent } from './training/stop-training/stop-training.component';
 import {AuthService} from './auth/auth.service';
 import {TrainingService} from './training/training.service';
+import {AngularFireModule} from 'angularfire2';
+import {AngularFirestoreModule} from 'angularfire2/firestore';
+import {environment} from '../../../environments/environment';
 
 @NgModule({
   imports: [
     SharedModule,
     FitnessRoutesModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule
   ],
   declarations: [FitnessTrackerComponent, SignupComponent, LoginComponent, TrainingComponent, CurrentTrainingComponent, NewTrainingComponent, PastTrainingComponent, WelcomeComponent, HeaderComponent, SidenavListComponent, StopTrainingComponent],
   entryComponents:[StopTrainingComponent],
