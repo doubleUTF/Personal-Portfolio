@@ -11,6 +11,7 @@ const metric_imp_convert=require('./metric_imp_convert/metric_imp_convert');
 const issueTracker=require('./issueTracker/issueTracker');
 const personalLibrary=require('./personal-library/personal-library');
 const anonForum=require('./anon-forum/anon-forum');
+const stockChecker=require('./stock-checker/stock-checker');
 
 module.exports=(app)=>{
   // Timestamp
@@ -48,6 +49,9 @@ module.exports=(app)=>{
 
   // Anon Forum
   anonForum(app);
+
+  // Stock Checker
+  stockChecker(app);
 
   app.use('/api',router);
 

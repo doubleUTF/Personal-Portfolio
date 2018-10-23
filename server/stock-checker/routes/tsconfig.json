@@ -1,0 +1,9 @@
+{
+  "compileOnSave":true,
+  "files":[
+    "api.ts"
+  ],
+  "compilerOptions":{
+    "lib":["es2017"]    
+  }
+}
