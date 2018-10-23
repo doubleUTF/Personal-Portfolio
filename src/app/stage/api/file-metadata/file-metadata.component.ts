@@ -34,7 +34,7 @@ export class FileMetadataComponent implements OnInit {
     }
   }
 
-  progress:Observable<number>=new Observable().pipe(
+  progress:Observable<any>=new Observable().pipe(
     startWith(0)
   );
 
