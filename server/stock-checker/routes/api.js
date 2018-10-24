@@ -38,28 +38,49 @@ module.exports = function (app) {
             });
         }
         else if (typeof (req.query.stock == 'array')) {
-            if (req.query.stock.length > 2) {
-                return res.status(400).json({ error: 'Too many stock fields' });
+            if (req.query.stock.length != 2) {
+                handleError('Too many fields', res);
             }
             else {
-                var promise1 = iex.stockPrice(stock[0]);
-                var promise2 = iex.stockPrice(stock[1]);
+                var stock1_1 = stock[0];
+                var stock2_1 = stock[1];
+                console.log(stock1_1, stock2_1);
+                var promise1 = iex.stockPrice(stock1_1);
+                var promise2 = iex.stockPrice(stock2_1);
                 Promise.all([promise1, promise2]).then(function (values) {
-                    values.forEach(function (value) {
+                    values.forEach(function (value, i) {
                         if (typeof (value) != 'number') {
-                            return res.status(400).json({ error: "Invalid stock symbol: " + value });
+                            handleError("Invalid stock symbol: " + stock[i], res);
                         }
-                        // Need to handle two separate stocks here. Maybe do a StockData.findMany method
                     });
-                    console.log(values);
-                    res.json(values);
+                    var updateQuery = req.query.like ? { $addToSet: { likes: ip } } : {};
+                    var options = { "new": true, upsert: true, fields: { __v: 0 } };
+                    stockData_1.StockData.findOneAndUpdate({ stock: stock1_1 }, updateQuery, options, function (err, s1data) {
+                        if (err)
+                            handleError(err, res);
+                        stockData_1.StockData.findOneAndUpdate({ stock: stock2_1 }, updateQuery, options, function (err, s2data) {
+                            if (err)
+                                handleError(err, res);
+                            var relLikes = getRelativeLikes(s1data.likes.length, s2data.likes.length);
+                            return res.json({ stock1: { rel_likes: relLikes.stock1RelLikes,
+                                    stock: stock1_1, price: values[0] },
+                                stock2: { rel_likes: relLikes.stock2RelLikes,
+                                    stock: stock2_1, price: values[1] } });
+                        });
+                    });
                 });
             }
         }
-        // console.log(req.query)
-        // res.send(req.query)
     });
 };
 function handleError(error, res) {
     return res.status(400).send(error);
+}
+function getRelativeLikes(stock1Likes, stock2Likes) {
+    // Calculate relative likes. If stock1 has 7 likes and stock 2 has 2, stock 1
+    // will be 5 and stock 2 will be -5.
+    var stock1RelLikes, stock2RelLikes;
+    stock1RelLikes = stock1Likes - stock2Likes;
+    stock2RelLikes = stock2Likes - stock1Likes;
+    return { stock1RelLikes: stock1RelLikes, stock2RelLikes: stock2RelLikes };
 }

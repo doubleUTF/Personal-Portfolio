@@ -1,1 +1,4 @@
-({...a}={a:'a',b:'b'})
+let k=[]
+k.push(null)
+k.push(null)
+console.log(k)

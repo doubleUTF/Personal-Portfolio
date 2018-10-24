@@ -59,11 +59,25 @@ suite('Functional Tests', function() {
       });
 
       test('2 stocks', function(done) {
-
+        chai.request(rootPath)
+        .get(stockPath)
+        .query({stock:['goog','aapl']})
+        .end((err,res)=>{
+          assert.equal(res.body.stock1.rel_likes,1)
+          assert.equal(res.body.stock2.rel_likes,-1)
+          done();
+        })
       });
 
       test('2 stocks with like', function(done) {
-
+        chai.request(rootPath)
+        .get(stockPath)
+        .query({stock:['goog','aapl'],like:true})
+        .end((err,res)=>{
+          assert.equal(res.body.stock1.rel_likes,0)
+          assert.equal(res.body.stock2.rel_likes,0)
+          done();
+        })
       });
 
     });

@@ -89,17 +89,16 @@ function splitter(str) {
 }
 
 function assertionAnalyser(body) {
-  
+
   // already filtered in the test runner
   // // remove comments
   // body = body.replace(/\/\/.*\n|\/\*.*\*\//g, '');
   // // get test function body
   // body = body.match(/\{\s*([\s\S]*)\}\s*$/)[1];
-  
+
   if(!body) return "invalid assertion";
   // replace assertions bodies, so that they cannot
   // contain the word 'assertion'
-
   var body = body.match(/(?:browser\s*\.\s*)?assert\s*\.\s*\w*\([\s\S]*\)/)[0];
   var s = replacer(body);
   // split on 'assertion'

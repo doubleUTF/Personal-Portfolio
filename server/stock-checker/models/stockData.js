@@ -4,7 +4,8 @@ const Schema= mongoose.Schema;
 let stockDataSchema=new Schema({
   stock:{
     required:true,
-    type:String
+    type:String,
+    unique:true
   },
   likes:{
     type:[String],
