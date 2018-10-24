@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "node app.js",
+    "start": "pm2-runtime start ecosystem.config.js --env production",
     "serve": "ng serve",
     "build": "ng build --prod",
     "test": "ng test",
@@ -78,6 +78,7 @@
     "karma-coverage-istanbul-reporter": "^1.4.3",
     "karma-jasmine": "^1.1.2",
     "karma-jasmine-html-reporter": "^0.2.2",
+    "pm2": "^3.2.2",
     "protractor": "^5.4.0",
     "ts-node": "~3.2.0",
     "tslint": "~5.7.0",
