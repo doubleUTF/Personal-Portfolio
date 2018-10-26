@@ -23,7 +23,7 @@ setTimeout(function () {
       console.log('Tests are not valid:');
       console.log(error);
     }
-  }, 3500);
+  }, 4000);
 }
 
 

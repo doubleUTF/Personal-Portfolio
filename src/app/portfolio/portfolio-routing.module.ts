@@ -3,6 +3,7 @@ import {Routes, RouterModule} from '@angular/router';
 import { PortfolioComponent } from './portfolio.component';
 import {MarkdownPreviewerComponent} from './markdown-previewer/markdown-previewer.component';
 import {CamperLeaderboardComponent} from './camper-leaderboard/camper-leaderboard.component';
+import {StockPriceCheckerComponent} from './stock-price-checker/stock-price-checker.component';
 
 const routes:Routes=[
   {path:'',component: PortfolioComponent, data:{animation:'Portfolio'}},
@@ -13,12 +14,12 @@ const routes:Routes=[
   {path:'recipe-box',loadChildren:'./recipe-box/recipe-box.module#RecipeBoxModule',
     data:{animation:'Recipe',hideBars:true}},
     {path:'issue-tracker',loadChildren:'./issue-tracker/issue-tracker.module#IssueTrackerModule',
-  data:{animation:'Issue Tracker', hideBars:true}},
-  {path:'fitness-tracker',loadChildren:'./fitness-tracker/fitness-tracker.module#FitnessTrackerModule',
-data:{animation:'Fitness Tracker',hideBars:true}},
-{path:'anon-forum',loadChildren:'./anon-forum/anon-forum.module#AnonForumModule',
-data:{hideBars:true}},
-
+    data:{animation:'Issue Tracker', hideBars:true}},
+    {path:'fitness-tracker',loadChildren:'./fitness-tracker/fitness-tracker.module#FitnessTrackerModule',
+  data:{animation:'Fitness Tracker',hideBars:true}},
+  {path:'anon-forum',loadChildren:'./anon-forum/anon-forum.module#AnonForumModule',
+  data:{hideBars:true}},
+  {path:'stock-checker',component:StockPriceCheckerComponent}
 ]
 
 @NgModule({

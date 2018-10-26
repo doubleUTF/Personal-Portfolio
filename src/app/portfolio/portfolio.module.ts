@@ -6,6 +6,7 @@ import {CamperLeaderboardComponent} from './camper-leaderboard/camper-leaderboar
 import {ProjectThumbnailComponent} from './project-thumbnail/project-thumbnail.component';
 import {MarkdownPipe} from './markdown-previewer/markdown.pipe';
 import {SharedModule} from '../shared/shared.module';
+import { StockPriceCheckerComponent } from './stock-price-checker/stock-price-checker.component';
 
 @NgModule({
   imports: [
@@ -18,6 +19,7 @@ import {SharedModule} from '../shared/shared.module';
     CamperLeaderboardComponent,
     ProjectThumbnailComponent,
     MarkdownPipe,
+    StockPriceCheckerComponent,
   ],
 })
 export class PortfolioModule { }
