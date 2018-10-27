@@ -40,7 +40,6 @@ module.exports = function (app) {
         } else {
           let stock1=stock[0];
           let stock2=stock[1];
-          console.log(stock1, stock2)
           let promise1=iex.stockPrice(stock1);
           let promise2=iex.stockPrice(stock2);
           Promise.all([promise1,promise2]).then(values=>{
@@ -62,6 +61,9 @@ module.exports = function (app) {
                     stock:stock2, price:values[1]}});
                 })
             })
+          }).catch(err=>{
+            console.log(err)
+            return res.status(400).json(err)
           })
         }
       }

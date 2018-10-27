@@ -14,16 +14,17 @@ apiRoutes(app);
 
 // Start our server and tests! Comment out to disable
 
-console.log('Running Tests...');
-setTimeout(function () {
-  try {
-    runner.run();
-  } catch(e) {
-    var error = e;
-      console.log('Tests are not valid:');
-      console.log(error);
-    }
-  }, 4000);
+// console.log('Running Tests...');
+// setTimeout(function () {
+//   try {
+//     runner.run();
+//   } catch(e) {
+//     var error = e;
+//       console.log('Tests are not valid:');
+//       console.log(error);
+//     }
+//   }, 4000);
+//
 }
 
 
