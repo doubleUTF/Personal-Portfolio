@@ -1,5 +1,10 @@
 mat-form-field{
   width:100%;
+  font-size:1rem;
+  text-align: center;
+}
+
+input{
   font-size:2rem;
 }
 
@@ -14,14 +19,6 @@ h1{
 
 .main-content{
   flex-grow:4;
-}
-
-input::placeholder{
-  font-size:1.2rem;
-}
-
-input{
-  text-align: center;
 }
 
 .whole-page{
@@ -39,9 +36,12 @@ input{
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  filter:opacity(.8);
+  filter: opacity(.7);
 }
 
 form{
-  background-color: rgba(0,0,0,.8)
+  background-color: rgba(0,0,0,.8);
+  padding:1rem;
+  border: 1px solid grey;
+  border-radius:1rem;
 }
