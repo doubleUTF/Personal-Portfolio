@@ -1,7 +1,9 @@
 mat-form-field{
-  width:100%;
+  /* width:100%; */
   font-size:1rem;
   text-align: center;
+  display:flex;
+  justify-content: center;
 }
 
 input{
@@ -44,4 +46,8 @@ form{
   padding:1rem;
   border: 1px solid grey;
   border-radius:1rem;
+}
+
+.small-spacer{
+  width:1rem;
 }
