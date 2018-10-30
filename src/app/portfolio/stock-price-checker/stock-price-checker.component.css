@@ -1,13 +1,24 @@
 mat-form-field{
-  /* width:100%; */
   font-size:1rem;
   text-align: center;
   display:flex;
   justify-content: center;
 }
 
+.form-wrapper>*{
+  display:flex;
+  flex-direction: column;
+  width:190px;
+}
+
+.form-wrapper{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+}
 input{
   font-size:2rem;
+  text-transform: uppercase;
 }
 
 h1{
@@ -38,16 +49,19 @@ h1{
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  filter: opacity(.7);
-}
-
-form{
-  background-color: rgba(0,0,0,.8);
-  padding:1rem;
-  border: 1px solid grey;
-  border-radius:1rem;
+  filter: opacity(.7) grayscale(50%);
 }
 
 .small-spacer{
   width:1rem;
+}
+
+.content-container{
+  max-width:350px;
+  height:300px;
+  position:relative;
+  background-color: rgba(0,0,0,.8);
+  padding:1rem;
+  border: 1px solid grey;
+  border-radius:1rem;
 }

@@ -2,25 +2,31 @@
   <div class="container d-flex flex-column h-100">
     <div class="spacer"></div>
     <div class="row justify-content-center main-content">
-      <div class="col col-sm-8 col-md-8 col-lg-6">
-        <form>
+      <div class="col content-container d-flex flex-column justify-content-center">
+        <form [formGroup]="stockForm" *ngIf="newStock">
           <h1 class="mb-2">Stock Price Checker</h1>
-          <mat-form-field color="accent">
-            <input matInput placeholder="Enter a stock*">
-          </mat-form-field>
-          <span></span>
-          <mat-form-field color="accent">
-            <input matInput placeholder="Second stock">
-          </mat-form-field>
+          <div class="form-wrapper">
+            <mat-form-field color="accent">
+              <input matInput placeholder="Enter a stock*" maxlength="5" formControlName="stock1">
+              <mat-error *ngIf="stockForm.controls.stock1.invalid">{{getErrorMessage()}}</mat-error>
+            </mat-form-field>
+            <span></span>
+            <mat-form-field color="accent">
+              <input matInput placeholder="Second stock" maxlength="5" formControlName="stock2">
+            </mat-form-field>
+          </div>
           <div class="d-flex justify-content-center align-items-center">
             <div class="form-check">
-              <input type="checkbox" class="form-check-input" id="like" name="like">
+              <input type="checkbox" class="form-check-input" id="like" formControlName="like">
               <label for="like" class="form-check-label">Like</label>
             </div>
             <div class="small-spacer"></div>
-            <button class="btn btn-sm btn-outline-light">Submit</button>
+            <button class="btn btn-outline-success" (click)="getStocks()">Submit</button>
           </div>
         </form>
+        <div *ngIf="!newStock" class="align-self-center">
+          <mat-spinner></mat-spinner>
+        </div>
       </div>
     </div>
   </div>
