@@ -1,10 +1,10 @@
 <section class="whole-page">
   <div class="container d-flex flex-column h-100">
-    <div class="spacer"></div>
     <div class="row justify-content-center main-content">
-      <div class="col content-container d-flex flex-column justify-content-center">
-        <form [formGroup]="stockForm" *ngIf="newStock">
-          <h1 class="mb-2">Stock Price Checker</h1>
+      <div class="col content-container d-flex flex-column mt-5">
+        <h1 class="mb-2">Stock Price Checker</h1>
+        <div class="d-flex flex-row justify-content-center stuff">
+        <form [formGroup]="stockForm" *ngIf="newStock" @enterLeave>
           <div class="form-wrapper">
             <mat-form-field color="accent">
               <input matInput placeholder="Enter a stock*" maxlength="5" formControlName="stock1">
@@ -21,12 +21,19 @@
               <label for="like" class="form-check-label">Like</label>
             </div>
             <div class="small-spacer"></div>
-            <button class="btn btn-outline-success" (click)="getStocks()">Submit</button>
+            <button type="button" class="btn btn-outline-success" (click)="getStocks()">Submit</button>
           </div>
         </form>
-        <div *ngIf="!newStock" class="align-self-center">
-          <mat-spinner></mat-spinner>
+        <div *ngIf="!newStock" @newEnterLeave>
+          <div class="stock-card">
+            <span class="ticker">{{stocks?.stock1.name}}</span> <span>- {{stocks?.stock1.price}} {{stocks?.stock1.rel_likes}}</span>
+          </div>
+          <div class="stock-card">
+            <span class="ticker">{{stocks?.stock2.name}}</span> <span>- {{stocks?.stock2.price}} {{stocks?.stock2.rel_likes}}</span>
+          </div>
+          <button type="button" (click)="newQuery()" class="btn btn-outline-light">New query</button>
         </div>
+      </div>
       </div>
     </div>
   </div>

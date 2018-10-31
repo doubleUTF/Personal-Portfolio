@@ -26,14 +26,6 @@ h1{
   text-align: center;
 }
 
-.spacer{
-  flex-grow: 1;
-}
-
-.main-content{
-  flex-grow:4;
-}
-
 .whole-page{
   position:relative;
   height:100%;
@@ -58,10 +50,23 @@ h1{
 
 .content-container{
   max-width:350px;
-  height:300px;
+  min-height:320px;
+  max-height:350px;
   position:relative;
   background-color: rgba(0,0,0,.8);
   padding:1rem;
   border: 1px solid grey;
   border-radius:1rem;
+}
+
+mat-spinner{
+  margin:2rem 0rem;
+}
+
+.ticker{
+  font-size: 2rem;
+}
+
+.stuff{
+  z-index: -100
 }
