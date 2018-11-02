@@ -11,4 +11,4 @@ const appRoutes: Routes=[
   {path:'**', redirectTo:'/error'}
 ]
 
-export const routing= RouterModule.forRoot(appRoutes,{preloadingStrategy:PreloadAllModules});
+export const routing= RouterModule.forRoot(appRoutes);
