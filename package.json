@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "pm2-runtime start ecosystem.config.js --env production",
+    "start": "pm2-runtime start app.js",
     "serve": "ng serve",
     "build": "ng build --prod",
     "test": "ng test",
