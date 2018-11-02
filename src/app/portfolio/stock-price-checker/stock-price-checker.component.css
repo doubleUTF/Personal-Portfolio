@@ -65,8 +65,68 @@ mat-spinner{
 
 .ticker{
   font-size: 2rem;
+  text-transform: uppercase;
+  grid-area:ticker;
 }
 
-.stuff{
-  z-index: -100
+.stock-card{
+  display: grid;
+  grid-template-columns: 6fr 4fr;
+  grid-template-rows:  1fr 1fr;
+  grid-template-areas:
+    "ticker price"
+    "ticker likes";
+}
+
+.likes{
+  grid-area:likes;
+  justify-self:center;
+  line-height: 1.2;
+}
+
+.price{
+  grid-area:price;
+  justify-self:center;
+  color:rgb(63, 201, 34);
+  align-self:end;
+  line-height: 1.2;
+}
+
+.card1{
+  padding-bottom: 1rem;
+}
+
+.card2{
+  border-top: 1px solid white;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.error{
+  margin:0 2rem;
+  color:red;
+}
+
+.stock-card-lg{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ticker-lg{
+  text-transform: uppercase;
+  font-size:4rem;
+  line-height: 1.2;
+}
+
+.price-lg{
+  color:rgb(63, 201, 34);
+  font-size:2rem;
+  line-height: 1.3;
+}
+
+.likes-lg{
+  font-size:2rem;
+  line-height:1.3;
+  margin-bottom:10px;
 }

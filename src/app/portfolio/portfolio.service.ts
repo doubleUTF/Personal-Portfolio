@@ -175,7 +175,8 @@ new Project('Anon Forum', new Date(2018,10,16),
 'Anonymously post threads to message boards. Users can add replies or delete them with a password.',
 '../../../assets/img/anon-forum.jpg',null,'anon-forum'),
 new Project('Stock Price Checker', new Date(2018,10,27),
-'Find and compare stock prices and popularity.', null, null,'stock-checker')
+'Find and compare stock prices and popularity. Front-end built with Angular animations, stock data from IEX Developer Platform.',
+'../../../assets/img/stock-checker.jpg', null,'stock-checker')
   ];
 
   getProjects(){

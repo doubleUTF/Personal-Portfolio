@@ -9,11 +9,10 @@ module.exports = function (app) {
       const ip=req.ip;
       const iex= new IEXClient(_fetch);
       const stock=req.query.stock;
-
       if (typeof(req.query.stock)=='string'){ // Only 1 stock
         iex.stockPrice(stock).then((price:any)=>{
           if (price!='Unknown symbol'){ // Checks if stock is valid
-            if (req.query.like){
+            if (req.query.like=='true'){
               StockData.findOneAndUpdate({stock},
                 {$addToSet:{likes:ip}},
               {new:true,upsert:true,fields:{__v:0}},(err,data)=>{
@@ -31,10 +30,10 @@ module.exports = function (app) {
           })
           }
         } else {
-          handleError('Invalid stock ticker',res)
+          handleError(`Invalid stock ticker: ${stock}`,res)
         }
         })
-      } else if (typeof(req.query.stock=='array')){
+      } else if (Array.isArray(req.query.stock)){
         if (req.query.stock.length!=2){
           handleError('Too many fields',res)
         } else {
@@ -43,12 +42,15 @@ module.exports = function (app) {
           let promise1=iex.stockPrice(stock1);
           let promise2=iex.stockPrice(stock2);
           Promise.all([promise1,promise2]).then(values=>{
-            values.forEach((value,i)=>{
+            let errorIndex;
+            let hasError=values.some((value,i)=>{
               if (typeof(value)!='number'){
-                handleError(`Invalid stock symbol: ${stock[i]}`,res);
+                errorIndex=i;
+                return true
               }
             })
-              let updateQuery= req.query.like ? {$addToSet:{likes:ip}} : {}
+            if (hasError) return handleError(`Invalid stock symbol: ${stock[errorIndex]}`,res);
+              let updateQuery= req.query.like=='true' ? {$addToSet:{likes:ip}} : {}
               let options={new:true,upsert:true,fields:{__v:0}};
               StockData.findOneAndUpdate({stock:stock1},updateQuery, options,(err,s1data)=>{
                 if (err) handleError(err,res);
@@ -62,8 +64,7 @@ module.exports = function (app) {
                 })
             })
           }).catch(err=>{
-            console.log(err)
-            return res.status(400).json(err)
+            handleError(err,res)
           })
         }
       }

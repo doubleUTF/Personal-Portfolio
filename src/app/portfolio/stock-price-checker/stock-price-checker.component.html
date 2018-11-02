@@ -3,8 +3,8 @@
     <div class="row justify-content-center main-content">
       <div class="col content-container d-flex flex-column mt-5">
         <h1 class="mb-2">Stock Price Checker</h1>
-        <div class="d-flex flex-row justify-content-center stuff">
-        <form [formGroup]="stockForm" *ngIf="newStock" @enterLeave>
+        <div class="d-flex flex-row justify-content-center" @dummy>
+        <form [formGroup]="stockForm" *ngIf="newStock" @enterLeave (@enterLeave.done)="showStocks($event)">
           <div class="form-wrapper">
             <mat-form-field color="accent">
               <input matInput placeholder="Enter a stock*" maxlength="5" formControlName="stock1">
@@ -24,14 +24,33 @@
             <button type="button" class="btn btn-outline-success" (click)="getStocks()">Submit</button>
           </div>
         </form>
-        <div *ngIf="!newStock" @newEnterLeave>
-          <div class="stock-card">
-            <span class="ticker">{{stocks?.stock1.name}}</span> <span>- {{stocks?.stock1.price}} {{stocks?.stock1.rel_likes}}</span>
+        <div *ngIf="stocksReady" @stocksAnimation (@stocksAnimation.done)="showNewQuery($event)">
+          <div *ngIf="stocks">
+            <div class="stock-card card1">
+              <span class="ticker">{{stocks?.stock1.stock}}</span>
+              <span class="price">{{stocks?.stock1.price}}</span>
+              <span class="likes">{{stocks?.stock1.rel_likes}} rel likes</span>
+            </div>
+            <div class="stock-card card2">
+              <span class="ticker">{{stocks?.stock2.stock}}</span>
+              <span class="price">{{stocks?.stock2.price}}</span>
+              <span class="likes">{{stocks?.stock2.rel_likes}} rel likes</span>
+            </div>
           </div>
-          <div class="stock-card">
-            <span class="ticker">{{stocks?.stock2.name}}</span> <span>- {{stocks?.stock2.price}} {{stocks?.stock2.rel_likes}}</span>
+          <div *ngIf="stock">
+            <div class="stock-card-lg">
+              <span class="ticker-lg">{{stock?.stock}}</span>
+              <span class="price-lg">{{stock?.price}}</span>
+              <span class="likes-lg">{{stock?.likes}} likes</span>
+            </div>
           </div>
-          <button type="button" (click)="newQuery()" class="btn btn-outline-light">New query</button>
+          <div *ngIf="error" class="error">
+            <h4>{{error}}</h4>
+          </div>
+          <div class="d-flex justify-content-center mt-1">
+            <button type="button" (click)="newQuery()" class="btn btn-outline-light" style="margin:auto">New query</button>
+          </div>
+          <small *ngIf="stocks" class="mt-2" style="float:right">*rel= relative</small>
         </div>
       </div>
       </div>

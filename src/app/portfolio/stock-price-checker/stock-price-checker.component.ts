@@ -12,38 +12,41 @@ import {StockPriceCheckerService} from './stock-price-checker.service';
     trigger('enterLeave',[
       transition(':enter',[
         style({
-          transform:'translateX(100%)',
+          transform:'translateX(50%)',
           opacity:0,
         }),
-        animate('.8s ease-out', style({
+        animate('.5s ease-out', style({
           transform:'translateX(0)',
           opacity:1,
         }))
       ]),
       transition(':leave',[
-        animate('.8s ease-out', style({
+        animate('.5s ease-out', style({
           opacity:0,
-          transform:'translateX(-100%)'
+          transform:'translateX(-50%)'
         }))
       ])
     ]),
-    trigger('newEnterLeave',[
+    trigger('stocksAnimation',[
       transition(':enter',[
         style({
-          transform:'translateX(100%)',
-          opacity:0
+          transform:'translateX(50%)',
+          opacity:0,
         }),
-        animate('.8s ease-out', style({
+        animate('.5s ease-out', style({
           transform:'translateX(0)',
-          opacity:1
+          opacity:1,
         }))
       ]),
       transition(':leave',[
-        animate('.8s ease-out', style({
-          transform:'translateX(-100%)',
-          opacity:0
+        animate('.5s ease-out', style({
+          opacity:0,
+          transform:'translateX(-50%)'
         }))
       ])
+    ]),
+    trigger('dummy',[
+      transition(':enter',[])
     ])
   ]
 })
@@ -61,9 +64,13 @@ export class StockPriceCheckerComponent implements OnInit {
   });
 
   stocks;
+  stock;
+  error;
   ngOnInit() {
   }
-  newStock:boolean=true; // Flag to control display of new stock form
+
+  newStock=true; // Flag to control display of new stock form
+  stocksReady=false;
 
   getErrorMessage(){
     return this.stockForm.controls.stock1.hasError('required') ? 'Please enter a valid stock ticker' : ''
@@ -71,15 +78,36 @@ export class StockPriceCheckerComponent implements OnInit {
 
   getStocks(){
     this.newStock=!this.newStock;
-    this.spcs.getDummyStocks(this.stockForm.value.stock1,this.stockForm.value.stock2).then(data=>{
-      this.stocks=data;
-      console.log(data)
+    this.spcs.getStocks(this.stockForm.controls.stock1.value,this.stockForm.controls.stock2.value,this.stockForm.controls.like.value)
+    .subscribe((data:any)=>{
+      if (data.stock1){
+        this.stocks=data
+      } else {
+        this.stock=data
+      }
+    }, error=>{
+      this.error=error.error;
     })
   }
 
+  showStocks(event){
+    if (event.fromState!='void'){
+      this.stocksReady=true;
+    }
+  }
+
   newQuery(){
-    this.newStock=true;
+    this.error=null;
     this.stocks=null;
+    this.stock=null;
+    this.stocksReady=false;
     this.stockForm.reset()
   }
+
+  showNewQuery(event){
+    if (event.fromState!='void'){
+      this.newStock=true;
+    }
+  }
+
 }

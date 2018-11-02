@@ -13,7 +13,7 @@ fccTestingRoutes(app);
 apiRoutes(app);
 
 // Start our server and tests! Comment out to disable
-
+// 
 // console.log('Running Tests...');
 // setTimeout(function () {
 //   try {
@@ -24,7 +24,7 @@ apiRoutes(app);
 //       console.log(error);
 //     }
 //   }, 4000);
-//
+
 }
 
 

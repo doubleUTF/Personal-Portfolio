@@ -22,8 +22,8 @@ import {environment} from '../../../environments/environment';
   imports: [
     SharedModule,
     FitnessRoutesModule,
-    AngularFireModule.initializeApp(environment.firebase),
-    AngularFirestoreModule
+    // AngularFireModule.initializeApp(environment.firebase),
+    // AngularFirestoreModule
   ],
   declarations: [FitnessTrackerComponent, SignupComponent, LoginComponent, TrainingComponent, CurrentTrainingComponent, NewTrainingComponent, PastTrainingComponent, WelcomeComponent, HeaderComponent, SidenavListComponent, StopTrainingComponent],
   entryComponents:[StopTrainingComponent],
