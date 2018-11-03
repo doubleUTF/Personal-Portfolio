@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { routing } from './app.routing';
+import { AppRoutingModule } from './app.routing';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { StageComponent } from './stage/stage.component';
@@ -24,7 +24,7 @@ import {WhitespaceToUnderscorePipe} from './pipes/whitespace-to-underscore.pipe'
     WhitespaceToUnderscorePipe,
   ],
   imports: [
-    BrowserModule, BrowserAnimationsModule, routing, SharedModule
+    BrowserModule, BrowserAnimationsModule, AppRoutingModule, SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]
