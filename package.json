@@ -54,7 +54,7 @@
     "multer": "^1.4.1",
     "ng-click-outside": "^4.0.0",
     "ngx-bootstrap": "^3.0.0",
-    "pm2": "^3.2.2",
+    "pm2": "^3.2.9",
     "randomstring": "^1.1.5",
     "rxjs": "^6.3.3",
     "rxjs-compat": "^6.3.3",
@@ -63,7 +63,7 @@
     "zone.js": "^0.8.26"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~0.10.0",
+    "@angular-devkit/build-angular": "^0.12.2",
     "@angular/cli": "7.0.3",
     "@angular/compiler-cli": "7.0.1",
     "@angular/language-service": "7.0.1",
