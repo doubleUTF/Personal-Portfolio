@@ -5,6 +5,7 @@ import {IssueTrackerService} from '../issue-tracker.service';
 import {DeleteConfirmComponent} from './delete-confirm/delete-confirm.component';
 import {MatDialog,MatDialogRef,MAT_DIALOG_DATA} from '@angular/material';
 
+
 @Component({
   selector: 'app-issue',
   templateUrl: './issue.component.html',
@@ -21,6 +22,7 @@ export class IssueComponent implements OnInit {
   project:string;
   newIssue:boolean;
   issueForm:FormGroup;
+  disableButton:boolean;
 
   ngOnInit() {
     this.issueForm=new FormGroup({
@@ -78,6 +80,7 @@ export class IssueComponent implements OnInit {
 
   saveIssue(){
     if (this.newIssue){
+      this.disableButton=true;
       this.itService.postIssue(this.issueForm.value,this.project)
       .subscribe((response:any)=>{
         let message;
