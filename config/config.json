@@ -2,6 +2,9 @@
   "development":{
     "PORT":3000,
     "MONGODB_URI":"mongodb://localhost:27017/fcc",
-    "GOOGLE_CSE_API_KEY":"AIzaSyCVTxCjEzzmnLuxf3xAH-mGP9bFm1m2v2c"
+    "GOOGLE_CSE_API_KEY":"AIzaSyCVTxCjEzzmnLuxf3xAH-mGP9bFm1m2v2c",
+    "MYSQL_HOST":"remotemysql.com",
+    "MYSQL_USER":"mKhnCDZn8g",
+    "MYSQL_PASSWORD":"Gg9swrQ7tL"
   }
 }
