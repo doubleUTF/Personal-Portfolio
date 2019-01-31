@@ -1,6 +1,7 @@
 {
   "development":{
     "PORT":3000,
-    "MONGODB_URI":"mongodb://localhost:27017/fcc"
+    "MONGODB_URI":"mongodb://localhost:27017/fcc",
+    "GOOGLE_CSE_API_KEY":"AIzaSyCVTxCjEzzmnLuxf3xAH-mGP9bFm1m2v2c"
   }
 }

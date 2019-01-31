@@ -12,6 +12,7 @@ const issueTracker=require('./issueTracker/issueTracker');
 const personalLibrary=require('./personal-library/personal-library');
 const anonForum=require('./anon-forum/anon-forum');
 const stockChecker=require('./stock-checker/stock-checker');
+const imageSearch=require('./image-search/image_search');
 
 module.exports=(app)=>{
   // Timestamp
@@ -52,6 +53,9 @@ module.exports=(app)=>{
 
   // Stock Checker
   stockChecker(app);
+
+  // Image Search
+  imageSearch(app);
 
   app.use('/api',router);
 
